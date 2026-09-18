@@ -1,0 +1,143 @@
+{
+  "Q": 81,
+  "status": "VERIFIED_WITH_CITED_CODE_BOUND",
+  "no_isolate_support_phase_cases": 12,
+  "no_isolate_norm_surviving_spectra": 4,
+  "no_isolate_survivors": [
+    {
+      "E_charpoly": [
+        1,
+        0,
+        -81,
+        -54,
+        2673,
+        2916,
+        -47385,
+        -65610,
+        492075,
+        787320,
+        -3011499,
+        -5314410,
+        10097379,
+        19131876,
+        -14348907,
+        -28697814
+      ],
+      "D": 307117308965289984,
+      "parts": [
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "triangle(1, 0)"
+      ]
+    },
+    {
+      "E_charpoly": [
+        1,
+        0,
+        -81,
+        27,
+        2673,
+        -1458,
+        -47385,
+        32805,
+        492075,
+        -393660,
+        -3011499,
+        2657205,
+        10097379,
+        -9565938,
+        -14348907,
+        14348907
+      ],
+      "D": 298890952475148288,
+      "parts": [
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "triangle(-1, -1)"
+      ]
+    },
+    {
+      "E_charpoly": [
+        1,
+        0,
+        -81,
+        54,
+        2673,
+        -2916,
+        -47385,
+        65610,
+        492075,
+        -787320,
+        -3011499,
+        5314410,
+        10097379,
+        -19131876,
+        -14348907,
+        28697814
+      ],
+      "D": 296148833645101056,
+      "parts": [
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "triangle(-1, 0)"
+      ]
+    },
+    {
+      "E_charpoly": [
+        1,
+        0,
+        -81,
+        -27,
+        2673,
+        1458,
+        -47385,
+        -32805,
+        492075,
+        393660,
+        -3011499,
+        -2657205,
+        10097379,
+        9565938,
+        -14348907,
+        -14348907
+      ],
+      "D": 304375190135242752,
+      "parts": [
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "tree2",
+        "triangle(1, 1)"
+      ]
+    }
+  ],
+  "isolate_component_phase_assignments": 42720,
+  "isolate_assemblies": 285,
+  "isolate_norm_survivors": 22,
+  "isolate_projection_deletions": [
+    22
+  ],
+  "isolate_remaining": 0,
+  "local_finite_obstruction": {
+    "two_zeros_group_solutions": 0,
+    "single_zero_group_solutions": 3,
+    "permutation_phase_pairs": 324,
+    "cross_orthogonal_pairs": 0
+  },
+  "seconds": 13.003472719000001,
+  "scope_note": "Requires the mathematical support split and block argument in the report, plus the cited equidistant-code theorem."
+}

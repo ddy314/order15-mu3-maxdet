@@ -1,0 +1,62 @@
+{
+  "status": "VERIFIED_LOCAL_ONLY",
+  "pairs": {
+    "AB": {
+      "operator_size": 24,
+      "rank": 18,
+      "nullity": 6,
+      "free_coordinates": [
+        15,
+        17,
+        20,
+        21,
+        22,
+        23
+      ],
+      "assignments": 729,
+      "mu3_solutions": 144,
+      "residual_survivors": 0,
+      "parameterization_complete": true
+    },
+    "AA": {
+      "operator_size": 16,
+      "rank": 10,
+      "nullity": 6,
+      "free_coordinates": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "assignments": 729,
+      "mu3_solutions": 225,
+      "residual_survivors": 0,
+      "parameterization_complete": true
+    },
+    "BB": {
+      "operator_size": 36,
+      "rank": 28,
+      "nullity": 8,
+      "free_coordinates": [
+        21,
+        23,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "assignments": 6561,
+      "mu3_solutions": 729,
+      "residual_survivors": 0,
+      "parameterization_complete": true
+    }
+  },
+  "prerequisites_not_verified": [
+    "Completeness of the two-orbit catalogue for the all-same case",
+    "All mixed-color Q99 cases, including size13 internal energies9 and18"
+  ]
+}

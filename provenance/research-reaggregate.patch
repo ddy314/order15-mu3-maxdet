@@ -1,0 +1,402 @@
+diff --git a/.github/workflows/mu3-reaggregate-fast.yml b/.github/workflows/mu3-reaggregate-fast.yml
+new file mode 100644
+index 0000000..800a919
+--- /dev/null
++++ b/.github/workflows/mu3-reaggregate-fast.yml
+@@ -0,0 +1,66 @@
++name: mu3 reaggregate fast
++
++on:
++  push:
++    branches:
++      - research/reaggregate-after-tail-closure
++  workflow_dispatch:
++
++jobs:
++  probe:
++    runs-on: ubuntu-latest
++    timeout-minutes: 15
++    steps:
++      - uses: actions/checkout@v4
++      - uses: actions/setup-python@v5
++        with:
++          python-version: '3.12'
++      - name: Install dependencies
++        run: python -m pip install -e '.[graph,sat]'
++      - name: Fast arithmetic reaggregation
++        run: |
++          python - <<'PY'
++          import json
++          from fractions import Fraction
++          from math import sqrt
++          import order15_mu3.scripts.verify_pre_q144_audit as pre
++          from order15_mu3.scripts.verify_bounds import is_rational_eisenstein_norm
++          from order15_mu3.scripts.verify_q144_boundary import certificate as q144_certificate
++          from order15_mu3.scripts.verify_q150_boundary import certificate as q150_certificate
++          from order15_mu3.scripts.verify_trace_stability import BENCHMARK
++
++          # These two SAT conclusions are already committed exact certificates;
++          # bypass re-solving them while recomputing the arithmetic aggregate.
++          pre.energy9_top_obstruction = lambda: {"next_arithmetic_energy9_upper": 289220156718750000}
++          pre.energy9_second_obstruction = lambda: {"next_arithmetic_energy9_upper": pre.ENERGY9_REFINED_UPPER}
++
++          earlier = pre.certificate()
++          q144 = q144_certificate()
++          q150 = q150_certificate()
++          sources = {
++              "Q<144 exact branch aggregate": Fraction(earlier["certified_upper_numerator"], earlier["certified_upper_denominator"]),
++              "Q=144 exact boundary": Fraction(q144["certified_upper_numerator"], q144["certified_upper_denominator"]),
++              "Q=150 exact boundary": Fraction(q150["certified_upper_numerator"], q150["certified_upper_denominator"]),
++          }
++          source = max(sources, key=sources.get)
++          raw = sources[source]
++          top = (raw.numerator - 1) // raw.denominator
++          divisor = 3**14
++          candidate = top // divisor * divisor
++          skipped = 0
++          while not is_rational_eisenstein_norm(candidate):
++              candidate -= divisor
++              skipped += 1
++          hadamard_squared = 15**15
++          result = {
++              "sources": {k: {"numerator": v.numerator, "denominator": v.denominator, "decimal": float(v)} for k, v in sources.items()},
++              "maximizing_source": source,
++              "integer_ceiling_minus_one": top,
++              "non_norm_multiples_skipped": skipped,
++              "rigorous_integer_upper": candidate,
++              "benchmark": BENCHMARK,
++              "normalized_lower_percent": 100*sqrt(BENCHMARK/hadamard_squared),
++              "normalized_upper_percent": 100*sqrt(candidate/hadamard_squared),
++          }
++          print(json.dumps(result, indent=2))
++          PY
+diff --git a/.github/workflows/mu3-reaggregate.yml b/.github/workflows/mu3-reaggregate.yml
+new file mode 100644
+index 0000000..4467a91
+--- /dev/null
++++ b/.github/workflows/mu3-reaggregate.yml
+@@ -0,0 +1,23 @@
++name: mu3 reaggregate
++
++on:
++  push:
++    branches:
++      - research/reaggregate-after-tail-closure
++  workflow_dispatch:
++
++jobs:
++  verify:
++    runs-on: ubuntu-latest
++    timeout-minutes: 30
++    steps:
++      - uses: actions/checkout@v4
++      - uses: actions/setup-python@v5
++        with:
++          python-version: '3.12'
++      - name: Install dependencies
++        run: python -m pip install -e '.[dev,graph,sat]'
++      - name: Recompute aggregate bound
++        run: python -m order15_mu3.scripts.verify_aggregate_upper
++      - name: Run aggregate and tail tests
++        run: pytest -q tests/test_mu3_aggregate_upper.py tests/test_mu3_tail_final_closure.py
+diff --git a/docs/REMAINING_FRONTIER.md b/docs/REMAINING_FRONTIER.md
+index 695e286..a5b6c22 100644
+--- a/docs/REMAINING_FRONTIER.md
++++ b/docs/REMAINING_FRONTIER.md
+@@ -7,12 +7,31 @@ satisfy
+ 
+ `Q <= 150`.
+ 
+-Exact maximality is still open because the existing Q=150 and earlier branch
+-certificates were designed as a descending envelope chain: for example the
+-Q=150 certificate places that shell below the old Q=153 trace envelope, not
+-necessarily below the published record itself.  The next mathematical frontier
+-is therefore to sharpen the Q=150 boundary against the record and then continue
+-downward only if necessary.
++The post-tail aggregate has now been recomputed.  The exact record is
++
++`277868041444786176 <= D_3(15)`
++
++and the current rigorous aggregate upper is
++
++`D_3(15) <= 287687522570016537`.
++
++In the Hadamard-normalized scale
++`R_15 = 100 |det H| / 15^(15/2)`, this is
++
++`79.6590012604% <= R_15 <= 81.0543020059%`.
++
++The old Q=153 trace envelope no longer controls the upper bound.  The new
++numerical bottleneck is a Q=126 all-same-color weighted-K5 branch with twelve
++support edges, seven isolates, and eigenvalue cap `287/10`.  Its exact rational
++KKT upper is approximately `2.876875225936136e17`; after the mandatory `3^14`
++divisibility and rational Eisenstein-norm sieve, four non-norm multiples are
++skipped and the integer upper above results.
++
++This creates an important distinction.  **Q=150 is the highest unresolved
++energy shell**, so it remains the natural top-down structural frontier.
++However, **Q=126 currently controls the global numerical upper**, so improving
++that weighted-K5 certificate is the most direct way to narrow the displayed
++upper/lower interval.
+ 
+ ## Final tail closure
+ 
+@@ -97,16 +116,14 @@ then close all three cases exactly.  Hence Q=153 is closed.
+ 
+ ## New frontier
+ 
+-The strongest tail statement is now:
++The strongest tail statement remains
+ 
+ `strict counterexample => Q <= 150`.
+ 
+-The next useful target is Q=150 itself.  Its current certificate is a boundary
+-comparison against the former Q=153 envelope, so the right continuation is to
+-reuse the new Schur--Cauchy and componentwise techniques on the Q=150 residual
+-allocations and compare them directly with the published record.  Only after a
+-strict record-level Q=150 closure should the aggregate integer bound be
+-recomputed and the machine checkpoint updated.
++For structural closure, continue with Q=150 and descend only when necessary.
++For the fastest improvement of the numerical global bound, sharpen the Q=126
++twelve-edge weighted-K5 / seven-isolate branch first.  Both directions reuse
++existing exact support, Schur, and capped-eigenvalue machinery.
+ 
+ All final claims remain exact integer/rational certificates; floating-point
+ spectra are not proof inputs.
+diff --git a/order15_mu3/reports/CURRENT_STATUS.md b/order15_mu3/reports/CURRENT_STATUS.md
+index 786e4da..a44a7d4 100644
+--- a/order15_mu3/reports/CURRENT_STATUS.md
++++ b/order15_mu3/reports/CURRENT_STATUS.md
+@@ -1,16 +1,26 @@
+ # Current status (2026-09-14)
+ 
+-- **Current exact record:** recovered and exactly verified published `M15`,
++- **Current exact record / lower bound:** recovered and exactly verified published `M15`,
+   `det=604661760+241864704 omega` and
+   `|det|^2 = 2^22 3^20 19 = 277868041444786176`.
+-- **Committed aggregate upper before this tail closure:**
+-  `287710229992756239`, from the pre-Q144 replay, exact Q=144/Q=150 boundary
+-  certificates, the former Q=153 trace envelope, `3^14` divisibility, and the
+-  Eisenstein norm sieve.  This aggregate number has not yet been recomputed
+-  against the new tail theorem because the next controlling frontier is Q=150.
+-- **Exact maximality proved:** no.  The tail is now finished, but the existing
+-  Q=150 certificate compares that shell with the old Q=153 envelope rather
+-  than directly with the record.
++- **Post-tail rigorous aggregate upper:** `287687522570016537` for `|det H|^2`.
++  In the Hadamard-normalized scale `100 |det H| / 15^(15/2)`, the rigorous
++  interval is
++  `79.6590012604% <= R_15 <= 81.0543020059%`.
++- **Arithmetic post-processing:** the controlling strict rational bound is
++  rounded down to the largest possible integer, restricted to multiples of
++  `3^14`, then filtered by the rational Eisenstein-norm criterion.  Four
++  divisible non-norm candidates are skipped before reaching the displayed
++  integer upper.
++- **Numerical bottleneck:** after removing the post-Q150 tail, the largest
++  surviving analytic source is no longer Q=153 or Q=150.  It is a Q=126
++  all-same-color weighted-K5 branch with twelve support edges, seven isolates,
++  and the exact rational eigenvalue cap `287/10`.  Its KKT product is about
++  `2.876875225936136e17`, slightly above the Q=150 boundary bound.
++- **Energy frontier versus numerical bottleneck:** the highest energy at which
++  a strict counterexample can still occur is Q=150, but the loosest currently
++  certified determinant upper occurs at Q=126.  These are different notions.
++- **Exact maximality proved:** no.
+ - **Strongest verified tail theorem:** every strict counterexample satisfies
+   `Q<=150`.  The only genuine post-Q150 shells were `Q=153,159,162,168`; all
+   four are now strictly below the published record, while trace stability
+@@ -20,30 +30,15 @@
+   sparse size-13 abstract-Gram enumeration, rational Sylvester spectral
+   brackets, Schur residual bounds, exact internal determinant maxima, and
+   weighted Motzkin--Straus spectral caps.
+-- **Q=153 sparse size-13 closure:** the four former `(13,1,1)` residual
+-  allocations `(e,c,r)=(27,78,48),(27,87,39),(36,78,39),(54,78,21)` are
+-  eliminated by a two-hub Schur--Cauchy inequality retaining the mandatory
+-  outside Gram norm.
+-- **Q=153 all-same closure:** if the support has at most four isolates, the
+-  17-unit energy budget forbids K6 and the clique-five spectral cap is below
+-  the record.  At least eight isolates force at least eight 15-eigenvalues on
+-  the opposite Gram through `AH=HB`, again below the record.  The intermediate
+-  isolate counts 5, 6, and 7 reduce to exact K6 boundary supports and are
+-  closed by Fischer/Schur bounds.
+-- **Q=159 closure:** the final `(13,2,0)` sparse allocation `(54,78,27)` is
+-  removed by the same Schur--Cauchy bound.  For `(14,1,0)`, componentwise
+-  Schur bounds close internal energies 99 and 108 and every disconnected
+-  energy-117 allocation.  The sole connected boundary is a 14-vertex tree
+-  with thirteen norm-9 edges.  Exact matching-polynomial enumeration of all
+-  3,159 unlabeled trees gives the unique maximum at `P14`, with internal Gram
+-  determinant `16802420983158456`; its final Schur bound is below the record.
+-  Replay: `scripts/verify_tail_final_closure.py`.
+-- **New frontier:** Q=150.  The natural continuation is to reuse the new
+-  Schur--Cauchy/component methods on the Q=150 residual allocations and compare
+-  them directly with the published record.  If Q=150 closes, the aggregate
+-  certificate should then be recomputed and the next lower boundary attacked
+-  only if it controls the resulting upper.
+-- **Completed Q=117 partial searches:** every mixed isolated and mixed
+-  no-isolate partition is empty above the record; the no-isolate thirteen-unit
+-  layer has 10,329 exact profiles and no arithmetic survivor.  These remain
+-  useful supporting certificates for the lower-energy structure.
++- **Q=153 closure:** the former sparse `(13,1,1)` residual allocations are
++  eliminated by a two-hub Schur--Cauchy inequality; the all-same branch is
++  closed by the clique/isolate/intertwining split in
++  `scripts/verify_tail_final_closure.py`.
++- **Q=159 closure:** the final sparse `(13,2,0)` allocation is removed by the
++  same Schur--Cauchy bound.  The `(14,1,0)` boundary reduces to all 3,159
++  unlabeled order-14 trees; exact matching-polynomial enumeration has unique
++  maximum at `P14`, still below the record.
++- **Next research targets:** Q=150 remains the highest unresolved shell, while
++  the Q=126 twelve-edge weighted-K5 branch is the best target for lowering the
++  *global numerical upper bound*.  A final proof must eventually bring every
++  remaining record-level branch down to the published record.
+diff --git a/order15_mu3/scripts/verify_aggregate_upper.py b/order15_mu3/scripts/verify_aggregate_upper.py
+index f3088e7..3cdbe1f 100644
+--- a/order15_mu3/scripts/verify_aggregate_upper.py
++++ b/order15_mu3/scripts/verify_aggregate_upper.py
+@@ -1,57 +1,74 @@
+-"""Aggregate exact branch bounds and apply the arithmetic determinant sieve."""
++"""Aggregate exact branch bounds after the post-Q150 tail closure.
++
++The high-energy shells Q=153,159,162,168 are now exact exclusions, not
++analytic envelope candidates.  Therefore the global upper is controlled by
++the surviving Q<=150 certificates only, followed by the same 3^14 divisibility
++and rational Eisenstein-norm sieve used previously.
++"""
+ 
+ from __future__ import annotations
+ 
+ import json
+ from fractions import Fraction
++from math import sqrt
+ 
+ try:
+     from order15_mu3.scripts.verify_bounds import is_rational_eisenstein_norm
+     from order15_mu3.scripts.verify_pre_q144_audit import certificate as pre_q144_certificate
+     from order15_mu3.scripts.verify_q144_boundary import certificate as q144_certificate
+     from order15_mu3.scripts.verify_q150_boundary import certificate as q150_certificate
+-    from order15_mu3.scripts.verify_tail_shells import certificate as tail_certificate
++    from order15_mu3.scripts.verify_tail_final_closure import certificate as tail_closure_certificate
+     from order15_mu3.scripts.verify_trace_stability import BENCHMARK
+ except ModuleNotFoundError:
+     from verify_bounds import is_rational_eisenstein_norm
+     from verify_pre_q144_audit import certificate as pre_q144_certificate
+     from verify_q144_boundary import certificate as q144_certificate
+     from verify_q150_boundary import certificate as q150_certificate
+-    from verify_tail_shells import certificate as tail_certificate
++    from verify_tail_final_closure import certificate as tail_closure_certificate
+     from verify_trace_stability import BENCHMARK
+ 
+ 
++HADAMARD_SQUARED = 15**15
++
++
++def normalized_percent(squared_determinant: int) -> float:
++    """Return 100*|det(H)|/15^(15/2) from a squared determinant."""
++
++    return 100.0 * sqrt(squared_determinant / HADAMARD_SQUARED)
++
++
+ def certificate() -> dict[str, object]:
+     earlier = pre_q144_certificate()
+     boundary = q144_certificate()
+     q150 = q150_certificate()
+-    tail = tail_certificate()
++    tail = tail_closure_certificate()
++    assert tail["closed_tail_shells"] == [153, 159, 162, 168]
++    assert tail["new_counterexample_energy_bound"] == "Q <= 150"
++
+     earlier_upper = Fraction(
+         earlier["certified_upper_numerator"], earlier["certified_upper_denominator"]
+     )
+     boundary_upper = Fraction(
+         boundary["certified_upper_numerator"], boundary["certified_upper_denominator"]
+     )
+-    q150_upper = Fraction(q150["certified_upper_numerator"], q150["certified_upper_denominator"])
+-    tail_values = {
+-        row["Q"]: Fraction(row["envelope_numerator"], row["envelope_denominator"])
+-        for row in tail["shells"]
+-    }
+-    tail_q = max(tail_values, key=tail_values.get)
+-    assert set(tail_values) == {153, 159, 162, 168}
+-    assert tail_q == 153
+-    raw_upper = max(earlier_upper, boundary_upper, q150_upper, tail_values[tail_q])
++    q150_upper = Fraction(
++        q150["certified_upper_numerator"], q150["certified_upper_denominator"]
++    )
++
++    # The old aggregate also included the Q=153 trace envelope.  That is no
++    # longer a valid controlling source because every genuine Q>150 shell is
++    # now structurally excluded below the benchmark.
+     sources = {
+         "Q<144 exact branch aggregate": earlier_upper,
+         "Q=144 exact boundary": boundary_upper,
+         "Q=150 exact boundary": q150_upper,
+-        "Q in {153,159,162,168} shellwise trace envelope": tail_values[tail_q],
+     }
+     source = max(sources, key=sources.get)
++    raw_upper = sources[source]
+ 
+     # Every squared determinant is an integer divisible by 3^14 and a norm
+-    # from Z[omega].  Because all analytic certificates are strict, the
+-    # largest possible integer is ceil(raw_upper)-1.
++    # from Z[omega].  All analytic source bounds are strict, so the largest
++    # possible integer is ceil(raw_upper)-1 before the arithmetic sieve.
+     integer_ceiling_minus_one = (raw_upper.numerator - 1) // raw_upper.denominator
+     divisor = 3**14
+     candidate = integer_ceiling_minus_one // divisor * divisor
+@@ -59,7 +76,9 @@ def certificate() -> dict[str, object]:
+     while not is_rational_eisenstein_norm(candidate):
+         candidate -= divisor
+         skipped += 1
++
+     assert candidate >= BENCHMARK
++    assert candidate < 287710229992756239
+     return {
+         "source_bounds": {
+             name: {
+@@ -70,8 +89,8 @@ def certificate() -> dict[str, object]:
+             for name, value in sources.items()
+         },
+         "maximizing_source": source,
+-        "tail_shells": list(tail_values),
+-        "tail_maximizing_energy": tail_q,
++        "closed_post_q150_shells": tail["closed_tail_shells"],
++        "counterexample_energy_bound": tail["new_counterexample_energy_bound"],
+         "raw_upper_numerator": raw_upper.numerator,
+         "raw_upper_denominator": raw_upper.denominator,
+         "integer_ceiling_minus_one": integer_ceiling_minus_one,
+@@ -80,6 +99,9 @@ def certificate() -> dict[str, object]:
+         "rigorous_integer_upper": candidate,
+         "benchmark": BENCHMARK,
+         "squared_gap_factor": candidate / BENCHMARK,
++        "normalized_lower_percent": normalized_percent(BENCHMARK),
++        "normalized_upper_percent": normalized_percent(candidate),
++        "normalized_gap_percentage_points": normalized_percent(candidate) - normalized_percent(BENCHMARK),
+     }
+ 
+ 
+diff --git a/tests/test_mu3_aggregate_upper.py b/tests/test_mu3_aggregate_upper.py
+index f893d8c..3c3e442 100644
+--- a/tests/test_mu3_aggregate_upper.py
++++ b/tests/test_mu3_aggregate_upper.py
+@@ -1,10 +1,17 @@
+ from order15_mu3.scripts.verify_aggregate_upper import certificate
+ 
+ 
+-def test_exact_branch_aggregate_improves_global_upper() -> None:
++NEW_UPPER = 287687522570016537
++OLD_UPPER = 287710229992756239
++
++
++def test_exact_branch_aggregate_after_tail_closure() -> None:
+     result = certificate()
+-    assert result["rigorous_integer_upper"] == 287710229992756239
+-    assert result["tail_maximizing_energy"] == 153
+-    assert result["non_norm_multiples_skipped"] == 9
+-    assert result["rigorous_integer_upper"] < 293695860429200709
+-    assert result["squared_gap_factor"] < 1.057
++    assert result["closed_post_q150_shells"] == [153, 159, 162, 168]
++    assert result["counterexample_energy_bound"] == "Q <= 150"
++    assert result["maximizing_source"] == "Q<144 exact branch aggregate"
++    assert result["rigorous_integer_upper"] == NEW_UPPER
++    assert result["non_norm_multiples_skipped"] == 4
++    assert result["rigorous_integer_upper"] < OLD_UPPER
++    assert result["normalized_lower_percent"] < result["normalized_upper_percent"]
++    assert result["normalized_upper_percent"] < 81.055

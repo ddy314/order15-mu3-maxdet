@@ -1,0 +1,3 @@
+# Research rules
+
+Use `uv` for Python commands. Preserve user changes. Separate historical claims, independently verified finite certificates, open obligations, and failed routes. Do not declare global optimality from passing tests or historical CLOSED labels. The independent audit still has 19 incomplete shells; document parameter ranges and exact commands for new certificates. Preserve `artifacts/`, `provenance/`, and the audit source manifests as provenance. Update the README and remaining obligations when evidence changes. Run appropriate certificate checks and `git diff --check` before publishing.

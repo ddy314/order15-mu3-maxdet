@@ -1,0 +1,4 @@
+# Preserve byte-identical delivered CSV files, including CRLF.
+*.csv -text whitespace=trailing-space,space-before-tab,cr-at-eol
+# A source patch contains literal diff context lines; preserve them verbatim.
+provenance/research-reaggregate.patch -text -whitespace

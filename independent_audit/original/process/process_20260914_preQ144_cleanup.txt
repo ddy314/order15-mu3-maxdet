@@ -1,0 +1,153 @@
+Continuing from the exact K4-plus-leaf closure. The next check is whether simple component factorization already handles the remaining pure K4 branches; if so, no further phase enumeration is needed there.
+
+已运行 & 'E:\maximal determinant\.venv\Scripts\python.exe' -c "from order15_mu3.scripts.verify_color_partition_bounds import stationary_upper_dimension;from order15_mu3.scripts.verify_trace_stability import stationary_upper;q=max(stationary_upper(306,m)for m in range(1,15)); for j,v in [(3,5),(4,7),(5,9)]:  u=stationary_upper_dimension(v,9*(6+j))*216**(8-j);print(j,v,float(u),float(u/q))"
+
+上下文已自动压缩
+
+The component-factorized trace bounds clear all three tight pure-14 K4 branches; the hardest is still below the Q153 cutoff at ratio \(0.99395\). I’m integrating those exact bounds now, then I’ll re-rank the surviving pre-Q144 cases and attack the new top branch.
+
+  运行了命令
+
+The integration is in place, including pruning three support orders that are combinatorially impossible because their component plus required outside endpoints would exceed 15 vertices. The leading unresolved no-K4 case is now the weighted 12-edge branch with a seven-vertex bicyclic triangle component and four forced \(K_2\) blocks; I’m switching that branch from a spectral cap to exact phase enumeration.
+
+  运行了命令
+
+The new finite catalogue contains 51 unlabeled supports. Its exact gain enumeration is running together with the earlier 290 support types; this checks every placement of the norm-27 edge and every switching-inequivalent \(\mu_3\) cycle phase.
+
+The exact seven-vertex branch closes comfortably: its maximum is \(251{,}565{,}599{,}541{,}989{,}376\), only \(0.87438\) of the Q153 envelope. I’m recording that value as a regression invariant and rerunning the aggregate ranking with all expensive certificates supplied by their already-verified exact constants.
+
+  运行了命令
+
+The finite certificate is stable and the aggregate replay has passed its first assertion layers. The remaining runtime is from the exact Q141 support catalogues; once it returns, I’ll use the true top-row ordering rather than guessing from the previous cap hierarchy.
+
+已运行 & 'E:\maximal determinant\.venv\Scripts\python.exe' -c "from order15_mu3.scripts.verify_trace_stability import stationary_upper; q=max(stationary_upper(288,m) for m in range(1,15)); print(q,float(q)); print(151618622622187500000/529)"
+
+The new aggregate upper is now \(288{,}777{,}473{,}082{,}518{,}340\), so the rigorous gap has dropped to about \(1.03926\). The maximizer has moved to a precise Q126 configuration: a weighted \(K_4\) component with four forest edges, two outside edges, and three isolates. Its no-isolate endpoint structure forces those outside edges to be two \(K_2\) blocks, making another exact component enumeration feasible.
+
+  运行了命令
+
+The support generator has reduced the labeled constructions to isomorphism classes and is now evaluating their exact determinant spectra. This branch has three independent K4 cycle gains, so the run is still finite and exhaustive but denser than the preceding bicyclic case.
+
+  运行了命令
+
+The first K4 run exposed a verifier issue rather than a mathematical obstruction: the “unit component” path was handed fresh support records with empty cached determinant sets, so it reported zero. The weighted path is valid, but I’m correcting both new and earlier triangle certificates to enumerate the all-unit case through the same exact weighted engine. This is a conservative repair that may raise their certified maxima.
+
+  运行了命令
+
+The repaired triangle replay is progressing normally. The K4 forest certificate is now fully exact on 19 support types; its two placement maxima are \(254.9702\times10^{15}\) and \(256.4486\times10^{15}\), both far below the present aggregate bottleneck.
+
+  运行了命令
+
+The corrected replay lowers the pre-Q144 aggregate again, to \(288{,}516{,}957{,}628{,}238{,}000\) (gap about \(1.03833\)). Four branches tie at the top cap: one weighted \(K_4\) case and three pure-14 K4 cases, all with exactly one forced isolate. I’m testing their block-factorized trace envelopes first; any survivor will get exact phase enumeration.
+
+  运行了命令
+
+Three of the four tied rows are now rigorously below Q153 by exact rational component bounds. The aggregate replay is resolving whether the remaining pure \(K_4\)+six-edge rooted-forest case is the sole next bottleneck or whether a nearby triangle branch takes over.
+
+  运行了命令
+
+The pure rooted-forest generator is exhaustive by contracting the distinguished \(K_4\) to the root of a seven-vertex tree, then lifting every root incidence back to all four clique vertices and quotienting by graph isomorphism. Exact phase evaluation is still running over the resulting support classes.
+
+  运行了命令
+
+The 124-type exact run closes the last tied row at \(255{,}412{,}711{,}858{,}913{,}280\). The rigorous pre-Q144 upper is now \(288{,}473{,}037{,}380{,}950{,}100\), gap about \(1.03816\), controlled by the analogous weighted \(K_4\)+three-edge forest with three outside \(K_2\) blocks and two isolates. I’m applying the same exhaustive construction to it.
+
+  运行了命令
+
+The seven support types in the weighted three-edge forest close at \(256{,}914{,}952{,}884{,}633{,}600\). The bottleneck now moves to an 11-edge weighted triangle component with four isolates. Its maximal active order is unicyclic, so Perron edge-moving reduces it to one explicit triangle-with-eight-leaves comparison; I’m deriving a sharper exact spectral cap for that model.
+
+  运行了命令
+
+The unicyclic caps drop the upper to \(288{,}268{,}735{,}987{,}057{,}200\), gap about \(1.03743\). The next case reuses the same 19 \(K_4\)+four-edge-forest supports already catalogued, but with a norm-36 edge and a different outside factor. I’m extending that exact certificate rather than generating a redundant catalogue.
+
+  运行了命令
+
+The added norm-36 phase layer is the longest of the three on this fixed 19-type catalogue because its edge labels have more distinct magnitude/phase placements. The all-unit and norm-27 layers remain unchanged; the new layer is being checked independently before it can affect the aggregate.
+
+  运行了命令
+
+The norm-36 forest closes at \(265{,}593{,}963{,}897{,}900{,}000\). The aggregate is now \(288{,}118{,}509{,}505{,}625{,}820\), gap about \(1.03689\), with three pure-14 K4 configurations tied. I’m checking their componentwise trace envelopes; the sparse one or two that remain above Q153 will be enumerated exactly.
+
+  运行了命令
+
+The sharper K4 caps work, but the aggregate does not move because an independent pure-K5 branch was tied at the same value. The current \(288{,}118{,}509{,}505{,}625{,}820\) bottleneck is therefore not a failed refinement; it is the next support family becoming visible. I’m splitting that K5 case by active order and forced block structure now.
+
+  运行了命令
+
+The exact K5 phase maximum is \(274{,}211{,}883{,}004{,}723{,}200\), lowering the aggregate to \(288{,}059{,}284{,}354{,}089{,}470\) (gap about \(1.03668\)). Several superficially different rows now tie because they all use the same seven-isolate/global-eigenvalue cap. I’m replacing that shared cap with active-block trace factorization, which treats the 8-by-8 component directly and should resolve several families at once.
+
+  运行了命令
+
+The shared seven-isolate cap has now been eliminated. The aggregate is \(288{,}008{,}394{,}568{,}615{,}680\), gap about \(1.03649\). The next K4 row is much simpler: an isolated \(K_4\) plus forced \(K_2\) blocks. A tied “K4 plus one edge on four vertices” row is actually impossible, since \(K_4\) already contains every edge on those vertices; I’m pruning it and exactly enumerating the isolated-K4 phases for both remaining weight patterns.
+
+  运行了命令
+
+The exact enumeration found that at least one isolated-K4 placement is not below Q153, so I’m not promoting that branch. This is useful: the coarse cap had hidden a genuinely competitive exact determinant layer. I’m extracting the two exact maxima now to see whether arithmetic admissibility or Gram-pair compatibility is the next obstruction.
+
+  运行了命令
+
+After correcting the invalid factorization, the valid isolated-K4 maximum is \(268{,}118{,}285{,}604{,}618{,}240\). The aggregate is now \(287{,}991{,}901{,}093{,}940{,}400\), gap about \(1.03643\). The bottleneck has moved to a weighted unicyclic triangle on ten active vertices with one isolate; I’m sharpening its explicit Perron/Sylvester comparison.
+
+  运行了命令
+
+The cap refinement moves the upper to \(287{,}971{,}239{,}824{,}039{,}700\), gap about \(1.03636\). Three active-order-six triangle cases tie. They are ideal for one exact catalogue over 6-, 7-, and 8-edge supports.
+
+I also caught a conservative accounting error while setting this up: a norm-36 \(K_2\) block contributes \(225-36=189\), not 198. I’m correcting the two earlier weight-4 placement certificates; this can only lower those bounds.
+
+  运行了命令
+
+The active-six enumeration closes all three cases and lowers the aggregate to \(287{,}944{,}801{,}099{,}651{,}840\), gap about \(1.03628\). The new tie is the no-isolate analogue: three five-vertex triangle components, each accompanied by five forced \(K_2\) blocks. I’m enumerating those together. The remaining no-isolate K4 row factors as \(K_4\sqcup P_3\sqcup4K_2\), so I’m adding that exact decomposition too.
+
+  运行了命令
+
+The active-five and K4–P3 exact certificates lower the upper to \(287{,}851{,}247{,}252{,}961{,}900\), gap about \(1.03593\). Only \(0.049\%\) now separates the bottleneck from the Q153 envelope. I’m replacing that last 25.6 cap with exact phases for the ten-vertex unicyclic triangle catalogue.
+
+  运行了命令
+
+The ten-vertex catalogue is being generated and quotiented exactly; it is larger than the earlier 7–9 vertex layers but has only one independent cycle phase per support. The active-five certificate already closed its three branches at a maximum of \(255{,}359{,}816{,}048{,}148{,}480\).
+
+The expanded run completed its enumeration but stopped at the expected old regression dictionary because the new key was not yet populated there. No mathematical assertion failed. I’m loosening only that stale dictionary equality, rerunning to expose the new exact count and maximum, then I’ll lock both values back in.
+
+  运行了命令
+
+The rerun is in its final determinant layer. Because the catalogue generator is deterministic and the previous run already reached the regression check, this repetition is solely to print the newly added exact value; once captured, future diagnostic replays will use the locked constant.
+
+  运行了命令
+
+The 299-type exact layer closes at \(246{,}462{,}947{,}301{,}769{,}920\), reducing the pre-Q144 upper to \(287{,}833{,}368{,}093{,}650{,}500\), gap about \(1.03586\). Two valid four-vertex triangle supports now tie; a third row is impossible because six edges on four vertices is exactly \(K_4\), excluded from the no-K4 branch. I’m pruning that row and enumerating the two remaining tiny phase catalogues.
+
+  运行了命令
+
+The active-four exact certificate closes at \(254{,}788{,}541{,}291{,}888{,}640\). The pre-Q144 bound is now \(287{,}807{,}107{,}132{,}438{,}530\), only \(0.034\%\) above Q153. Four pure K4 rows with three isolates share the remaining cap; I’m testing component factorization and explicit Perron models to push this entire pre-Q144 audit below the Q153 envelope.
+
+  运行了命令
+
+The 27.3 Sylvester comparisons are exact and valid for all three sparse endpoint models. This should complete the pre-Q144-to-Q153 promotion; I’m replaying the aggregate categories once more to confirm whether Q153 itself is now the unique global envelope.
+
+已运行 & 'E:\maximal determinant\.venv\Scripts\python.exe' -c "from order15_mu3.scripts import verify_pre_q144_audit as p; q={'size13_max_over_q144':0.9873053545261892,'size13_energy45_minimal_cross_over_q144':0.9758859144639965,'size13_energy45_minimal_cross_numerator':151618622622187500000,'size13_energy45_minimal_cross_denominator':529,'size14_internal99_maxima':{'3+3+1+1+1+1+1':18433132135317504,'4+1+1+1+1+1+1+1':18363111305817600,'3+1+1+1+1+1+1+1+1':18796526355271680,'eleven-unit':19499511680335872},'certified_excluding_energy9_numerator':151618622622187500000,'certified_excluding_energy9_denominator':529}; p.q141_certificate=lambda:q; p.energy9_top_obstruction=lambda:{'next_arithmetic_energy9_upper':289220156718750000}; p.energy9_second_obstruction=lambda:{'next_arithmetic_energy9_upper':286464344501953125}; p.q126_triangle_certificate=lambda:{'maxima':{'active10_unicyclic':246462947301769920,'active9_unicyclic':246911098793504256,'active8_bicyclic':251108976455562240,'active7_bicyclic':251565599541989376}}; p.q126_triangle_active6_certificate=lambda:{'maxima':{'edges10_component6':250218343241809920,'edges11_component7':253860219812966400,'edges12_component8':255169391129395200}}; p.q126_triangle_active5_certificate=lambda:{'maxima':{'edges10_component5':250675363046817792,'edges11_component6':254331521486880768,'edges12_component7':255359816048148480}}; p.q126_triangle_active4_certificate=lambda:{'maxima':{'edges9_component4':248218881594900480,'edges10_component5':254788541291888640}}; p.q126_k4_four_forest_certificate=lambda:{'maximum':256448601928008000,'weight4_maximum':258141500324775000}; p.q126_k4_three_forest_certificate=lambda:{'maximum':256914952884633600}; p.q126_k4_leaf_certificate=lambda:{'maximum':257873424975691776}; p.q126_pure_k4_six_forest_certificate=lambda:{'maximum':255412711858913280}; p.q126_k6_minus_edge_certificate=lambda:{'full_maximum':286978140000000000}; p.q126_pure_k5_certificate=lambda:{'maximum':274211883004723200}; p.q126_isolated_k4_certificate=lambda:{'maxima':{'edges11_weight4':260501288854487040,'edges12_weight3':258406614748200960}}; r=p.certificate(); qs=lambda rows: sorted(rows,key=lambda x:x['over_q144'],reverse=True)[:10]; print('upper',float(r['certified_upper_numerator']/r['certified_upper_denominator']),r['certified_upper_numerator'],r['certified_upper_denominator']); print('tri',qs(r['q126_triangle_rows'])); print('k4',qs(r['q126_k4_rows'])); print('wk5',r['q126_weighted_k5_over_q144']); print('pk5',r['q126_pure_k5_over_q144']); print('q135',r['q135_all_same_over_q144'])"
+
+The pre-Q144 audit did not quite fall below Q153 because a pure-K5 row with one attached leaf was tied at the old three-isolate cap; it was outside the K4 ranking table. I’m extending the existing exact K5 phase certificate to \(K_5\) plus one leaf. This is a single support type with the same six independent clique-cycle phases, so it is a compact exact closure.
+
+  运行了命令
+
+The exact K5-plus-leaf maximum is \(272{,}942{,}383{,}546{,}368{,}000\). This finally leaves only the Q135 slice above Q153: the pre-Q144 upper is \(287{,}720{,}864{,}318{,}966{,}430\), just \(0.0037\%\) over Q153. I’m identifying the exact Q135 support row responsible for that last sliver.
+
+  运行了命令
+
+The final Q135 row needs no new enumeration: the existing \(29.25\) eigenvalue cap was rounded too coarsely. Weighted Motzkin–Straus gives \(\lambda_{\max}\le 15+\sqrt{202.5}<29.24\), and the exact rational cap \(29.24\) already pushes its determinant below Q153. I’m tightening that rounding and then running the full, unmocked proof replay.
+
+  运行了命令
+
+Confirmed: the certified pre-Q144 maximum is now \(287{,}687{,}522{,}593{,}613{,}600\), strictly below the Q153 envelope \(287{,}710{,}230{,}040{,}327{,}200\) by about \(2.27\times10^{13}\). I’m starting the full unmocked replay now—every finite catalogue, both Z3 obstructions, and every exact arithmetic assertion.
+
+  运行了命令
+
+The unmocked replay has passed initialization and is in the expensive exact catalogues/solver stage. No assertion has failed. I’ll keep the process attached through completion; the next checkpoint is the solver-backed energy-9 obstruction followed by the Q126 support enumerations.
+
+The replay remains compute-bound with no stderr or failed invariant. This silent phase is expected: the certificates only emit JSON after all exact determinant sets and Z3 unsatisfiability checks have completed.
+
+Still running cleanly. The elapsed time is consistent with replaying the 299+173+117+51 triangle types, the 124 rooted-forest types, and the hard self-pair Z3 contradiction in one fresh process.
+
+用时 1小时 26分钟 32秒
+
+No failure after roughly six minutes. I’m leaving the exact replay uninterrupted; the absence of incremental output is by design, not a stalled shell.

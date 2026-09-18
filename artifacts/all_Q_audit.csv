@@ -1,0 +1,39 @@
+Q,status,legacy_claim,complete_proof_basis,verified_partial_results,missing_obligation,trace_upper_over_B
+0,VERIFIED_CLOSED,CLOSED,"Exact no-leaf catalogue, norm sieve and two-sided kernel projection.",,,1.5759059160024746
+6,VERIFIED_CLOSED,CLOSED,Color reduction and minimum cross energy 42.,,,1.5392885257707443
+9,VERIFIED_CLOSED,CLOSED,"Exact no-leaf catalogue, norm sieve and two-sided kernel projection.",,,1.522647602765782
+15,VERIFIED_CLOSED,CLOSED,Color reduction and minimum cross energy 42.,,,1.4913696313364924
+18,VERIFIED_CLOSED,CLOSED,"Exact no-leaf catalogue, norm sieve and two-sided kernel projection.",,,1.4765332845870074
+24,VERIFIED_CLOSED,CLOSED,Color reduction and minimum cross energy 42.,,,1.448166156715942
+27,VERIFIED_CLOSED,CLOSED,"Exact no-leaf catalogue, norm sieve and two-sided kernel projection.",,,1.4345546473246655
+33,VERIFIED_CLOSED,CLOSED,Color reduction and minimum cross energy 42.,,,1.408326692835746
+36,VERIFIED_CLOSED,CLOSED,"Exact no-leaf catalogue, norm sieve and two-sided kernel projection.",,,1.3956643403200744
+42,VERIFIED_CLOSED_WITH_PUBLISHED_THEOREM,CLOSED,"Color/energy bound plus B3(15,10)=12.",,,1.3711506893392742
+45,VERIFIED_CLOSED,CLOSED,"Exact no-leaf catalogue, norm sieve and two-sided kernel projection.",,,1.3592691060526312
+51,VERIFIED_CLOSED_WITH_PUBLISHED_THEOREM,CLOSED,"Color/energy bound plus B3(15,10)=12.",,,1.336192705766372
+54,VERIFIED_CLOSED,CLOSED,"Exact no-leaf catalogue, norm sieve and two-sided kernel projection.",,,1.3249761444067936
+60,VERIFIED_CLOSED_WITH_PUBLISHED_THEOREM,CLOSED,"Full small mixed support/cross enumeration and eigenprojection PSD; B3(15,10)=12.",,,1.3031391715673484
+63,VERIFIED_CLOSED,CLOSED,"Exact no-leaf catalogue, norm sieve and two-sided kernel projection.",,,1.2925022647923685
+69,VERIFIED_CLOSED_WITH_PUBLISHED_THEOREM,CLOSED,"Full small mixed support/cross enumeration and eigenprojection PSD; B3(15,10)=12.",,,1.2717551143054249
+72,VERIFIED_CLOSED,CLOSED,"Exact no-leaf catalogue, norm sieve and two-sided kernel projection.",,,1.2616318634710122
+78,VERIFIED_CLOSED_WITH_PUBLISHED_THEOREM,CLOSED,"Full small mixed support/cross enumeration and eigenprojection PSD; B3(15,10)=12.",,,1.2418567916668946
+81,VERIFIED_CLOSED_WITH_PUBLISHED_THEOREM,CLOSED,"Isolate support catalogue and exact K3+6K2 block obstruction; B3(15,10)=12.",,,1.2321944149978075
+87,UNVERIFIED_GLOBAL,CLOSED,,,Record-level size13 defect/local inverse reductions and other remaining support branches; a lower historical comparison target is insufficient.,1.213295989942906
+90,UNVERIFIED_GLOBAL,CLOSED,,,Record-level size13 defect/local inverse reductions and other remaining support branches; a lower historical comparison target is insufficient.,1.2040511828269125
+96,UNVERIFIED_GLOBAL,CLOSED,,,Record-level size13 defect/local inverse reductions and other remaining support branches; a lower historical comparison target is insufficient.,1.1859502885124587
+99,UNVERIFIED_GLOBAL,CLOSED,,"All AB/AA/BB local mu3 intertwiners independently recovered; 144/225/729 solutions, zero compatible residuals.","Exhaustive reduction to A/B and mixed-color branches, especially size13 internal energy9/18.",1.1770868038896514
+105,UNVERIFIED_GLOBAL,CLOSED,,"(14,1) no-internal-isolate branch completely bounded by B over all component allocations. | An explicit matrix attains B; the 7K2 friendship support family has exact upper bound B.","Complete record-level proof for every color, support, and phase case.",1.1597166635847715
+108,UNVERIFIED_GLOBAL,CLOSED,,,Record-level size13 defect/local inverse reductions and other remaining support branches; a lower historical comparison target is insufficient.,1.1512036693625058
+114,UNVERIFIED_GLOBAL,CLOSED,,"(14,1) no-internal-isolate branch completely bounded by B over all component allocations.",Record-level size13 defect/local inverse reductions and other remaining support branches; a lower historical comparison target is insufficient.,1.1345070924430014
+117,UNVERIFIED_GLOBAL,CLOSED,,,Record-level size13 defect/local inverse reductions and other remaining support branches; a lower historical comparison target is insufficient.,1.1263180129199093
+123,UNVERIFIED_GLOBAL,CLOSED,,"(14,1) no-internal-isolate branch completely bounded by B over all component allocations.",Record-level size13 defect/local inverse reductions and other remaining support branches; a lower historical comparison target is insufficient.,1.110245421666783
+126,UNVERIFIED_GLOBAL,CLOSED,,,"Complete polynomial-majorant/high-triangle orbits, Fourier branches and mixed-color record-level reductions.",1.1023570944428878
+132,UNVERIFIED_GLOBAL,CLOSED,,"(14,1) no-internal-isolate branch completely bounded by B over all component allocations.",Record-level size13 defect/local inverse reductions and other remaining support branches; a lower historical comparison target is insufficient.,1.0868650689777257
+135,UNVERIFIED_GLOBAL,CLOSED,,,"Complete polynomial-majorant/high-triangle orbits, Fourier branches and mixed-color record-level reductions.",1.0792571153067352
+141,UNVERIFIED_GLOBAL,CLOSED,,"(14,1) no-internal-isolate branch completely bounded by B over all component allocations.",Record-level size13 defect/local inverse reductions and other remaining support branches; a lower historical comparison target is insufficient.,1.064307294668245
+144,UNVERIFIED_GLOBAL,CLOSED,,,Complete K6 support catalogue and record-level state-pairing certificates.,1.0569616387817107
+150,UNVERIFIED_GLOBAL,CLOSED,,"(14,1) no-internal-isolate branch completely bounded by B over all component allocations.","Record-level (13,2) local Schur/state-pairing and (14,1) isolate exclusion; the no-isolate branch has now been reconstructed.",1.042519873930939
+153,UNVERIFIED_GLOBAL,CLOSED,,,"Full upstream sparse/spectral/support reductions of the tail certificate, including all-same/mixed residuals. The historical closure claim has not been fully replayed here.",1.035420369123294
+159,UNVERIFIED_GLOBAL,CLOSED,,"(14,1) no-internal-isolate branch completely bounded by B over all component allocations.","Full upstream sparse/spectral/support reductions of the tail certificate, including all-same/mixed residuals. The historical closure claim has not been fully replayed here.",1.021456058588552
+162,UNVERIFIED_GLOBAL,CLOSED,,,"Full upstream sparse/spectral/support reductions of the tail certificate, including all-same/mixed residuals. The historical closure claim has not been fully replayed here.",1.0145881915726107
+168,UNVERIFIED_GLOBAL,CLOSED,,"(14,1) no-internal-isolate branch completely bounded by B over all component allocations.","Full upstream sparse/spectral/support reductions of the tail certificate, including all-same/mixed residuals. The historical closure claim has not been fully replayed here.",1.0010737523430064

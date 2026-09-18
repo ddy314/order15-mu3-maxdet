@@ -1,0 +1,94 @@
+{
+  "python": "3.13.11 (main, Jan 14 2026, 19:38:04) [Clang 21.1.4 ]",
+  "platform": "Linux-7.2.6-arch2-1-x86_64-with-glibc2.44",
+  "sympy": "1.13.1",
+  "networkx": "3.5",
+  "steps": [
+    {
+      "program": "verify_arithmetic_tests",
+      "exit_code": 0,
+      "seconds": 1.3951906649999728
+    },
+    {
+      "program": "verify_foundations",
+      "exit_code": 0,
+      "seconds": 0.5167601620000823
+    },
+    {
+      "program": "verify_low_energy",
+      "exit_code": 0,
+      "seconds": 1.7858877700000448
+    },
+    {
+      "program": "verify_mixed_small",
+      "exit_code": 0,
+      "seconds": 13.315967835000038
+    },
+    {
+      "program": "verify_q81",
+      "exit_code": 0,
+      "seconds": 13.219402171999945
+    },
+    {
+      "program": "verify_q99_independent",
+      "exit_code": 0,
+      "seconds": 1.6280767460000334
+    },
+    {
+      "program": "verify_component_bounds",
+      "exit_code": 0,
+      "seconds": 0.35780442299983406
+    },
+    {
+      "program": "audit_all_shells",
+      "exit_code": 0,
+      "seconds": 0.027103960999966148
+    }
+  ],
+  "seconds": 32.40423632399984,
+  "available_tests_passed": true,
+  "global_maximality_verified": false,
+  "closed_Q": [
+    0,
+    6,
+    9,
+    15,
+    18,
+    24,
+    27,
+    33,
+    36,
+    42,
+    45,
+    51,
+    54,
+    60,
+    63,
+    69,
+    72,
+    78,
+    81
+  ],
+  "unverified_Q": [
+    87,
+    90,
+    96,
+    99,
+    105,
+    108,
+    114,
+    117,
+    123,
+    126,
+    132,
+    135,
+    141,
+    144,
+    150,
+    153,
+    159,
+    162,
+    168
+  ],
+  "no_mocked_repository_certificates": true
+}

@@ -1,0 +1,22 @@
+# Local Python environment
+.venv/
+venv/
+
+# Python caches and build products
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+
+# Native build products
+native/*.exe
+
+# Local paper build products
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.pdf

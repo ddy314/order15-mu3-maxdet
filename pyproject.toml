@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "order15-mu3-maxdet"
+version = "0.1.0"
+description = "Exact certificates and independent audits for order-15 third-root maximal determinants"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26", "sympy==1.13.1", "networkx==3.5"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+sat = ["z3-solver>=4.13", "python-sat>=1.8.dev13"]
+
+[tool.setuptools]
+package-dir = {"" = "historical_remote/src"}
+
+[tool.setuptools.packages.find]
+where = ["historical_remote/src"]
+
+[tool.pytest.ini_options]
+testpaths = ["historical_remote/tests"]
+pythonpath = ["historical_remote/src", "historical_remote"]
+addopts = "-ra"

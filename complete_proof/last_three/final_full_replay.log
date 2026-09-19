@@ -1,0 +1,15 @@
+WARN `--no-project` was provided, but no project was found
+inherited_35_shells: PASS
+gram_candidates.py: PASS
+column_test.py: PASS
+column_rank.py: PASS
+q105_last.py: PASS
+recover_mixed96_types.py: PASS
+mixed96_candidates.py: PASS
+mixed96_columns.py: PASS
+pure99_frontier.py: PASS
+pure99_pairs.py: PASS
+pure99_spectral.py: PASS
+validate_closure.py: PASS
+final_certificate.py: PASS
+SUCCESS: 38/38 shells, all three final obligations proved; no remaining shells.

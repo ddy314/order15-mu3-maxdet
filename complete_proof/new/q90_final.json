@@ -1,0 +1,52 @@
+{
+  "Q": 90,
+  "closed": true,
+  "remaining_pure_gram_states": 2,
+  "spectral_rectangle_certificates": [
+    {
+      "determinant": 288608006862471168,
+      "large_component_polynomial": [
+        1,
+        0,
+        -5,
+        0,
+        5,
+        -1
+      ],
+      "pair_component_polynomial": [
+        1,
+        0,
+        -1
+      ],
+      "common_polynomial": "x - 1",
+      "rectangle_rank_upper": 1,
+      "rectangle_squared_frobenius_norm": 50,
+      "core_lambda_upper_strict": 24,
+      "rank_times_lambda_upper": 24,
+      "contradiction": true
+    },
+    {
+      "determinant": 282438239494864896,
+      "large_component_polynomial": [
+        1,
+        0,
+        -5,
+        2,
+        4,
+        -2
+      ],
+      "pair_component_polynomial": [
+        1,
+        0,
+        -1
+      ],
+      "common_polynomial": "x**2 - 1",
+      "rectangle_rank_upper": 2,
+      "rectangle_squared_frobenius_norm": 50,
+      "core_lambda_upper_strict": 24,
+      "rank_times_lambda_upper": 48,
+      "contradiction": true
+    }
+  ],
+  "size13_defect_excluded_by": "sparse_defect.py plus B3(15,10)=12"
+}

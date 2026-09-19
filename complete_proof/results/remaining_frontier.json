@@ -1,0 +1,97 @@
+{
+  "complete_shells_remaining": [
+    96,
+    99,
+    105
+  ],
+  "size13_exact_relaxation": [
+    {
+      "family": "P3",
+      "outside_norm": 0,
+      "internal_energy": 18,
+      "cross_energy": 78,
+      "Q": 96,
+      "norm_survivors": [
+        278010073125000000,
+        278056781806640625,
+        278430451259765625,
+        278757412031250000
+      ],
+      "closed_relaxation": false
+    },
+    {
+      "family": "P3",
+      "outside_norm": 3,
+      "internal_energy": 18,
+      "cross_energy": 78,
+      "Q": 99,
+      "norm_survivors": [
+        278010073125000000,
+        278430451259765625,
+        278757412031250000
+      ],
+      "closed_relaxation": false
+    },
+    {
+      "family": "P3",
+      "outside_norm": 9,
+      "internal_energy": 18,
+      "cross_energy": 78,
+      "Q": 105,
+      "norm_survivors": [
+        278010073125000000,
+        278757412031250000
+      ],
+      "closed_relaxation": false
+    },
+    {
+      "family": "2K2",
+      "outside_norm": 0,
+      "internal_energy": 18,
+      "cross_energy": 78,
+      "Q": 96,
+      "norm_survivors": [
+        277920392456250000,
+        278010073125000000,
+        278727518475000000,
+        278817199143750000
+      ],
+      "closed_relaxation": false
+    },
+    {
+      "family": "2K2",
+      "outside_norm": 3,
+      "internal_energy": 18,
+      "cross_energy": 78,
+      "Q": 99,
+      "norm_survivors": [
+        277920392456250000,
+        278010073125000000,
+        278727518475000000,
+        278817199143750000,
+        281238577200000000
+      ],
+      "closed_relaxation": false
+    },
+    {
+      "family": "2K2",
+      "outside_norm": 9,
+      "internal_energy": 18,
+      "cross_energy": 78,
+      "Q": 105,
+      "norm_survivors": [
+        278010073125000000,
+        281238577200000000
+      ],
+      "closed_relaxation": false
+    }
+  ],
+  "Q105_conditional_determinant_squared_candidates": [
+    278010073125000000,
+    278757412031250000,
+    281238577200000000
+  ],
+  "Q105_statement": "Every strict Q105 counterexample has squared determinant in this candidate set. The P3 branch is still open; no realization is claimed.",
+  "process_correction": "The earlier informal claim of a unique Q105 determinant was too strong. The exact replay retains three different values.",
+  "global_proof_completed": false
+}

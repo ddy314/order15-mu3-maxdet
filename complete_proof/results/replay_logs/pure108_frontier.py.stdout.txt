@@ -1,0 +1,2 @@
+pure108 noisolate types 2996 assemblies 5570 normaboveB 0 afterprojection 0
+pure108 isolate types 1596 assemblies 146 normaboveB 8 afterprojection 0

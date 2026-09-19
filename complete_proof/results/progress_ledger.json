@@ -1,0 +1,357 @@
+{
+  "benchmark_squared_determinant": 277868041444786176,
+  "total_shells": 38,
+  "baseline_closed": [
+    0,
+    6,
+    9,
+    15,
+    18,
+    24,
+    27,
+    33,
+    36,
+    42,
+    45,
+    51,
+    54,
+    60,
+    63,
+    69,
+    72,
+    78,
+    81
+  ],
+  "newly_closed": [
+    87,
+    90,
+    108,
+    114,
+    117,
+    123,
+    126,
+    132,
+    135,
+    141,
+    144,
+    150,
+    153,
+    159,
+    162,
+    168
+  ],
+  "closed_shells": [
+    0,
+    6,
+    9,
+    15,
+    18,
+    24,
+    27,
+    33,
+    36,
+    42,
+    45,
+    51,
+    54,
+    60,
+    63,
+    69,
+    72,
+    78,
+    81,
+    87,
+    90,
+    108,
+    114,
+    117,
+    123,
+    126,
+    132,
+    135,
+    141,
+    144,
+    150,
+    153,
+    159,
+    162,
+    168
+  ],
+  "remaining_shells": [
+    96,
+    99,
+    105
+  ],
+  "closed_count": 35,
+  "remaining_count": 3,
+  "global_maximality_verified": false,
+  "proof_interpretation": "Computer-assisted mathematical proof with explicitly stated manual lemmas and inherited B3(15,10)=12 theorem; not a formal proof-assistant derivation.",
+  "rows": [
+    {
+      "Q": 0,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 6,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 9,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 15,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 18,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 24,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 27,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 33,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 36,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 42,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 45,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 51,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 54,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 60,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 63,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 69,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 72,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 78,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 81,
+      "status": "INHERITED_VERIFIED",
+      "proof_basis": "Unchanged 2026-09-17 independent audit; published code theorem dependency retained.",
+      "evidence_files": "order15_mu3_unified_audit/results/all_Q_audit.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 87,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "One-edge defect lemma, published B3 bound, and exhaustive double-(14,1) projection/rank pairing.",
+      "evidence_files": "new/sparse_defect.json;new/mixed_rank_frontier.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 90,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "One-edge defect lemma and exact pure-Gram catalogue with spectral rectangle obstruction.",
+      "evidence_files": "new/sparse_defect.json;new/pure_catalogue.json;new/pure90_frontier.json;new/q90_final.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 96,
+      "status": "UNRESOLVED_GLOBAL",
+      "proof_basis": "",
+      "evidence_files": "",
+      "remaining_obligation": "Size13 energy18 (P3 or 2K2), and any surviving mixed-color pairings; double14 partial certificates are not a full shell proof."
+    },
+    {
+      "Q": 99,
+      "status": "UNRESOLVED_GLOBAL",
+      "proof_basis": "",
+      "evidence_files": "",
+      "remaining_obligation": "Size13 energy18, plus complete all-same support reduction; the old A/B local certificate does not by itself prove exhaustive coverage."
+    },
+    {
+      "Q": 105,
+      "status": "UNRESOLVED_GLOBAL",
+      "proof_basis": "",
+      "evidence_files": "",
+      "remaining_obligation": "Size13 energy18 and color-pair coverage; equality at B and the complete double14 branch do not settle the remaining colors."
+    },
+    {
+      "Q": 108,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete extended pure-Gram catalogue and minimum-cross two-hub energy18 enumeration.",
+      "evidence_files": "new/pure_extended.json;new/pure108_frontier.json;new/size13_energy18.json;new/q108_final.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 114,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Exhaustive core/cross-vector enumeration, norm sieve, and 12-eigenspace flatness contradiction.",
+      "evidence_files": "new/q114_refinement.json;new/q114_cross_exact.json;new/q114_final.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 117,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Projection reduction and exact integer real-rooted polynomial sieve.",
+      "evidence_files": "new/projection_frontier.json;new/q117_integer_sieve.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 123,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete component/Schur bound, including all internal isolates.",
+      "evidence_files": "new/exploration.json;new/small_catalogue.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 126,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Rank-four determinant lattice and exact Eisenstein norm sieve.",
+      "evidence_files": "new/projection_frontier.json;new/q126_final.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 132,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete component/Schur bound, including all internal isolates.",
+      "evidence_files": "new/exploration.json;new/small_catalogue.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 135,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete mixed-color bound and two-sided projection/rank/moment bound.",
+      "evidence_files": "new/exploration.json;new/projection_frontier.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 141,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete component/Schur bound, including all internal isolates.",
+      "evidence_files": "new/exploration.json;new/small_catalogue.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 144,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete mixed-color bound and two-sided projection/rank/moment bound.",
+      "evidence_files": "new/exploration.json;new/projection_frontier.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 150,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete component/Schur bound, including all internal isolates.",
+      "evidence_files": "new/exploration.json;new/small_catalogue.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 153,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete mixed-color bound and two-sided projection/rank/moment bound.",
+      "evidence_files": "new/exploration.json;new/projection_frontier.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 159,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete component/Schur bound, including all internal isolates.",
+      "evidence_files": "new/exploration.json;new/small_catalogue.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 162,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete mixed-color bound and two-sided projection/rank/moment bound.",
+      "evidence_files": "new/exploration.json;new/projection_frontier.json",
+      "remaining_obligation": ""
+    },
+    {
+      "Q": 168,
+      "status": "NEWLY_CLOSED",
+      "proof_basis": "Complete component/Schur bound, including all internal isolates.",
+      "evidence_files": "new/exploration.json;new/small_catalogue.json",
+      "remaining_obligation": ""
+    }
+  ]
+}

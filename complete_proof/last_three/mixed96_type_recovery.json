@@ -1,0 +1,110 @@
+[
+  {
+    "name": "P3",
+    "v": 3,
+    "u": 2,
+    "signature": [
+      1,
+      2,
+      2
+    ],
+    "tested_phase_states": 1,
+    "matching_gauge_states": 1,
+    "matches": [
+      {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "scaled_core_determinant": 115,
+        "zero_cycle_flux": true
+      }
+    ]
+  },
+  {
+    "name": "C4",
+    "v": 4,
+    "u": 4,
+    "signature": [
+      2,
+      4,
+      2
+    ],
+    "tested_phase_states": 12,
+    "matching_gauge_states": 1,
+    "matches": [
+      {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "scaled_core_determinant": 525,
+        "zero_cycle_flux": true
+      }
+    ]
+  },
+  {
+    "name": "K23",
+    "v": 5,
+    "u": 6,
+    "signature": [
+      3,
+      5,
+      3
+    ],
+    "tested_phase_states": 192,
+    "matching_gauge_states": 1,
+    "matches": [
+      {
+        "edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "scaled_core_determinant": 2375,
+        "zero_cycle_flux": true
+      }
+    ]
+  }
+]

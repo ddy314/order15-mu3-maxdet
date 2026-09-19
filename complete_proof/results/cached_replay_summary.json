@@ -1,0 +1,124 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "used_cached_catalogues": true,
+  "baseline_replayed_in_this_run": false,
+  "steps": [
+    {
+      "program": "verify_foundations.py",
+      "returncode": 0,
+      "seconds": 1.143626000999575
+    },
+    {
+      "program": "verify_component_bounds.py",
+      "returncode": 0,
+      "seconds": 1.1625509890000103
+    },
+    {
+      "program": "validate_primitives.py",
+      "returncode": 0,
+      "seconds": 1.9911831480003457
+    },
+    {
+      "program": "explore.py",
+      "returncode": 0,
+      "seconds": 1.5588334920003035
+    },
+    {
+      "program": "explore_pure.py",
+      "returncode": 0,
+      "seconds": 1.2033621000000494
+    },
+    {
+      "program": "projection_frontier.py",
+      "returncode": 0,
+      "seconds": 0.7852504239999689
+    },
+    {
+      "program": "spectral_integer.py",
+      "returncode": 0,
+      "seconds": 0.996908670999801
+    },
+    {
+      "program": "refine_q114.py",
+      "returncode": 0,
+      "seconds": 1.6748456060004173
+    },
+    {
+      "program": "cross_exact.py",
+      "returncode": 0,
+      "seconds": 1.8080222280004818
+    },
+    {
+      "program": "finalize_high.py",
+      "returncode": 0,
+      "seconds": 1.812968737999654
+    },
+    {
+      "program": "sparse_defect.py",
+      "returncode": 0,
+      "seconds": 0.727583947000312
+    },
+    {
+      "program": "mixed_rank_frontier.py",
+      "returncode": 0,
+      "seconds": 0.7512218100000609
+    },
+    {
+      "program": "pure90_frontier.py",
+      "returncode": 0,
+      "seconds": 1.1944923810006003
+    },
+    {
+      "program": "q90_final.py",
+      "returncode": 0,
+      "seconds": 1.0351814539999395
+    },
+    {
+      "program": "size13_energy18.py",
+      "returncode": 0,
+      "seconds": 1.9597208909999608
+    },
+    {
+      "program": "validate_size13.py",
+      "returncode": 0,
+      "seconds": 1.0273539029994936
+    },
+    {
+      "program": "pure108_frontier.py",
+      "returncode": 0,
+      "seconds": 4.447946023999975
+    },
+    {
+      "program": "q108_final.py",
+      "returncode": 0,
+      "seconds": 0.7561793099994247
+    }
+  ],
+  "all_executed_steps_passed": true,
+  "seconds": 26.041291079000075,
+  "newly_closed": [
+    87,
+    90,
+    108,
+    114,
+    117,
+    123,
+    126,
+    132,
+    135,
+    141,
+    144,
+    150,
+    153,
+    159,
+    162,
+    168
+  ],
+  "remaining": [
+    96,
+    99,
+    105
+  ],
+  "global_maximality_verified": false
+}

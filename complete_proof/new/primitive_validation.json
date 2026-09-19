@@ -1,0 +1,396 @@
+{
+  "checks": [
+    {
+      "n": 2,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 2,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 2,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 2,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 2,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 3,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 3,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 3,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 3,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 3,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 4,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 4,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 4,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 4,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 4,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 5,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 5,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 5,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 5,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 5,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 6,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 6,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 6,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 6,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 6,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 7,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 7,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 7,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 7,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 7,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 8,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 8,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 8,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 8,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 8,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 9,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 9,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 9,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 9,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 9,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 10,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 10,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 10,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 10,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 10,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 11,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 11,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 11,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 11,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 11,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 12,
+      "trial": 0,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 12,
+      "trial": 1,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 12,
+      "trial": 2,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 12,
+      "trial": 3,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    },
+    {
+      "n": 12,
+      "trial": 4,
+      "characteristic_equal": true,
+      "determinants_equal": true,
+      "kernel_equal": true
+    }
+  ],
+  "matrix_cases": 55,
+  "seed": 20260918,
+  "all_passed": true,
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "networkx": "3.6.1",
+  "sympy": "1.14.0"
+}

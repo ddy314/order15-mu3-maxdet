@@ -1,0 +1,6 @@
+{'family': 'P3', 'Q': 96, 'candidate_grams': 20} 0.293770042999995
+{'family': 'P3', 'Q': 99, 'candidate_grams': 20} 0.43563345300003675
+{'family': 'P3', 'Q': 105, 'candidate_grams': 8} 0.6924119389998395
+{'family': '2K2', 'Q': 96, 'candidate_grams': 44} 0.8187911749998875
+{'family': '2K2', 'Q': 99, 'candidate_grams': 47} 1.146787710999888
+{'family': '2K2', 'Q': 105, 'candidate_grams': 3} 1.7840985860000274

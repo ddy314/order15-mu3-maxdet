@@ -1,0 +1,6 @@
+vertices 2 total phase states 6 seconds 0.31
+vertices 3 total phase states 199 seconds 0.33
+vertices 4 total phase states 8321 seconds 0.37
+vertices 5 total phase states 105446 seconds 0.53
+vertices 6 total phase states 295688 seconds 0.72
+vertices 7 total phase states 514858 seconds 1.03

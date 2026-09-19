@@ -1,0 +1,522 @@
+{
+  "candidate_component_assemblies": 14,
+  "equal_spectrum_unordered_pairs": 16,
+  "spectral_pair_obstructions": [
+    {
+      "left_id": 0,
+      "right_id": 0,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          6
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -5,
+          -3
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 6,
+        "spectral_trace_upper": 0
+      }
+    },
+    {
+      "left_id": 0,
+      "right_id": 1,
+      "obstruction": {
+        "left_components": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "right_components": [
+          5
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -4,
+          0,
+          6,
+          0,
+          -4,
+          0,
+          1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -6,
+          -3,
+          5,
+          3
+        ],
+        "gcd": [
+          1,
+          0,
+          -1
+        ],
+        "flat_squared_frobenius": 40,
+        "spectral_trace_upper": 30
+      }
+    },
+    {
+      "left_id": 1,
+      "right_id": 1,
+      "obstruction": {
+        "left_components": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "right_components": [
+          5
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -4,
+          0,
+          6,
+          0,
+          -4,
+          0,
+          1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -6,
+          -3,
+          5,
+          3
+        ],
+        "gcd": [
+          1,
+          0,
+          -1
+        ],
+        "flat_squared_frobenius": 40,
+        "spectral_trace_upper": 30
+      }
+    },
+    {
+      "left_id": 2,
+      "right_id": 2,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          5
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -6,
+          -2,
+          5,
+          0
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 10,
+        "spectral_trace_upper": 0
+      }
+    },
+    {
+      "left_id": 3,
+      "right_id": 3,
+      "obstruction": {
+        "left_components": [
+          0,
+          1
+        ],
+        "right_components": [
+          5
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -2,
+          0,
+          1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -6,
+          -2,
+          6,
+          1
+        ],
+        "gcd": [
+          1,
+          -1
+        ],
+        "flat_squared_frobenius": 20,
+        "spectral_trace_upper": 18
+      }
+    },
+    {
+      "left_id": 4,
+      "right_id": 4,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          5
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -4,
+          0,
+          0
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 8,
+        "spectral_trace_upper": 0
+      }
+    },
+    {
+      "left_id": 4,
+      "right_id": 8,
+      "obstruction": {
+        "left_components": [
+          0,
+          1,
+          2
+        ],
+        "right_components": [
+          4
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -3,
+          0,
+          3,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -5,
+          0,
+          4,
+          0,
+          0
+        ],
+        "gcd": [
+          1,
+          0,
+          -1
+        ],
+        "flat_squared_frobenius": 36,
+        "spectral_trace_upper": 30
+      }
+    },
+    {
+      "left_id": 5,
+      "right_id": 5,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          5
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -4,
+          0,
+          4
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 8,
+        "spectral_trace_upper": 0
+      }
+    },
+    {
+      "left_id": 6,
+      "right_id": 6,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          4
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -3,
+          -1
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 6,
+        "spectral_trace_upper": 0
+      }
+    },
+    {
+      "left_id": 7,
+      "right_id": 7,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          4
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -7,
+          -1,
+          13,
+          3,
+          -5,
+          -1
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 14,
+        "spectral_trace_upper": 0
+      }
+    },
+    {
+      "left_id": 8,
+      "right_id": 8,
+      "obstruction": {
+        "left_components": [
+          0,
+          1,
+          2
+        ],
+        "right_components": [
+          4
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -3,
+          0,
+          3,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -5,
+          0,
+          4,
+          0,
+          0
+        ],
+        "gcd": [
+          1,
+          0,
+          -1
+        ],
+        "flat_squared_frobenius": 36,
+        "spectral_trace_upper": 30
+      }
+    },
+    {
+      "left_id": 9,
+      "right_id": 9,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          3
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -3,
+          0,
+          0
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 8,
+        "spectral_trace_upper": 0
+      }
+    },
+    {
+      "left_id": 10,
+      "right_id": 10,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          3
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -3,
+          0,
+          1
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 8,
+        "spectral_trace_upper": 0
+      }
+    },
+    {
+      "left_id": 11,
+      "right_id": 11,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          2
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -1
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -3,
+          -1
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 6,
+        "spectral_trace_upper": 0
+      }
+    },
+    {
+      "left_id": 12,
+      "right_id": 12,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          4
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -2,
+          0
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -3,
+          -2
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 9,
+        "spectral_trace_upper": 0
+      }
+    },
+    {
+      "left_id": 13,
+      "right_id": 13,
+      "obstruction": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          4
+        ],
+        "left_polynomial": [
+          1,
+          0,
+          -2,
+          0
+        ],
+        "right_polynomial": [
+          1,
+          0,
+          -3,
+          -1
+        ],
+        "gcd": [
+          1
+        ],
+        "flat_squared_frobenius": 9,
+        "spectral_trace_upper": 0
+      }
+    }
+  ],
+  "remaining_pure_pure_pairs": [],
+  "all_pairs_excluded": true
+}

@@ -1,0 +1,6 @@
+extended large {'v': 8, 'extra_edge_sets': 638178, 'passing_degree': 250905, 'graphs': 939}
+extended large {'v': 9, 'extra_edge_sets': 1112116, 'passing_degree': 147528, 'graphs': 1154}
+extended large {'v': 10, 'extra_edge_sets': 655132, 'passing_degree': 18792, 'graphs': 402}
+extended large {'v': 11, 'extra_edge_sets': 44830, 'passing_degree': 644, 'graphs': 263}
+extended large {'v': 12, 'extra_edge_sets': 55, 'passing_degree': 1, 'graphs': 1}
+extended catalogue 4555 types 15899506 states 195.21833208999988 sec

@@ -1,0 +1,424 @@
+{
+  "excluded_defect": "13 mu3 rows of length15 with a single norm9 off-diagonal Gram edge",
+  "candidate_families": [
+    {
+      "family": "cycle_3",
+      "vertices": 3,
+      "primitive_weights": [
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 3,
+      "scale": 1,
+      "mass": 3,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "cycle_3",
+      "vertices": 3,
+      "primitive_weights": [
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 3,
+      "scale": 2,
+      "mass": 6,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "cycle_3",
+      "vertices": 3,
+      "primitive_weights": [
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 3,
+      "scale": 3,
+      "mass": 9,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "cycle_3",
+      "vertices": 3,
+      "primitive_weights": [
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 3,
+      "scale": 4,
+      "mass": 12,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "cycle_3",
+      "vertices": 3,
+      "primitive_weights": [
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 3,
+      "scale": 5,
+      "mass": 15,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "cycle_4",
+      "vertices": 4,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 4,
+      "scale": 1,
+      "mass": 4,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "cycle_4",
+      "vertices": 4,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 4,
+      "scale": 2,
+      "mass": 8,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "cycle_4",
+      "vertices": 4,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 4,
+      "scale": 3,
+      "mass": 12,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "cycle_5",
+      "vertices": 5,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 5,
+      "scale": 1,
+      "mass": 5,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "cycle_5",
+      "vertices": 5,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 5,
+      "scale": 2,
+      "mass": 10,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "cycle_5",
+      "vertices": 5,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 5,
+      "scale": 3,
+      "mass": 15,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "cycle_6",
+      "vertices": 6,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 6,
+      "scale": 1,
+      "mass": 6,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "cycle_6",
+      "vertices": 6,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 6,
+      "scale": 2,
+      "mass": 12,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "cycle_7",
+      "vertices": 7,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 7,
+      "scale": 1,
+      "mass": 7,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "cycle_7",
+      "vertices": 7,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 7,
+      "scale": 2,
+      "mass": 14,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "cycle_8",
+      "vertices": 8,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 8,
+      "scale": 1,
+      "mass": 8,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "cycle_9",
+      "vertices": 9,
+      "primitive_weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 9,
+      "scale": 1,
+      "mass": 9,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "four_arm_star",
+      "vertices": 5,
+      "primitive_weights": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 6,
+      "scale": 1,
+      "mass": 6,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "four_arm_star",
+      "vertices": 5,
+      "primitive_weights": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 6,
+      "scale": 2,
+      "mass": 12,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "two_forks_6",
+      "vertices": 6,
+      "primitive_weights": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 8,
+      "scale": 1,
+      "mass": 8,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "two_forks_7",
+      "vertices": 7,
+      "primitive_weights": [
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 10,
+      "scale": 1,
+      "mass": 10,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "two_forks_8",
+      "vertices": 8,
+      "primitive_weights": [
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 12,
+      "scale": 1,
+      "mass": 12,
+      "passes_integral_tight_frame": true
+    },
+    {
+      "family": "two_forks_9",
+      "vertices": 9,
+      "primitive_weights": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 14,
+      "scale": 1,
+      "mass": 14,
+      "passes_integral_tight_frame": false
+    },
+    {
+      "family": "three_arms_2,2,2",
+      "vertices": 7,
+      "primitive_weights": [
+        3,
+        2,
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "primitive_mass": 12,
+      "scale": 1,
+      "mass": 12,
+      "passes_integral_tight_frame": true
+    }
+  ],
+  "admissible_component_masses": [
+    3,
+    6,
+    9,
+    12,
+    15
+  ],
+  "only_mass_divisible_by5": [
+    {
+      "family": "cycle_3",
+      "vertices": 3,
+      "primitive_weights": [
+        1,
+        1,
+        1
+      ],
+      "primitive_mass": 3,
+      "scale": 5,
+      "mass": 15,
+      "passes_integral_tight_frame": true
+    }
+  ],
+  "sign_checks": [
+    {
+      "inner_product_sign": 1,
+      "scaled_residual_norms": [
+        16,
+        31,
+        31
+      ],
+      "required_symbol_one_count": 7,
+      "forced_count_multiple": 5,
+      "contradiction": true
+    },
+    {
+      "inner_product_sign": -1,
+      "scaled_residual_norms": [
+        36,
+        21,
+        21
+      ],
+      "required_symbol_one_count": 3,
+      "forced_count_multiple": 5,
+      "contradiction": true
+    }
+  ],
+  "closed": true
+}

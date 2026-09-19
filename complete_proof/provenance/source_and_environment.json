@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-18",
+  "source_repository": "https://github.com/ddy314/order15-mu3-maxdet",
+  "source_commit": "2c1884214c1e6df253f48ecf59382e49bd5a55ea",
+  "original_audit_zip_sha256": "e8d1e8f71863e69e90737cb0da5974567b521faa69f254a0d99654e6940a6cf8",
+  "original_audit_zip_git_blob": "56113b8cd497a01684d20dadcdb38cc0953413fb",
+  "matches_repository_artifact_blob": true,
+  "remote_repository_modified": false,
+  "python": "3.13.5",
+  "packages": {
+    "numpy": "2.3.5",
+    "sympy": "1.14.0",
+    "networkx": "3.6.1",
+    "numba": "0.65.1"
+  },
+  "published_dependency_not_reclassified": "Todorov-Bogdanova B3(15,10)=12"
+}

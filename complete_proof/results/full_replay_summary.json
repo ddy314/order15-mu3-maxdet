@@ -1,0 +1,139 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "used_cached_catalogues": false,
+  "baseline_replayed_in_this_run": true,
+  "steps": [
+    {
+      "program": "baseline",
+      "returncode": 0,
+      "seconds": 54.53500640099992
+    },
+    {
+      "program": "validate_primitives.py",
+      "returncode": 0,
+      "seconds": 3.734821408999778
+    },
+    {
+      "program": "small_catalogue.py",
+      "returncode": 0,
+      "seconds": 2.41373460900013
+    },
+    {
+      "program": "rank_catalogue.py",
+      "returncode": 0,
+      "seconds": 2.1623684839996713
+    },
+    {
+      "program": "pure_catalogue.py",
+      "returncode": 0,
+      "seconds": 6.867341361999934
+    },
+    {
+      "program": "pure_extended.py",
+      "returncode": 0,
+      "seconds": 122.06838483400043
+    },
+    {
+      "program": "explore.py",
+      "returncode": 0,
+      "seconds": 1.4679059509999206
+    },
+    {
+      "program": "explore_pure.py",
+      "returncode": 0,
+      "seconds": 1.1244525509991945
+    },
+    {
+      "program": "projection_frontier.py",
+      "returncode": 0,
+      "seconds": 0.7912674540002627
+    },
+    {
+      "program": "spectral_integer.py",
+      "returncode": 0,
+      "seconds": 1.0334928759994
+    },
+    {
+      "program": "refine_q114.py",
+      "returncode": 0,
+      "seconds": 2.1808704510003736
+    },
+    {
+      "program": "cross_exact.py",
+      "returncode": 0,
+      "seconds": 3.8085398860002897
+    },
+    {
+      "program": "finalize_high.py",
+      "returncode": 0,
+      "seconds": 1.8875405050002882
+    },
+    {
+      "program": "sparse_defect.py",
+      "returncode": 0,
+      "seconds": 0.7663628270001936
+    },
+    {
+      "program": "mixed_rank_frontier.py",
+      "returncode": 0,
+      "seconds": 0.725333739999769
+    },
+    {
+      "program": "pure90_frontier.py",
+      "returncode": 0,
+      "seconds": 1.2519373109998924
+    },
+    {
+      "program": "q90_final.py",
+      "returncode": 0,
+      "seconds": 1.1740996560001804
+    },
+    {
+      "program": "size13_energy18.py",
+      "returncode": 0,
+      "seconds": 3.8925269910005227
+    },
+    {
+      "program": "validate_size13.py",
+      "returncode": 0,
+      "seconds": 1.013169855000342
+    },
+    {
+      "program": "pure108_frontier.py",
+      "returncode": 0,
+      "seconds": 4.595175108000149
+    },
+    {
+      "program": "q108_final.py",
+      "returncode": 0,
+      "seconds": 0.7261484800001199
+    }
+  ],
+  "all_executed_steps_passed": true,
+  "seconds": 218.22519247499986,
+  "newly_closed": [
+    87,
+    90,
+    108,
+    114,
+    117,
+    123,
+    126,
+    132,
+    135,
+    141,
+    144,
+    150,
+    153,
+    159,
+    162,
+    168
+  ],
+  "remaining": [
+    96,
+    99,
+    105
+  ],
+  "global_maximality_verified": false
+}

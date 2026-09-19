@@ -1,0 +1,57 @@
+{
+  "external_theorem": {
+    "statement": "B_3(15,10)=12",
+    "authors": "Todor Todorov and Galina Bogdanova",
+    "year": 2020,
+    "doi": "10.28919/jmcs/4964",
+    "locations": "Proposition14, p2717; Table1, p2720",
+    "independent_classification_replayed": false
+  },
+  "elementary_shells": [
+    6,
+    15,
+    24,
+    33,
+    42,
+    51
+  ],
+  "enumerated_shells": [
+    {
+      "Q": 60,
+      "tested_phase_cross_states": 36,
+      "norm_pass_before_deduplication": 6,
+      "states_before_PSD": 3,
+      "PSD_deletions": [
+        3
+      ],
+      "residual_states": 0,
+      "status": "VERIFIED_WITH_CITED_CODE_BOUND",
+      "residuals": []
+    },
+    {
+      "Q": 69,
+      "tested_phase_cross_states": 1008,
+      "norm_pass_before_deduplication": 152,
+      "states_before_PSD": 26,
+      "PSD_deletions": [
+        26
+      ],
+      "residual_states": 0,
+      "status": "VERIFIED_WITH_CITED_CODE_BOUND",
+      "residuals": []
+    },
+    {
+      "Q": 78,
+      "tested_phase_cross_states": 17424,
+      "norm_pass_before_deduplication": 1470,
+      "states_before_PSD": 201,
+      "PSD_deletions": [
+        201
+      ],
+      "residual_states": 0,
+      "status": "VERIFIED_WITH_CITED_CODE_BOUND",
+      "residuals": []
+    }
+  ],
+  "seconds": 27.107146302000046
+}

@@ -1,0 +1,8 @@
+54 (4, 6) max 1.000511147951651 over 1 normsurvivors 1 mins ['1/2', '31/32', '11/8']
+63 (4, 6) max 0.9995644277256324 over 0 normsurvivors 0 mins ['1/2', '31/32']
+63 (5, 7) max 0.999220165825262 over 0 normsurvivors 0 mins ['101/153', '18/17']
+72 (4, 6) max 1.0020499986463072 over 1 normsurvivors 0 mins ['1/2']
+72 (5, 7) max 0.9960185301518166 over 0 normsurvivors 0 mins ['101/153']
+72 (4, 6) max 0.9993922967754472 over 0 normsurvivors 0 mins ['1/2']
+72 (6, 8) max 0.9936474263130151 over 0 normsurvivors 0 mins ['586/733']
+72 (5, 8) max 1.0013718027025773 over 1 normsurvivors 0 mins ['23/37']

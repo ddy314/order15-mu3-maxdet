@@ -1,0 +1,14 @@
+Arithmetic cross-checks PASS: 60 matrices; 94 trees
+Foundations PASS: det pair (604661760, 241864704) B 277868041444786176 Q 105 tail/B 0.9944244061347672
+Q 0 VERIFIED_CLOSED assemblies 1 norm survivors 0 final 0
+Q 9 VERIFIED_CLOSED assemblies 0 norm survivors 0 final 0
+Q 18 VERIFIED_CLOSED assemblies 0 norm survivors 0 final 0
+Q 27 VERIFIED_CLOSED assemblies 0 norm survivors 0 final 0
+Q 36 VERIFIED_CLOSED assemblies 1 norm survivors 0 final 0
+Q 45 VERIFIED_CLOSED assemblies 1 norm survivors 1 final 0
+Q 54 VERIFIED_CLOSED assemblies 7 norm survivors 1 final 0
+Q 63 VERIFIED_CLOSED assemblies 15 norm survivors 1 final 0
+Q 72 VERIFIED_CLOSED assemblies 58 norm survivors 1 final 0
+mixed Q 60 VERIFIED_WITH_CITED_CODE_BOUND states 36 norm 3 residual 0
+mixed Q 69 VERIFIED_WITH_CITED_CODE_BOUND states 1008 norm 26 residual 0
+mixed Q 78 VERIFIED_WITH_CITED_CODE_BOUND states 17424 norm 201 residual 0

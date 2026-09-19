@@ -1,0 +1,7 @@
+WARN `--no-project` was provided, but no project was found
+{'family': 'P3', 'Q': 96, 'candidate_grams': 20} 0.3043000669999856
+{'family': 'P3', 'Q': 99, 'candidate_grams': 20} 0.4482143449999967
+{'family': 'P3', 'Q': 105, 'candidate_grams': 8} 0.6842414090000375
+{'family': '2K2', 'Q': 96, 'candidate_grams': 44} 0.8002365690000488
+{'family': '2K2', 'Q': 99, 'candidate_grams': 47} 1.107939750000014
+{'family': '2K2', 'Q': 105, 'candidate_grams': 3} 1.7264096210000162

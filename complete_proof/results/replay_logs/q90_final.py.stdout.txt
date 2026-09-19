@@ -1,0 +1,1 @@
+Q90 closed: 2 spectral states; flat rectangle50 exceeds rank-times-cap at most48

@@ -1,0 +1,551 @@
+{
+  "pairs": [
+    {
+      "pair": [
+        0,
+        0
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          6
+        ],
+        "pa": [
+          1,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -5,
+          -3
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 6,
+        "upper": 0
+      }
+    },
+    {
+      "pair": [
+        0,
+        1
+      ],
+      "witness": {
+        "left_components": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "right_components": [
+          5
+        ],
+        "pa": [
+          1,
+          0,
+          -4,
+          0,
+          6,
+          0,
+          -4,
+          0,
+          1
+        ],
+        "pb": [
+          1,
+          0,
+          -6,
+          -3,
+          5,
+          3
+        ],
+        "gcd": [
+          1,
+          0,
+          -1
+        ],
+        "volume": 40,
+        "upper": 30
+      }
+    },
+    {
+      "pair": [
+        1,
+        1
+      ],
+      "witness": {
+        "left_components": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "right_components": [
+          5
+        ],
+        "pa": [
+          1,
+          0,
+          -4,
+          0,
+          6,
+          0,
+          -4,
+          0,
+          1
+        ],
+        "pb": [
+          1,
+          0,
+          -6,
+          -3,
+          5,
+          3
+        ],
+        "gcd": [
+          1,
+          0,
+          -1
+        ],
+        "volume": 40,
+        "upper": 30
+      }
+    },
+    {
+      "pair": [
+        2,
+        2
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          5
+        ],
+        "pa": [
+          1,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -6,
+          -2,
+          5,
+          0
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 10,
+        "upper": 0
+      }
+    },
+    {
+      "pair": [
+        3,
+        3
+      ],
+      "witness": {
+        "left_components": [
+          0,
+          1
+        ],
+        "right_components": [
+          5
+        ],
+        "pa": [
+          1,
+          0,
+          -2,
+          0,
+          1
+        ],
+        "pb": [
+          1,
+          0,
+          -6,
+          -2,
+          6,
+          1
+        ],
+        "gcd": [
+          1,
+          -1
+        ],
+        "volume": 20,
+        "upper": 18
+      }
+    },
+    {
+      "pair": [
+        4,
+        4
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          5
+        ],
+        "pa": [
+          1,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -4,
+          0,
+          0
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 8,
+        "upper": 0
+      }
+    },
+    {
+      "pair": [
+        4,
+        8
+      ],
+      "witness": {
+        "left_components": [
+          0,
+          1,
+          2
+        ],
+        "right_components": [
+          4
+        ],
+        "pa": [
+          1,
+          0,
+          -3,
+          0,
+          3,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -5,
+          0,
+          4,
+          0,
+          0
+        ],
+        "gcd": [
+          1,
+          0,
+          -1
+        ],
+        "volume": 36,
+        "upper": 30
+      }
+    },
+    {
+      "pair": [
+        5,
+        5
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          5
+        ],
+        "pa": [
+          1,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -4,
+          0,
+          4
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 8,
+        "upper": 0
+      }
+    },
+    {
+      "pair": [
+        6,
+        6
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          4
+        ],
+        "pa": [
+          1,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -3,
+          -1
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 6,
+        "upper": 0
+      }
+    },
+    {
+      "pair": [
+        7,
+        7
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          4
+        ],
+        "pa": [
+          1,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -7,
+          -1,
+          13,
+          3,
+          -5,
+          -1
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 14,
+        "upper": 0
+      }
+    },
+    {
+      "pair": [
+        8,
+        8
+      ],
+      "witness": {
+        "left_components": [
+          0,
+          1,
+          2
+        ],
+        "right_components": [
+          4
+        ],
+        "pa": [
+          1,
+          0,
+          -3,
+          0,
+          3,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -5,
+          0,
+          4,
+          0,
+          0
+        ],
+        "gcd": [
+          1,
+          0,
+          -1
+        ],
+        "volume": 36,
+        "upper": 30
+      }
+    },
+    {
+      "pair": [
+        9,
+        9
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          3
+        ],
+        "pa": [
+          1,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -3,
+          0,
+          0
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 8,
+        "upper": 0
+      }
+    },
+    {
+      "pair": [
+        10,
+        10
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          3
+        ],
+        "pa": [
+          1,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -3,
+          0,
+          1
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 8,
+        "upper": 0
+      }
+    },
+    {
+      "pair": [
+        11,
+        11
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          2
+        ],
+        "pa": [
+          1,
+          0,
+          -1
+        ],
+        "pb": [
+          1,
+          0,
+          -3,
+          -1
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 6,
+        "upper": 0
+      }
+    },
+    {
+      "pair": [
+        12,
+        12
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          4
+        ],
+        "pa": [
+          1,
+          0,
+          -2,
+          0
+        ],
+        "pb": [
+          1,
+          0,
+          -3,
+          -2
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 9,
+        "upper": 0
+      }
+    },
+    {
+      "pair": [
+        13,
+        13
+      ],
+      "witness": {
+        "left_components": [
+          0
+        ],
+        "right_components": [
+          4
+        ],
+        "pa": [
+          1,
+          0,
+          -2,
+          0
+        ],
+        "pb": [
+          1,
+          0,
+          -3,
+          -1
+        ],
+        "gcd": [
+          1
+        ],
+        "volume": 9,
+        "upper": 0
+      }
+    }
+  ],
+  "remaining": []
+}

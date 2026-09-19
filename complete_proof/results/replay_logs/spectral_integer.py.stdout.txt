@@ -1,0 +1,1 @@
+rank4 candidates [405] tests 45 rank5 candidates [1983, 1984, 1987] tests 240 survivors [] seconds 0.054011008999850674

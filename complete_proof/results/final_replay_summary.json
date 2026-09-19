@@ -1,0 +1,118 @@
+{
+  "completed": true,
+  "all_steps_passed": true,
+  "cached_baseline_catalogues": false,
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "steps": [
+    {
+      "program": "inherited_35_shells",
+      "returncode": 0,
+      "seconds": 311.4358563960002
+    },
+    {
+      "program": "gram_candidates.py",
+      "returncode": 0,
+      "seconds": 3.0768262399999458
+    },
+    {
+      "program": "column_test.py",
+      "returncode": 0,
+      "seconds": 40.01662204500008
+    },
+    {
+      "program": "column_rank.py",
+      "returncode": 0,
+      "seconds": 5.128643902000022
+    },
+    {
+      "program": "q105_last.py",
+      "returncode": 0,
+      "seconds": 1.2202180740000586
+    },
+    {
+      "program": "recover_mixed96_types.py",
+      "returncode": 0,
+      "seconds": 1.7320993680000356
+    },
+    {
+      "program": "mixed96_candidates.py",
+      "returncode": 0,
+      "seconds": 6.209378373999925
+    },
+    {
+      "program": "mixed96_columns.py",
+      "returncode": 0,
+      "seconds": 17.544074317999957
+    },
+    {
+      "program": "pure99_frontier.py",
+      "returncode": 0,
+      "seconds": 1.528486447999967
+    },
+    {
+      "program": "pure99_pairs.py",
+      "returncode": 0,
+      "seconds": 1.4272851240000364
+    },
+    {
+      "program": "pure99_spectral.py",
+      "returncode": 0,
+      "seconds": 1.2932857580001382
+    },
+    {
+      "program": "validate_closure.py",
+      "returncode": 0,
+      "seconds": 204.14419701099996
+    },
+    {
+      "program": "final_certificate.py",
+      "returncode": 0,
+      "seconds": 0.8764186850000897
+    }
+  ],
+  "seconds": 595.636201385,
+  "closed_shells": [
+    0,
+    6,
+    9,
+    15,
+    18,
+    24,
+    27,
+    33,
+    36,
+    42,
+    45,
+    51,
+    54,
+    60,
+    63,
+    69,
+    72,
+    78,
+    81,
+    87,
+    90,
+    96,
+    99,
+    105,
+    108,
+    114,
+    117,
+    123,
+    126,
+    132,
+    135,
+    141,
+    144,
+    150,
+    153,
+    159,
+    162,
+    168
+  ],
+  "remaining_shells": [],
+  "global_maximality_verified": true,
+  "independent_full_column_scans": 194
+}

@@ -1,8 +1,0 @@
-54 (4, 6) phases 270 survivors 1 ratio 1.000511147951651 sec 0.44
-63 (4, 6) phases 270 survivors 1 ratio 0.9995644277256324 sec 0.47
-63 (5, 7) phases 1026 survivors 1 ratio 1.005675076457209 sec 0.5
-72 (4, 6) phases 270 survivors 1 ratio 1.0020499986463072 sec 0.61
-72 (5, 7) phases 1026 survivors 1 ratio 1.0002345507446913 sec 0.64
-72 (4, 6) phases 270 survivors 1 ratio 1.000227616215996 sec 0.68
-72 (6, 8) phases 5250 survivors 1 ratio 1.000790189628444 sec 0.72
-72 (5, 8) phases 3840 survivors 1 ratio 1.0038310903527106 sec 0.79

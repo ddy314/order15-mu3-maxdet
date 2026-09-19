@@ -1,8 +1,0 @@
-WARN `--no-project` was provided, but no project was found
-direct size13 0 pass 1.7231530489999614
-direct size13 20 pass 3.1083524360000183
-direct size13 92 pass 8.394123892000039
-direct size13 141 pass 10.663373364999984
-direct mixed96 0 pass 11.852272964999997
-direct mixed96 42 pass 13.466353776000005
-VALIDATED194 matrices,193 annihilators,6 full direct scans 13.613860012000032

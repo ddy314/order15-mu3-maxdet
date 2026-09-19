@@ -1,44 +1,69 @@
-# Order-15 maximal determinants over third roots of unity
+# Order-15 maximal determinant over the third roots of unity
 
-Independent research on 15 × 15 matrices over {1, ω, ω²}, where ω² + ω + 1 = 0. Extracted from [order55-binary-circulant-maxdet](https://github.com/dongxuelian2/order55-binary-circulant-maxdet); the order-55 binary-circulant theorem is a different problem.
+This repository contains a computer-assisted proof of the exact maximal determinant for 15 x 15 matrices with entries in
 
-The complete 38/38 computer-assisted proof is now included in [`complete_proof/`](complete_proof/README_FINAL_zh.md). It proves global optimality:
+\[
+\mu_3=\{1,\omega,\omega^2\},\qquad \omega^2+\omega+1=0.
+\]
 
-```text
-max |det H|² = 277868041444786176 = 2²² · 3²⁰ · 19
-max |det H| = 120932352 · √19
-```
+The main result is
 
-The final package closes the three former frontier shells `Q=96, 99, 105`, combines them with the independently replayed 35 shells and the `Q≥171` tail bound, and records no remaining shells. The result is a computer-assisted mathematical proof, not a proof-assistant formalization; it also does not classify all equality matrices. The external dependency `B₃(15,10)=12` is cited in the final report and was not re-proved here.
+\[
+\max_{H\in\mu_3^{15\times15}} |\det H|^2
+=277868041444786176
+=2^{22}3^{20}19,
+\]
 
-## Reproduce
+or equivalently
+
+\[
+\max |\det H|=120932352\sqrt{19}.
+\]
+
+The benchmark matrix attaining this value is included in `proof/order15_mu3_unified_audit/data/benchmark.json`. The proof closes all 38 admissible finite Gram-energy shells and the infinite tail. It uses exact Eisenstein-integer arithmetic, published ternary equidistant-code bounds, structural Gram estimates, and finite exhaustive certificates. It does **not** claim a classification of all equality cases and is not a proof-assistant formalization.
+
+## Paper
+
+The current article source is [`paper/main.tex`](paper/main.tex):
+
+> **The Maximal Determinant of Order 15 over the Third Roots of Unity**
+
+It is intended as the readable mathematical account of the result. Compile with a standard LaTeX installation:
 
 ```bash
-uv sync --extra dev --extra sat
-uv run pytest -q
-uv run python independent_audit/run_all.py --audit-only
+cd paper
+pdflatex main.tex
+pdflatex main.tex
 ```
 
-The first command installs the research and solver dependencies. The audit requires assertions enabled. A passing historical test suite validates its assertions, not necessarily comparison against the record. For the completed result, install `complete_proof/requirements.txt` in an isolated environment and run:
+Author metadata is deliberately left blank in the draft and should be filled in before formal circulation or submission.
+
+## Reproduce the proof
+
+Python 3.11+ is recommended. From the repository root:
 
 ```bash
-cd complete_proof
-python run_final.py
+python -m venv .venv
+. .venv/bin/activate
+python -m pip install -r proof/requirements.txt
+python proof/run_final.py
 ```
 
-The final entry point reruns the inherited audit and all new finite certificates with two independent exhaustive column algorithms. It returns success only when all 38 shells are closed and the certificate has no remaining obligations; the delivered replay took about ten minutes in its recorded environment.
+`run_final.py` regenerates the low-energy audit, the intermediate component/spectral catalogues, and the final `Q=96,99,105` certificates. On the reference run the complete replay took about ten minutes. Assertions must remain enabled; do not use `python -O`.
 
-## Evidence and trust boundary
+The final delivered ledger and replay summary are retained in `proof/certificates/` as a human-readable snapshot. The replay does not trust generated positive outputs: intermediate JSON catalogues and logs are ignored by Git and rebuilt from source.
 
-The complete package is now the global proof record. The independent audit remains the trusted replay basis for the inherited shells, while remote research sources are retained as historical material; passing historical tests alone does not certify their mathematical claims.
+## Repository layout
 
-- [Independent audit](independent_audit/README_zh.md): rebuilt exact verifiers, shell status, logs and remaining obligations for the former 19/38 baseline.
-- [Complete 38/38 proof](complete_proof/README_FINAL_zh.md): final report, source programs, exact certificates, replay logs and PDFs.
-- [Audit report](independent_audit/report/order15_mu3_independent_audit.pdf).
-- [Original research](historical_remote/order15_mu3/README.md), [historical handoff](historical_remote/docs/HANDOFF.md), and [historical frontier](historical_remote/docs/REMAINING_FRONTIER.md): preserved from the source main commit, including claims not yet independently accepted.
-- [Remote proof audit](REMOTE_AUDIT.md): scope errors, conjugation issue, replay results and claims withheld.
-- [Migration verification](MIGRATION.md) and [source hashes](provenance/migration_manifest.json).
-- `provenance/research-reaggregate.patch` preserves the unmerged research branch changes, including CI definitions, without silently applying them.
-- `artifacts/` retains the earlier delivered local files unchanged. The complete package keeps its original zip under `provenance/` and its unpacked, replayable sources under `complete_proof/`.
+- `paper/` -- the article source.
+- `proof/run_final.py` -- single full-proof entry point.
+- `proof/order15_mu3_unified_audit/` -- exact arithmetic and the independently rebuilt low-energy baseline.
+- `proof/new/` -- component/Schur, projection, rank and spectral certificates that close the intermediate shells.
+- `proof/last_three/` -- exact certificates for `Q=96,99,105` and the final global aggregator.
+- `proof/certificates/` -- compact snapshots of the final 38/38 ledger and the successful full replay.
 
-No unrestricted order-15 theorem follows from the order-55 result. The completed result instead combines explicit exact finite certificates with the documented structural and infinite-tail arguments in `complete_proof/report/FINAL_PROOF_zh.md`.
+Historical migration notes, superseded audit reports, development logs, duplicate archives, generated catalogues, and old partial PDFs were removed from the current tree after the proof was completed. They remain recoverable from Git history.
+
+## External dependency
+
+The proof uses the published value `B_3(15,10)=12` from T. Todorov and G. Bogdanova, *Ternary equidistant codes of length 11 <= n <= 15*, J. Math. Comput. Sci. 10 (2020), 2713-2721, doi:10.28919/jmcs/4964. That finite code classification is cited rather than re-proved here.

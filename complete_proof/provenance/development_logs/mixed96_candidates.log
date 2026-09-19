@@ -1,4 +1,0 @@
-WARN `--no-project` was provided, but no project was found
-{'family': 'P3_C4', 'normalized_phase_cross_states': 7776, 'candidate_grams': 52, 'candidate_determinants': [278056781806640625, 278196907851562500, 278757412031250000, 279271207529296875, 279458042255859375, 281419806884765625]} sec 3.7
-{'family': 'C4', 'normalized_phase_cross_states': 4536, 'candidate_grams': 0, 'candidate_determinants': []} sec 4.61
-{'family': 'K23', 'normalized_phase_cross_states': 1296, 'candidate_grams': 0, 'candidate_determinants': []} sec 4.94

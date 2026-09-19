@@ -1,0 +1,604 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,capitalise]{cleveref}
+\usepackage{url}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+
+\setcounter{MaxMatrixCols}{20}
+
+\newcommand{\muThree}{\mu_3}
+\newcommand{\Eis}{\mathbb Z[\omega]}
+\newcommand{\Brec}{277868041444786176}
+\newcommand{\Qset}{\mathcal Q}
+\newcommand{\norm}[1]{N\!\left(#1\right)}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Span}{\operatorname{span}}
+
+\title{The Maximal Determinant of Order 15 over the Third Roots of Unity}
+\author{}
+\date{Draft for discussion, September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $\muThree=\{1,\omega,\omega^2\}$, where $\omega^2+\omega+1=0$, and let
+$H\in\muThree^{15\times 15}$. We determine the exact maximum of $|\det H|$.
+A previously known matrix has squared determinant
+\[
+ B=2^{22}3^{20}19=\Brec,
+\]
+and a recent study of maximal determinants over roots of unity listed this order-15 value without a proof of maximality. We prove that no larger determinant is possible. Equivalently,
+\[
+ \max_{H\in\muThree^{15\times15}} |\det H|^2=B,
+ \qquad
+ \max |\det H|=2^{11}3^{10}\sqrt{19}=120932352\sqrt{19}.
+\]
+The proof is computer-assisted but exact. It combines congruences in the Eisenstein integers, an energy decomposition of the Gram matrix, published bounds for ternary equidistant codes, componentwise Schur-complement estimates, rank and kernel-projection constraints from the intertwining identity $HH^*H=H(H^*H)$, exact characteristic-polynomial and norm sieves, and exhaustive finite certificates for the few residual cases. The final three energy shells require additional decomposition obstructions: a column equation $v^*G^{-1}v=1$, an exact spectral-rectangle inequality, and a short Eisenstein-norm contradiction. All finite arithmetic is integer or rational, apart from certified algebraic comparisons, and the accompanying repository reconstructs the certificates from source.
+\end{abstract}
+
+\section{Introduction}
+
+Hadamard's determinant inequality gives $|\det H|\le n^{n/2}$ for an $n\times n$ matrix whose entries have unit modulus. Equality is equivalent to $HH^*=nI$, and restricting the entries to roots of unity leads to the Butson--Hadamard problem \cite{Hadamard1893,Butson1962}. When equality is impossible, the natural D-optimal question is to determine the largest attainable determinant. The classical real problem, with entries in $\{\pm1\}$, has a long history; Orrick's resolution of order 15 is a particularly relevant example of a proof that first narrows the possible Gram matrices and then rules out non-decomposable candidates \cite{Orrick2005}.
+
+The analogous problem over third roots of unity has only recently been developed systematically. Nu\~nez Ponasso introduced general bounds and constructions and determined the exact maximal determinant over $\muThree$ for all orders $n<14$ \cite{NunezPonasso2025}. In the same work, the largest known order-15 value is recorded as
+\[
+ \frac{|\det H|^2}{3^{14}}=2^{22}3^6\cdot19,
+\]
+with maximality left open. Thus the squared determinant is precisely
+\[
+ B=2^{22}3^{20}19=\Brec.
+\]
+The purpose of this paper is to close that order-15 case.
+
+There is a genuine arithmetic obstruction at order 15. A $BH(15,3)$ matrix does not exist; this is consistent with known non-existence results for generalized Hadamard matrices \cite{deLauney1984}. Consequently the Hadamard bound $15^{15/2}$ cannot be met. The extremal value found below has ratio
+\[
+ \frac{120932352\sqrt{19}}{15^{15/2}}
+ =0.7965900126\ldots
+\]
+to the Hadamard bound, close to the roughly $80\%$ scale suggested by numerical searches.
+
+Our proof follows the Gram-matrix philosophy, but the third-root setting adds useful arithmetic structure. Writing $G=HH^*$, the off-diagonal entries lie in $\Eis$, their norms obey strong congruences determined by row colors, and the determinant is itself an Eisenstein norm. These restrictions divide the problem into finitely many energy shells. Most shells are eliminated by structural determinant bounds. The remaining cases are sufficiently rigid that exact finite enumeration is practical.
+
+The computation is designed as a certificate rather than as a search for a large determinant. The benchmark matrix supplies the lower bound; every program in the proof is used only to exclude a strictly larger value. In particular, passing a numerical optimizer or reproducing a historical "closed" label plays no role. The repository contains source generators, exact verifiers, a single full replay entry point, and a compact final ledger.
+
+\paragraph{Main result.}
+\begin{theorem}\label{thm:main}
+For every $H\in\muThree^{15\times15}$,
+\[
+ |\det H|^2\le 2^{22}3^{20}19.
+\]
+Equality is attained. Hence
+\[
+ \max_{H\in\muThree^{15\times15}} |\det H|
+ =120932352\sqrt{19}.
+\]
+\end{theorem}
+
+We do not classify all matrices attaining equality, and we do not claim uniqueness under monomial equivalence. The external classification result $B_3(15,10)=12$ from Todorov--Bogdanova \cite{TodorovBogdanova2020} is used as a theorem; its code classification is not reproduced here.
+
+\section{Eisenstein arithmetic and Gram energy}\label{sec:prelim}
+
+Let $\omega=e^{2\pi i/3}$, so $\omega^2+\omega+1=0$. For $z=a+b\omega\in\Eis$, write
+\[
+ \norm{z}=z\overline z=a^2-ab+b^2.
+\]
+The units of $\Eis$ are the sixth roots of unity. A positive rational integer $m$ is an Eisenstein norm if and only if every rational prime $p\equiv2\pmod3$ occurs to an even exponent in the factorization of $m$. We use this criterion repeatedly as an exact sieve.
+
+For $H\in\muThree^{15\times15}$ set
+\[
+ G=HH^*,\qquad K=H^*H,
+\]
+so that $G,K$ are positive semidefinite Hermitian matrices with diagonal entries 15 and the same multiset of eigenvalues. In particular
+\[
+ \det G=\det K=|\det H|^2.
+\]
+Define the Gram energy
+\begin{equation}\label{eq:Q}
+ Q=\sum_{1\le i<j\le15}|G_{ij}|^2.
+\end{equation}
+Then
+\begin{equation}\label{eq:trace2}
+ \tr G=225,
+ \qquad
+ \tr G^2=3375+2Q.
+\end{equation}
+This single integer $Q$ is the global organizing parameter of the proof.
+
+\subsection{Colors and congruences}
+
+Write $H_{ij}=\omega^{e_{ij}}$ with $e_{ij}\in\{0,1,2\}$ and define the row color
+\[
+ r_i=\sum_{j=1}^{15}e_{ij}\pmod3.
+\]
+Let $\delta=1-\omega$. Expanding $\omega^t$ modulo the ideal $(3)$ gives the congruence
+\begin{equation}\label{eq:colorcong}
+ G_{ij}\equiv (r_j-r_i)\delta\pmod{(3)}.
+\end{equation}
+Thus a nonzero same-color inner product has norm divisible by 9, whereas a different-color inner product has norm congruent to 3 modulo 9 and in particular has norm at least 3. The analogous statement holds for column colors and $K$.
+
+The color counts also force
+\begin{equation}\label{eq:qmod}
+ Q\equiv0\ \text{or}\ 6\pmod9.
+\end{equation}
+Together with the large-energy determinant bound below, this reduces the proof to the 38 shells
+\begin{align*}
+ \Qset=\{&0, 6, 9, 15, 18, 24, 27, 33, 36,42, 45, 51, 54, 60, 63, 69, 72, 78, 81,\\
+ &87,90,96,99,105,108,114,117,123,126,132,135,141,144,150,153,159,162,168\}.
+\end{align*}
+
+A second consequence of the code result of Todorov--Bogdanova is crucial.
+\begin{proposition}[Todorov--Bogdanova]\label{prop:code}
+A set of pairwise orthogonal rows in $\muThree^{15}$ has size at most 12.
+\end{proposition}
+\begin{proof}
+After dephasing one row, orthogonality of a pair of third-root rows is equivalent to the ratio word having each symbol five times, hence Hamming distance 10. Therefore 13 pairwise orthogonal rows would give a ternary equidistant $(15,13,10)_3$ code, contradicting $B_3(15,10)=12$ from Proposition 14 and Table 1 of \cite{TodorovBogdanova2020}.
+\end{proof}
+
+\subsection{A trace--variance determinant envelope}
+
+Let $A\succeq0$ be $m\times m$ with trace $T$ and squared trace $S=\tr A^2$. Among positive spectra with these two moments, the product is maximized at a spectrum with at most two distinct values, one of multiplicity $m-1$. Writing
+\[
+ d=\sqrt{\frac{mS-T^2}{m-1}},\qquad
+ x=\frac{T-d}{m},\qquad y=\frac{T+(m-1)d}{m},
+\]
+one obtains the stationary envelope
+\begin{equation}\label{eq:stationary}
+ \det A\le x^{m-1}y.
+\end{equation}
+We evaluate this inequality with exact rational brackets for every square root. Applied to \eqref{eq:trace2}, it shows that every $Q\ge171$ is already below $B$. Thus only the shells in $\Qset$ require finite analysis.
+
+\section{Structural reduction by color type}\label{sec:color}
+
+The color congruence strongly limits a strict counterexample $|\det H|^2>B$. The only row-color partitions that survive the elementary energy and code bounds are
+\[
+ (15),\qquad(14,1),\qquad(13,2),\qquad(13,1,1),
+\]
+and the same list holds independently for column colors. For $Q\equiv6\pmod9$, only $(14,1)$ or $(13,2)$ occur; for $Q\equiv0\pmod9$, only $(15)$ or $(13,1,1)$ occur.
+
+In the $(14,1)$ case, the 14-row majority block is joined to one minority row by 14 different-color inner products. Hence the cross energy is at least $14\cdot3=42$. In a size-13 majority block, the two remaining rows give two cross columns, so the cross energy is at least $26\cdot3=78$.
+
+A former route attempted to remove internal isolated vertices from the majority support by comparing the orientation of row and column color orbits. That orientation comparison is false after conjugation. The proof presented here retains all isolates explicitly. This point is important because several of the decisive high-shell inequalities gain strength precisely from the inverse-matrix loss contributed by isolated vertices.
+
+\section{Componentwise Schur bounds}\label{sec:schur}
+
+Suppose the majority-color principal block is a direct sum of connected Gram components $A_i$ of sizes $v_i$ and internal energy $9u_i$, with isolated vertices represented by $(v_i,u_i)=(1,0)$. Let
+\[
+ \det A_i\le D_i,
+ \qquad
+ \lambda_{\max}(A_i)\le L_i.
+\]
+The finite component catalogues provide exact or certified rational values for $D_i$ and $L_i$ in the required range.
+
+\subsection{The $(14,1)$ bound}
+
+Let $c$ denote the total cross energy. If $u$ is the cross vector, then on component $i$ its squared norm is at least $3v_i$. Since
+$u^*A_i^{-1}u\ge\|u_i\|^2/L_i$, assigning every excess unit $c-42$ to the component with largest $L_i$ gives the weakest valid correction. Thus
+\begin{equation}\label{eq:s14}
+ s_{14}=\sum_i\frac{3v_i}{L_i}+\frac{c-42}{\max_i L_i}
+\end{equation}
+and Schur complementation yields
+\begin{equation}\label{eq:bound14}
+ \det G\le \left(\prod_iD_i\right)\max\{0,15-s_{14}\}.
+\end{equation}
+
+\subsection{The size-13 two-hub bound}
+
+Let $A$ be the 13-row majority block, let $U=[u\ v]$ be the two cross columns and let $g$ be the inner product of the two outside rows, with $h=|g|^2$. Put
+\[
+ U^*A^{-1}U=
+ \begin{pmatrix}x&z\\\overline z&y\end{pmatrix},
+ \qquad s=x+y.
+\]
+Cauchy--Schwarz gives $|z|\le\sqrt{xy}\le s/2$. Therefore the determinant of the $2\times2$ Schur complement is at most
+\begin{equation}\label{eq:twohub}
+ \left(15-\frac{s}{2}\right)^2-
+ \max\left\{0,|g|-\frac{s}{2}\right\}^2.
+\end{equation}
+As in the one-hub case,
+\begin{equation}\label{eq:s13}
+ s\ge s_{13}:=\sum_i\frac{6v_i}{L_i}+\frac{c-78}{\max_iL_i}.
+\end{equation}
+The right side of \eqref{eq:twohub} decreases on the relevant interval, so inserting $s_{13}$ and a rational lower bound for $\sqrt h$ gives a certified determinant upper bound.
+
+If the majority block has many internal isolates, rank alone gives additional 15-eigenvalues of the whole Gram matrix. These are combined with \eqref{eq:stationary}; the program always takes the stronger certified bound.
+
+\subsection{Component determinant bounds}
+
+For a component $A=15I+E$ of size $v$ and energy $9u$,
+\begin{equation}\label{eq:lmaxbasic}
+ \lambda_{\max}(A)\le15+\sqrt{18u(v-1)/v}.
+\end{equation}
+If the support clique number is at most $k$, a weighted Motzkin--Straus argument improves this to
+\begin{equation}\label{eq:lmaxclique}
+ \lambda_{\max}(A)\le15+\sqrt{18u(1-1/k)}.
+\end{equation}
+Tree components are evaluated exactly from their matching polynomials. General small components are enumerated up to isomorphism, including all admissible Eisenstein edge norms and phase orbits.
+
+For denser residual components we also use a logarithmic fourth-moment estimate. Let $W$ be the weighted triangle sum and let $d\ge\rank E$. From
+\[
+ \tr E^2=18u,
+ \qquad \tr E^3\le162W,
+ \qquad \tr E^4\ge\frac{(18u)^2}{d},
+\]
+and the fourth-order upper Taylor bound for $\log(1+x)$, one obtains
+\begin{equation}\label{eq:logdet}
+ \det(15I+E)
+ \le15^v\exp\left(
+ -\frac{u}{25}+\frac{2W}{125}-\frac{3u^2}{125Ld}
+ \right),
+\end{equation}
+where $L$ is an upper bound for $\lambda_{\max}(A)$. The exponential is replaced in the verifier by a rational truncated-series bound. No floating-point comparison is used to exclude a case.
+
+\section{Closing 35 of the 38 finite shells}\label{sec:35}
+
+This section records the proof architecture for all shells other than $96,99,105$, which are treated separately in \cref{sec:lastthree}. The detailed finite objects are reconstructed by the repository; the propositions below specify the mathematical coverage of those computations.
+
+\subsection{The low-energy range}
+
+\begin{proposition}\label{prop:low}
+No strict counterexample occurs for
+\[
+ Q\in\{0, 6, 9, 15, 18, 24, 27, 33, 36,42, 45, 51, 54, 60, 63, 69, 72, 78, 81\}.
+\]
+\end{proposition}
+\begin{proof}[Certificate description]
+For each shell the support graph of nonzero off-diagonal Gram entries is enumerated subject to \eqref{eq:colorcong}, positive definiteness, and the exact norm catalogue for sums of 15 third roots. Trees and small connected supports are reduced to graph-isomorphism representatives; edge phases are normalized along spanning trees and the remaining chord phases are enumerated. Every candidate determinant is evaluated in $\Eis$ by fraction-free elimination. The shells $42,51,60,69,78,81$ also use \cref{prop:code} to exclude 13-row zero-internal-energy configurations. The verifier independently checks the benchmark arithmetic, the Gram catalogue, all graph supports used by the low-energy proof, and each shell status. No shell is marked closed solely by a stored label.
+\end{proof}
+
+\subsection{Six mixed-color shells by uniform Schur bounds}
+
+Applying \eqref{eq:bound14} and \eqref{eq:twohub} to every component configuration gives the following record-level maxima. Values shown are decimal renderings of exact rational bounds.
+\begin{center}
+\begin{tabular}{c@{\qquad}c@{\qquad}c}
+\toprule
+$Q$ & size-13 upper$/B$ & $(14,1)$ upper$/B$\\
+\midrule
+123 & 0.965876 & 0.984599\\
+132 & 0.943734 & 0.979425\\
+141 & 0.922622 & 0.971827\\
+150 & 0.896802 & 0.963220\\
+159 & 0.877307 & 0.939258\\
+168 & 0.856213 & 0.919227\\
+\bottomrule
+\end{tabular}
+\end{center}
+All internal isolates are included. Thus these six complete shells are closed.
+
+\subsection{The intertwining identity and pure-color blocks}
+
+When all rows have the same color, write
+\[
+ T=(G-15I)/3,
+ \qquad
+ S=(K-15I)/3.
+\]
+Then
+\begin{equation}\label{eq:intertwine}
+ TH=HS.
+\end{equation}
+If $T$ has $r$ isolated support vertices, the corresponding $r$ rows of $H$ are orthogonal and lie in $\ker S$. Hence
+\begin{equation}\label{eq:kernelproj}
+ 15(P_{\ker S})_{jj}\ge r\qquad(1\le j\le15).
+\end{equation}
+A support leaf forces the adjacent coordinate to vanish in every kernel vector, contradicting \eqref{eq:kernelproj} whenever the opposite side has isolates. This gives a two-sided projection/rank sieve without identifying the row and column supports.
+
+The sieve, together with the component bounds, closes the pure-color parts of $Q=135, 144, 153, 162$. It also reduces $Q=117$ and $126$ to very low rank. Since $T$ is Hermitian over $\Eis$, its characteristic polynomial has real Eisenstein-integer coefficients and therefore integer coefficients. If $\rank T\le d$, then
+\begin{equation}\label{eq:detlattice}
+ \det G=15^{15-d}3^dR,
+ \qquad R\in\mathbb Z.
+\end{equation}
+For $Q=126$, the only residual configuration has $d\le4$; \eqref{eq:detlattice} and the determinant envelope restrict $R$ to $397,398,399,400,401$, and none of the five corresponding determinants is an Eisenstein norm. For $Q=117$, the remaining rank-four and rank-five characteristic polynomials form finite integer families. Exact real-root isolation eliminates every polynomial compatible with $D>B$ and the norm condition. This closes both shells.
+
+\subsection{A one-edge defect obstruction and two-sided rank signatures}
+
+The $Q=87$ reduction, and part of the later $Q=105$ reduction, use a small structural fact that is useful enough to state separately.
+
+\begin{lemma}[One-edge size-13 defect]\label{lem:defect}
+There do not exist 13 vectors in $\muThree^{15}$ whose Gram matrix has exactly one nonzero off-diagonal pair and for which that inner product has norm $9$.
+\end{lemma}
+\begin{proof}
+Assume that 12 of the rows are mutually orthogonal and collect them in a $12\times15$ matrix $R$. After permitted row and column monomial operations, the unique row paired non-orthogonally with the thirteenth row may be taken to be $\mathbf 1$, with inner product $3s$, $s\in\{\pm1\}$. Put
+\[
+ M=15I-R^*R.
+\]
+Then $M\succeq0$, $\rank M=3$, every diagonal entry is 3, and $M^2=15M$. Its off-diagonal entries are Eisenstein integers of norms $0,3,$ or $9$. Group the 15 columns of a rank-three factor of $M$ by complex line. If the distinct unit line representatives are $v_i\in\mathbb C^3$ with positive multiplicities $m_i$, then
+\[
+ \sum_i m_i v_iv_i^*=5I.
+\]
+For two distinct lines, $|\langle v_i,v_j\rangle|^2$ is either $0$ or $1/3$. Let $O$ be the graph joining orthogonal line pairs. The tight-frame identity implies $Om=2m$. On every connected component $C$, the weighted frame operator is therefore scalar,
+\[
+ \sum_{i\in C}m_iv_iv_i^*=(M_C/3)I,
+ \qquad M_C=\sum_{i\in C}m_i.
+\]
+The Gram matrix of the line projections is $(2I-O_C+J)/3$. Perron--Frobenius gives $2I-O_C\succeq0$ with one-dimensional positive kernel, hence the projection Gram is positive definite. It embeds in the nine-dimensional real vector space of $3\times3$ Hermitian matrices, so every connected component has at most nine line vertices.
+
+The connected graphs with spectral radius 2 that are needed here can be obtained directly. A component containing a cycle is a cycle unless attaching anything raises the Perron root; a vertex of degree at least four gives the four-leaf star; and a tree with maximum degree three is determined by its branching vertices. With one branching vertex the three arm lengths $(a,b,c)$ satisfy
+\[
+ \frac1{a+1}+\frac1{b+1}+\frac1{c+1}=1,
+\]
+leaving $(2,2,2),(1,3,3),(1,2,5)$; with two branching vertices the minimal two-branch configuration already has spectral radius 2 and no further attachment is possible. This finite list is what the verifier checks.
+
+For the primitive positive integer multiplicity vector on any such component, the line Gram relation implies that its total mass is divisible by 3. The only possible component masses below 15 are therefore $3,6,9,12,15$; mass 15 can occur only as three mutually orthogonal directions of multiplicity five.
+
+Finally write $z=h-(s/5)\mathbf1$, where $h$ is the thirteenth row. The vector $z$ lies in the three-dimensional complement spanned by the rank-three factor of $M$. The three possible coordinate values of $5z_j=5h_j-s$ are pairwise not sixth-root multiples, so each line class contains only one symbol of $h$. The tight-frame identity forces the symbol count in each connected component to be $7M_C/15$ when $s=1$, or $M_C/5$ when $s=-1$. Hence every component mass is divisible by 5 as well as 3, so it must be 15. The resulting symbol counts are multiples of 5, contradicting the required total count 7 (for $s=1$) or 3 (for $s=-1$). Thus the assumed configuration cannot exist.
+\end{proof}
+
+For double-$(14,1)$ configurations we also need a two-sided consequence of the intertwining identity. Let the row-side majority support have $r$ isolates, let its non-isolated normalized block have kernel dimension $k$ and kernel support on at most $t$ coordinates; use $R,K,T$ for the corresponding column-side quantities. Comparing the isolated rows and columns through $(G-15I)H=H(K-15I)$ gives the necessary conditions
+\begin{equation}\label{eq:rank-signature}
+ r+k=R+K,
+ \qquad
+ r(15-R-T)\le15,
+ \qquad
+ r(15-R)\le15(K+1),
+\end{equation}
+and the same inequalities with the two sides reversed. The first is nullity matching. For the second, outside the kernel-support coordinates the normalized isolated rows are forced to be proportional, so their restriction has rank one and Frobenius norm squared $r(15-R-T)$, bounded by its single singular value squared $\le15$. For the third, restriction to the non-isolated block plus the minority coordinate has rank at most $K+1$, while every singular value squared is at most 15. The finite rank-signature catalogue applies \eqref{eq:rank-signature} in both directions; no identification of row and column phase orbits is assumed.
+
+\subsection{Three exceptional shells}
+
+At $Q=114$ the general bounds leave one abstract Gram orbit with
+\[
+ D_*=278010073125000000>B.
+\]
+The residual core is $12I_4+3J_4$ with ten isolates. The 12-eigenspace of the full Gram matrix is supported only on the four core coordinates and consists of two difference directions. If both row and column Grams arose from a flat matrix $H$, \eqref{eq:intertwine} would force a corresponding pair of columns to agree up to a common phase on 11 coordinates. Their inner product would then have modulus at least $11-4=7$, whereas the prescribed Gram entry has modulus 3. Hence the candidate is not decomposable.
+
+For $Q=87$, a separate defect lemma excludes a size-13 majority block whose internal support consists of exactly one norm-9 edge. The proof studies the rank-three complement of 12 mutually orthogonal rows, classifies the necessary spectral-radius-two line graph, and uses a divisibility contradiction in the component masses. The remaining double-$(14,1)$ configurations are eliminated by exact two-sided rank signatures derived from \eqref{eq:intertwine}.
+
+For $Q=90$, the pure-color catalogue leaves two possible characteristic polynomials. Both consist of five $K_2$ components and one five-vertex component. The $5\times10$ cross rectangle between the five-vertex component and the opposite ten $K_2$ coordinates has Frobenius norm squared 50, while the common-spectrum Sylvester equation forces rank at most two and the block spectral bound gives strictly less than 48. This contradiction closes the shell.
+
+At $Q=108$, the only size-13 residual internal energy is 18. Exact two-hub enumeration of $P_3$ and $2K_2$ cores, including the complete third-root phase ratios on the isolated coordinates, places every determinant below $B$. The pure-color side is handled by an extended support/phase catalogue through 12 energy units and the kernel-projection sieve \eqref{eq:kernelproj}. Together these close $Q=108$.
+
+Combining the preceding arguments with \cref{prop:low} proves all 35 shells except $96,99,105$.
+
+\section{The final shells $Q=96,99,105$}\label{sec:lastthree}
+
+The component bounds and the defect lemma first reduce all three shells to the same size-13 structure: internal energy 18, cross energy 78, and outside-pair norm respectively $0,3,9$. The internal support is either $P_3$ plus ten isolates or $2K_2$ plus nine isolates. We now explain the exact decomposition test and the shell-specific arguments.
+
+\subsection{The column equation}
+
+\begin{lemma}[Column equation]\label{lem:col}
+If a positive definite Gram matrix $G$ is realized as $G=HH^*$ by an invertible matrix $H\in\muThree^{15\times15}$, then every column $v$ of $H$ satisfies
+\begin{equation}\label{eq:col}
+ v^*G^{-1}v=1.
+\end{equation}
+Consequently, if
+\[
+ \mathcal C(G)=\{v\in\muThree^{15}:v^*G^{-1}v=1\}
+\]
+has complex linear span of dimension less than 15, then $G$ is not realizable.
+\end{lemma}
+\begin{proof}
+From $G=HH^*$ and invertibility,
+$H^*G^{-1}H=I$. The diagonal equations are exactly \eqref{eq:col}. If all admissible columns lie in a proper subspace, 15 of them cannot form an invertible matrix.
+\end{proof}
+
+Multiplication of a column by a common third root leaves \eqref{eq:col} unchanged, so the first coordinate may be fixed to 1. For each candidate we therefore enumerate exactly $3^{14}=4,782,969$ normalized vectors. Clearing denominators converts \eqref{eq:col} to an equality in $\Eis$ with integer coefficients.
+
+The certificate uses two independent complete implementations. One updates the quadratic form incrementally as a ternary counter changes a coordinate; the other recomputes all 105 off-diagonal pair contributions for every vector. They return identical ordered lists for every candidate. When the span has rank below 15, the verifier also emits a nonzero $w\in\Eis^{15}$ satisfying $w^*v=0$ for every admissible column, so exclusion does not rest on a floating-point rank computation.
+
+After exact normalization of the $P_3$ and $2K_2$ families, determinant, divisibility, and Eisenstein-norm sieves leave 142 Gram representatives: 64 for $Q=96$, 67 for $Q=99$, and 11 for $Q=105$. Of these, 141 have admissible-column span below 15.
+
+\subsection{$Q=105$: an analytic contradiction for the last Gram}
+
+The single size-13 candidate not eliminated by \cref{lem:col} can be written
+\begin{equation}\label{eq:Gstar}
+ G_*=\begin{pmatrix}A&z&z\\z^*&15&3\\z^*&3&15\end{pmatrix},
+ \quad
+ A=\operatorname{diag}(C,C,15I_9),
+ \quad
+ C=\begin{pmatrix}15&3\\3&15\end{pmatrix},
+ \quad
+ z=\delta\mathbf1_{13}.
+\end{equation}
+It has determinant $281238577200000000>B$ and therefore requires a genuine decomposition obstruction.
+
+Let a possible column be
+\[
+ (a,b,c,d,p_1,\ldots,p_9,u,v_0)^T\in\muThree^{15},
+ \quad s=a+b+c+d,
+ \quad P=\sum_{j=1}^9p_j.
+\]
+An exact inverse calculation gives
+\begin{equation}\label{eq:q105form}
+ v^*G_*^{-1}v
+ =x^*A^{-1}x
+ +\frac{15}{392}|u+v_0-2\overline\delta k|^2
+ +\frac1{24}|u-v_0|^2,
+ \qquad
+ k=\frac{s}{18}+\frac{P}{15}.
+\end{equation}
+Suppose both $a\ne b$ and $c\ne d$. Each unequal core pair contributes $11/72$ to $x^*A^{-1}x$, while the other nine coordinates contribute $9/15$, so the first term is $163/180$. If $u\ne v_0$, \eqref{eq:q105form} is at least
+\[
+ \frac{163}{180}+\frac{3}{24}=\frac{371}{360}>1,
+\]
+contradicting \eqref{eq:col}. If $u=v_0$, the column equation instead forces
+\begin{equation}\label{eq:1666}
+ \norm{30\delta u-5s-6P}=1666.
+\end{equation}
+But an Eisenstein norm $a^2-ab+b^2$ is congruent modulo 4 only to $0,1,$ or $3$, while $1666\equiv2\pmod4$. Thus every admissible column obeys
+\begin{equation}\label{eq:pairrestriction}
+ a=b\quad\text{or}\quad c=d.
+\end{equation}
+
+The Gram entries $G_{*,12}=G_{*,34}=3$ imply that each corresponding pair of third-root rows agrees in exactly 7 positions and differs in exactly 8. Condition \eqref{eq:pairrestriction} says that the two difference-position sets are disjoint. They would therefore contain $8+8=16$ distinct columns, impossible in a 15-column matrix. Hence $G_*$ is not realizable. The previously reduced double-$(14,1)$ branch contains no strict counterexample, so $Q=105$ is closed.
+
+\subsection{$Q=96$: the remaining double-$(14,1)$ supports}
+
+Once the size-13 candidates are eliminated, both row and column color types must be $(14,1)$. A 14-vertex majority support without isolates would already require at least seven norm-9 edges, giving energy at least $63+42=105$, so an internal isolate is mandatory.
+
+The exact two-sided rank signatures leave three support types:
+\[
+ P_3+C_4\ \text{with 7 isolates},\qquad
+ C_4\ \text{with 10 isolates},\qquad
+ K_{2,3}\ \text{with 9 isolates}.
+\]
+All admissible edge norms, sixth-root Gram phases, and cross-energy placements are enumerated. The three families contain 7776, 4536, and 1296 normalized phase/cross states respectively. Only the first family leaves determinants above $B$ after the norm sieve, producing 52 Gram representatives. Each of the 52 has admissible-column span of dimension at most 9 under \cref{lem:col}, with an explicit exact annihilator. Therefore $Q=96$ is closed.
+
+\subsection{$Q=99$: the spectral rectangle inequality}
+
+After the 67 size-13 candidates are eliminated, both Gram matrices are pure-color. With $T=(G-15I)/3$ and $S=(K-15I)/3$, the relation $TH=HS$ is available. Complete support generation gives no surviving isolate case after the two-sided kernel-projection test. In the no-isolate case, the determinant and norm filters leave 14 component--spectrum decompositions and 16 unordered pairs with equal total spectrum.
+
+The final obstruction is a strengthened exact Sylvester-rectangle bound.
+\begin{lemma}[Spectral rectangle]\label{lem:rectangle}
+Let $I$ and $J$ be unions of complete connected components of $T$ and $S$, respectively, and put $X=H_{I,J}$. If
+\[
+ p(x)=\gcd(\chi_{T_I}(x),\chi_{S_J}(x))
+ =x^d+c_1x^{d-1}+\cdots,
+\]
+then
+\begin{equation}\label{eq:rectangle}
+ |I|\,|J|=\|X\|_F^2\le15d-3c_1.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The component unions are invariant, hence $T_IX=XS_J$. In orthogonal spectral decompositions, $X$ is zero between distinct eigenvalues. For a common eigenvalue $\lambda$, the corresponding block has rank at most the smaller multiplicity, and $XX^*\preceq G_I=15I+3T_I$ bounds every squared singular value in that block by $15+3\lambda$. Summing over common eigenvalues with minimum multiplicity gives
+\[
+ \|X\|_F^2\le15d+3\sum\lambda=15d-3c_1.
+\]
+Every entry of $H$ has modulus one, so $\|X\|_F^2=|I||J|$.
+\end{proof}
+
+For each of the 16 spectrum pairs, exhaustive enumeration of nonempty component unions finds an exact violation of \eqref{eq:rectangle}. The three pairs that survive the weaker uniform-eigenvalue bound yield, respectively,
+\[
+ 40\le30,
+ \qquad20\le18,
+ \qquad36\le30,
+\]
+with common factors $x^2-1$, $x-1$, and $x^2-1$. Hence all 16 pairs are impossible and $Q=99$ is closed.
+
+\section{Completion of the global proof}\label{sec:global}
+
+We can now assemble the finite and infinite parts.
+\begin{proposition}\label{prop:all-shells}
+If $H\in\muThree^{15\times15}$ satisfies $|\det H|^2>B$, then no value of the energy $Q$ is possible.
+\end{proposition}
+\begin{proof}
+The color congruence gives $Q\equiv0$ or $6\pmod9$, and the trace--variance envelope excludes $Q\ge171$. Thus $Q\in\Qset$. The 19 low shells are excluded by \cref{prop:low}; the 16 intermediate/high shells listed in \cref{sec:35} are excluded by the component, projection, rank, characteristic-polynomial, and decomposition certificates; and the remaining $Q=96,99,105$ shells are excluded in \cref{sec:lastthree}. These sets partition $\Qset$.
+\end{proof}
+
+The benchmark matrix $H_0$ in Appendix~\ref{app:benchmark} has
+\[
+ \det H_0=604661760+241864704\omega,
+\]
+whose Eisenstein norm is exactly $B$. Its determinant has been independently checked by Eisenstein Bareiss elimination, rational Gaussian elimination after embedding, and direct computation of $\det(H_0H_0^*)$. Therefore Proposition~\ref{prop:all-shells} and the benchmark prove Theorem~\ref{thm:main}.
+
+\section{Computer-assisted certificate and reproducibility}\label{sec:repro}
+
+The computational part is finite and exact. The proof repository is
+\[
+ \texttt{https://github.com/ddy314/order15-mu3-maxdet}.
+\]
+The public replay command is
+\begin{verbatim}
+python -m pip install -r proof/requirements.txt
+python proof/run_final.py
+\end{verbatim}
+with Python assertions enabled. Generated catalogues and logs are intentionally excluded from version control; they are reconstructed by the replay.
+
+The certificate architecture has three layers. The baseline verifier reconstructs arithmetic, low-energy supports, and the first 19 shells. The intermediate layer regenerates component determinant catalogues, rank/kernel signatures, pure-color support catalogues, and the 16 additional shells. The final layer regenerates all $Q=96,99,105$ candidates and their decomposition obstructions. The final aggregator succeeds only if all 38 finite shells are certified and the large-$Q$ tail has already been excluded.
+
+For the last three shells, 194 Gram representatives are subjected to two independent complete column-equation scans. Each scan checks $3^{14}=4,782,969$ normalized columns per Gram, or 927,895,986 vector assignments across the 194 candidates. The two algorithms agree exactly on every list of admissible columns. Of these 194 Gram matrices, 193 are accompanied by a nonzero Eisenstein annihilator of the complete admissible-column set. The remaining Gram is $G_*$ in \eqref{eq:Gstar}, excluded analytically by \eqref{eq:1666} and the $16>15$ counting contradiction.
+
+The largest phase catalogue used earlier in the proof contains 15,899,506 exact phase states for the $Q=108$ pure-color reduction. These counts refer to normalized finite states, not to inequivalent original matrices $H$. Graph isomorphism is used only after a constructive coverage argument: every target connected support has a spanning tree, and all admissible extra edges, norms, and residual phases are then enumerated.
+
+Integer acceleration is guarded by explicit magnitude bounds, while independent arbitrary-precision checks verify representative and final identities. Determinant decisions use integer or rational arithmetic, Eisenstein norm factorization, or exact real-root isolation. Decimal ratios in the paper are descriptive only.
+
+\section{Discussion}\label{sec:discussion}
+
+The result fills the order-15 entry that was still marked as lacking a maximality proof in the 2025 table of Nu\~nez Ponasso \cite{NunezPonasso2025}. Methodologically, the proof is close in spirit to Orrick's order-15 real determinant computation \cite{Orrick2005}: a strong analytic reduction produces a small family of Gram candidates, after which decomposability becomes the decisive issue. In the third-root setting, Eisenstein congruences and norm arithmetic replace some of the parity structure available over $\{\pm1\}$.
+
+Two features may be useful beyond this isolated order. First, the componentwise Schur bounds retain isolated vertices rather than discarding them by an orientation argument; this turns sparsity into an inverse-matrix loss that can dominate the determinant. Second, the spectral rectangle inequality \eqref{eq:rectangle} uses the trace of the common spectral part rather than only its dimension, and therefore strengthens the usual rank bound for flat intertwining matrices. Both statements are independent of the numerical value $B$ and can be reused in other finite-order searches.
+
+The main limitation is equally clear. This paper determines a single order and does not establish a uniform asymptotic gap from the Hadamard bound for an infinite family. It also depends on a published finite code-classification theorem and on computer-generated finite catalogues. A proof-assistant formalization, an independent reimplementation of the largest catalogue, and a classification of all equality cases are natural follow-up projects.
+
+\appendix
+\section{The benchmark matrix}\label{app:benchmark}
+
+The following exponent matrix $E=(e_{ij})$ encodes the benchmark by $H_{ij}=\omega^{e_{ij}}$:
+\[
+\resizebox{\textwidth}{!}{$
+\begin{pmatrix}
+0&0&1&0&0&0&1&0&2&1&0&2&0&2&0\\
+2&0&0&2&2&1&2&2&0&1&1&2&0&2&1\\
+2&0&1&1&1&0&0&1&1&1&2&2&2&0&1\\
+0&2&2&2&0&0&0&1&0&0&0&1&0&0&1\\
+1&0&2&1&2&2&0&0&0&1&0&2&2&0&2\\
+0&2&0&2&1&1&2&0&1&1&0&0&2&0&0\\
+0&1&0&0&2&1&1&1&0&1&2&1&2&0&0\\
+0&1&2&1&1&2&0&2&1&1&1&1&0&2&0\\
+2&0&1&2&1&2&1&2&0&2&0&1&1&0&0\\
+0&0&0&1&1&0&2&0&0&2&2&1&0&1&2\\
+0&0&0&1&2&2&1&1&1&0&0&0&1&2&1\\
+2&1&0&1&0&1&0&0&2&1&0&1&1&1&1\\
+1&1&1&2&1&2&1&0&0&0&2&0&0&1&1\\
+2&1&0&0&1&2&2&1&2&0&0&2&0&0&2\\
+1&1&0&0&1&0&0&2&0&2&0&0&2&2&1
+\end{pmatrix}
+$}
+\]
+Exact verification gives
+\[
+ \det H_0=604661760+241864704\omega,
+ \qquad
+ \norm{\det H_0}=\Brec.
+\]
+
+\section{Shell ledger}\label{app:shells}
+
+\begin{longtable}{>{\raggedleft\arraybackslash}p{34mm}p{97mm}}
+\toprule
+$Q$ & Principal certificate mechanism\\
+\midrule
+\endfirsthead
+\toprule
+$Q$ & Principal certificate mechanism\\
+\midrule
+\endhead
+0, 6, 9, 15, 18, 24, 27, 33, 36 & Exact low-energy Gram support enumeration, positivity, norm and spectral filters.\\
+42, 45, 51, 54, 60, 63, 69, 72, 78, 81 & Low-energy enumeration; selected zero-internal-energy branches use $B_3(15,10)=12$.\\
+87 & Single-edge size-13 defect lemma plus complete double-$(14,1)$ rank-signature pairing.\\
+90 & Exact pure-color catalogue and spectral rectangle/rank obstruction.\\
+96 & Size-13 column equation; three double-$(14,1)$ support types; 52 residual Grams have column span at most 9.\\
+99 & Size-13 column equation; complete pure-color support catalogue; 16 equal-spectrum pairs fail the spectral rectangle inequality.\\
+105 & Size-13 column equation; final Gram excluded by the Eisenstein norm $1666$ contradiction and disjoint 8+8 difference sets; double-$(14,1)$ strict branch excluded earlier.\\
+108 & Extended pure-color catalogue and exact two-hub energy-18 enumeration.\\
+114 & Exact cross-vector enumeration; unique residual abstract Gram fails the 12-eigenspace flatness condition.\\
+117 & Kernel-projection rank reduction and exact integer characteristic-polynomial real-root sieve.\\
+123, 132, 141, 150, 159, 168 & Complete componentwise Schur bounds, retaining all internal isolates.\\
+126 & Rank-four determinant lattice and Eisenstein norm sieve.\\
+135, 144, 153, 162 & Component bounds plus two-sided kernel projection, rank and moment bounds.\\
+\bottomrule
+\end{longtable}
+
+\section{Scope of the computation}\label{app:scope}
+
+The theorem depends on three kinds of statements. First are ordinary analytic and algebraic lemmas proved in the text, including the color congruence, moment envelope, Schur bounds, column equation, the $Q=105$ norm contradiction, and the spectral rectangle inequality. Second are finite enumeration completeness statements: graph supports are generated from spanning trees and extra edges, edge norms from the exact length-15 inner-product catalogue, and residual phases from finite unit orbits. Third are exact certificate checks evaluating the resulting candidates. The replay reconstructs the second and third layers rather than trusting stored positive outputs.
+
+The published theorem $B_3(15,10)=12$ is the only external finite classification used as a black box. Replacing it by an independently verified classification would make the computation completely self-contained apart from standard algebraic facts.
+
+\small
+\begin{thebibliography}{99}
+\bibitem{Hadamard1893} J.~Hadamard, "R\'{e}solution d'une question relative aux d\'{e}terminants," \emph{Bull. Sci. Math.} 17 (1893), 240--246.
+\bibitem{Butson1962} A.~T.~Butson, "Generalized Hadamard matrices," \emph{Proc. Amer. Math. Soc.} 13 (1962), 894--898. doi:10.1090/S0002-9939-1962-0142557-0.
+\bibitem{Cohn1996} J.~H.~E.~Cohn, "Complex D-optimal designs," \emph{Discrete Math.} 156 (1996), 237--241. doi:10.1016/0012-365X(96)00035-0.
+\bibitem{deLauney1984} W.~de Launey, "On the non-existence of generalised Hadamard matrices," \emph{J. Statist. Plann. Inference} 10 (1984), 385--396. doi:10.1016/0378-3758(84)90062-4.
+\bibitem{Orrick2005} W.~P.~Orrick, "The maximal $\{-1,1\}$-determinant of order 15," \emph{Metrika} 62 (2005), 195--219. doi:10.1007/s00184-005-0410-3.
+\bibitem{TodorovBogdanova2020} T.~Todorov and G.~Bogdanova, "Ternary equidistant codes of length $11\le n\le15$," \emph{J. Math. Comput. Sci.} 10 (2020), 2713--2721. doi:10.28919/jmcs/4964.
+\bibitem{NunezPonasso2025} G.~Nu\~nez Ponasso, "Maximal determinants of matrices over the roots of unity," \emph{Linear Algebra Appl.} 723 (2025), 201--243. doi:10.1016/j.laa.2025.05.024; arXiv:2503.11114.
+\end{thebibliography}
+\normalsize
+\end{document}

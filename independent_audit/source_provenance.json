@@ -1,6 +1,0 @@
-{
-  "source_upload": "order15_mu3_Q87-150_bundle.zip",
-  "source_sha256": "d7faefc8e7a9989c5c72b0d84110cafac97162014bdba6fdd9b49265c4d2f0ae",
-  "source_size_bytes": 41461,
-  "reconstruction_note": "Final exports rebuilt from the preserved working directory and rerun audit outputs; no missing certificate is silently promoted to a proof."
-}

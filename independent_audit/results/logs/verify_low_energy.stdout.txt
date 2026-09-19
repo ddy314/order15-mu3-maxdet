@@ -1,9 +1,0 @@
-Q 0 VERIFIED_CLOSED assemblies 1 norm survivors 0 final 0
-Q 9 VERIFIED_CLOSED assemblies 0 norm survivors 0 final 0
-Q 18 VERIFIED_CLOSED assemblies 0 norm survivors 0 final 0
-Q 27 VERIFIED_CLOSED assemblies 0 norm survivors 0 final 0
-Q 36 VERIFIED_CLOSED assemblies 1 norm survivors 0 final 0
-Q 45 VERIFIED_CLOSED assemblies 1 norm survivors 1 final 0
-Q 54 VERIFIED_CLOSED assemblies 7 norm survivors 1 final 0
-Q 63 VERIFIED_CLOSED assemblies 15 norm survivors 1 final 0
-Q 72 VERIFIED_CLOSED assemblies 58 norm survivors 1 final 0

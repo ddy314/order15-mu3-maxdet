@@ -1,4 +1,0 @@
-large graphs {'v': 8, 'extra_edge_sets': 32011, 'passing_degree': 3503, 'nonisomorphic_graphs': 84}
-large graphs {'v': 9, 'extra_edge_sets': 7588, 'passing_degree': 196, 'nonisomorphic_graphs': 17}
-large graphs {'v': 10, 'extra_edge_sets': 36, 'passing_degree': 1, 'nonisomorphic_graphs': 1}
-pure catalogue 29402 types 531268 states 6.13559654200003 s

@@ -1,2 +1,0 @@
-NEWLY CLOSED: [96, 99, 105]
-COMPLETE: 38/38; infinite tail verified; maximum squared determinant = 277868041444786176

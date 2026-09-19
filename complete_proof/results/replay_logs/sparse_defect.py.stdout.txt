@@ -1,1 +1,0 @@
-One norm9 defect excluded for both signs; allowed component masses [3, 6, 9, 12, 15]

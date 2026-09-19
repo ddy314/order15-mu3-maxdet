@@ -1,4 +1,0 @@
-pure90 noisolate types 58 assemblies 74 normaboveB 2 afterprojection 2
-{'isolates': 0, 'polynomial': (1, 0, -10, 0, 40, -1, -85, 5, 105, -10, -76, 10, 30, -5, -5, 1), 'determinant': 288608006862471168, 'over_B': 1.0386513157894737, 'min_kernel': '0', 'types': (0, 0, 0, 0, 0, 30), 'components': [(2, 1), (2, 1), (2, 1), (2, 1), (2, 1), (5, 5)]}
-{'isolates': 0, 'polynomial': (1, 0, -10, 2, 39, -12, -80, 30, 95, -40, -66, 30, 25, -12, -4, 2), 'determinant': 282438239494864896, 'over_B': 1.0164473684210527, 'min_kernel': '0', 'types': (0, 0, 0, 0, 0, 40), 'components': [(2, 1), (2, 1), (2, 1), (2, 1), (2, 1), (5, 5)]}
-pure90 isolate types 1137 assemblies 807 normaboveB 65 afterprojection 0

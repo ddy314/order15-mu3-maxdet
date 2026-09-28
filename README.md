@@ -41,7 +41,7 @@ $$
 The revised manuscript reorganizes the proof around the Gram energy
 
 $$
-Q=\sum_{1\le i<j\le15}|(HH^*)_{ij}|^2,
+Q=\sum_{1\le i<j\le 15}\lvert (H H^{*})_{ij}\rvert^2
 $$
 
 and credits the classical Gram-matrix search strategy of Moyssiadis--Kounias and later maximal-determinant work. The main new structural input is the published difference-matrix classification of Lampio--Östergård, which gives the exact orthogonality capacity $M_3(15)=9$. This is stronger than the ordinary ternary equidistant-code parameter $B_3(15,10)=12$. The exact orthogonality bound reduces the coarse finite energy list from **38 shells to 23**, and directly eliminates many sparse Gram candidates that previously required heavier decomposition tests.
@@ -74,13 +74,13 @@ For this particular maximizer, the largest mutually orthogonal row set has size 
 
 ```mermaid
 flowchart LR
-    A[Known extremizer] --> B[Exact lower bound B]
-    C[Assume det G > B] --> D[Energy and color congruences]
-    D --> E[Sharp M3(15)=9 reduction: 23 shells]
-    E --> F[Schur, component, rank and spectral tests]
-    F --> G[Exact finite certificates]
-    G --> H[No strict improvement]
-    B --> I[Exact maximum]
+    A["Known extremizer"] --> B["Exact lower bound B"]
+    C["Assume det(G) > B"] --> D["Energy and color congruences"]
+    D --> E["Sharp M_3(15)=9 reduction; 23 shells"]
+    E --> F["Schur, component, rank, and spectral tests"]
+    F --> G["Exact finite certificates"]
+    G --> H["No strict improvement"]
+    B --> I["Exact maximum"]
     H --> I
 ```
 

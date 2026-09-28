@@ -1,0 +1,18 @@
+\section{What extends beyond order 15?}\label{sec:generalization}
+The determinant envelope, Schur bounds, projection arguments, and spectral rectangle inequality apply to arbitrary complex unit-modulus matrices, with the order and scaling changed appropriately. Finite Gram search also extends to any fixed finite alphabet: the set of sums of $n$ alphabet products is finite. This remains true even when the full cyclotomic integer ring is not a discrete subset of the chosen complex embedding.
+
+The arithmetic and coding parts require more care. For a prime alphabet, \cref{prop:prime-code} turns orthogonality into a balanced-difference condition, so any upper bound on the corresponding difference-matrix parameter is an obstruction to partial or full Butson matrices. A bound below $n$ proves nonexistence of $BH(n,p)$; it can also remove sparse Gram supports through their independence number. For a composite alphabet the single-character implication fails: $(1,1)$ and $(1,-1)$ are orthogonal fourth-root rows, but their differences are not uniform over $\mathbb Z_4$. Difference matrices over general finite abelian groups are instead characterized by vanishing for \emph{all} nontrivial characters. Coding-theoretic methods are therefore not confined to prime groups, although the particular equivalence used here is.
+
+The order-15 result does not give a uniform gap from Hadamard's bound in an infinite congruence class. A useful quantitative target follows from the same envelope.
+\begin{corollary}\label{cor:gap}
+Let $H_n$ be square unit-modulus matrices and let $Q_n$ be their off-diagonal Gram energies. If $Q_n\ge cn^2$ for a fixed $c>0$, then
+\[
+ \limsup_{n\to\infty}\frac{|\det H_n|}{n^{n/2}}
+ \le\left[(1+\sqrt{2c})e^{-\sqrt{2c}}\right]^{1/2}<1.
+\]
+\end{corollary}
+\begin{proof}
+Apply \cref{thm:envelope} with $m=\mu=n$ and use monotonicity in energy. The lower energy $cn^2$ corresponds to
+$t_n=\sqrt{2cn/(n-1)}\to\sqrt{2c}$. After division by $n^n$, the squared-determinant bound tends to $(1+\sqrt{2c})e^{-\sqrt{2c}}$.
+\end{proof}
+Nonexistence of a Hadamard matrix only says that the energy is nonzero. Even a linear lower bound on the number of nonorthogonal pairs need not give the quadratic energy lower bound in \cref{cor:gap}. Establishing such a bound in a suitable infinite family is a distinct problem; no such claim is made here.

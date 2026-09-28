@@ -1,0 +1,27 @@
+\section{An explicit dephased matrix and its Gram}\label{app:matrix}
+The following matrix $E_d$ encodes $H_d$ by $(H_d)_{ij}=\omega^{(E_d)_{ij}}$. Its first row and first column are zero.
+\[
+\setlength{\arraycolsep}{3.5pt}
+\input{matrix_dephased.tex}
+\]
+Let
+\begin{align*}
+ \pi&=(1,15,2,4,3,5,6,7,8,14,9,12,10,11,13),\\
+ a&=(0,1,1,2,2,0,0,0,2,1,2,1,0,0,0),\\
+ b&=(0,0,2,1,0,1,2,2,0,1,1,0,2,1,0).
+\end{align*}
+Define $(H_c)_{ij}=\omega^{-a_{\pi_i}}(H_d)_{\pi_i,j}\omega^{-b_j}$. Its last row is all ones, its row Gram is exactly $G_c$ in \eqref{eq:canonical-gram}, and
+\[
+ \det H_c=241864704-362797056\omega.
+\]
+For an explicit expression for the Gram of the \emph{displayed dephased} matrix itself, let $P_{i,\pi_i}=1$ and $D=\diag(\omega^{-a_1},\ldots,\omega^{-a_{15}})$. Then
+\begin{equation}\label{eq:dephased-gram}
+ H_dH_d^*=D^*P^TG_cPD.
+\end{equation}
+Equations~\eqref{eq:canonical-gram} and \eqref{eq:dephased-gram}, with the explicit $P,D$ above, specify every Gram entry. The exact verification tool also writes both full Grams as integer pairs $[a,b]$ representing $a+b\omega$.
+
+In the dephased row ordering, row 13 is the hub and the norm-9 matching pairs are
+\[
+ (1,15),\ (2,4),\ (3,5),\ (6,7),\ (8,14),\ (9,12),\ (10,11).
+\]
+Choosing one row from each pair gives every maximum orthogonal row subset. The original, undephased benchmark in the earlier certificate had determinant $604661760+241864704\omega$; the different values after switching are unit associates with the same norm.

@@ -1,0 +1,27 @@
+\section{Proof obligations and executable checks}\label{app:replay}
+The following table identifies the generators and checks used in the revised argument. Paths are relative to \file{proof/}, except for the explicitly marked top-level tools. JSON outputs are reconstructed by the replay.
+\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{37mm}>{\raggedright\arraybackslash}p{107mm}@{}}
+\toprule
+Proof obligation & Executable source and finite coverage\\\midrule
+\endfirsthead
+\toprule Proof obligation & Executable source and finite coverage\\\midrule
+\endhead
+Arithmetic and color partitions & \file{order15_mu3_unified_audit/programs/verify_foundations.py}; all 136 entry triples, exact tail and partition inequalities.\\[3pt]
+Low pure shells & \file{order15_mu3_unified_audit/programs/verify_low_energy.py}, \file{order15_mu3_unified_audit/programs/verify_q81.py}; graph-atlas supports, the explicitly generated larger low-energy graphs, every norm and chord phase, two-sided projection.\\[3pt]
+Component maxima & \file{new/small_catalogue.py}, \file{new/bounds.py}; complete small support maxima, tree bounds, rational moment and eigenvalue bounds.\\[3pt]
+Mixed-color bounds & \file{new/explore.py}; every component cost partition including isolates, one- and two-hub Schur bounds, cross and outside-pair energies.\\[3pt]
+Mixed signatures & \file{new/rank_catalogue.py}, \file{new/mixed_rank_frontier.py}; exact nullity and kernel-support records, all compatible row/column signature pairs.\\[3pt]
+$Q=114$ residual & \file{new/refine_q114.py}, \file{new/cross_exact.py}, \file{new/finalize_high.py}; eight configurations and the full core/cross search. The top-level sharp verifier supplies an independent-set witness for the final Gram.\\[3pt]
+Pure component catalogues & \file{new/pure_catalogue.py}, \file{new/pure_extended.py}; spanning-tree plus extra-edge support generation through the required budgets, all norm placements and chord phases.\\[3pt]
+$Q=90,108$ assemblies & \file{new/pure90_frontier.py}, \file{new/pure108_frontier.py}; both isolate regimes, exact norm and projection tests.\\[3pt]
+$Q=99$ rectangles & \file{last_three/pure99_frontier.py}, \file{last_three/pure99_pairs.py}, \file{last_three/pure99_spectral.py}; 14 residual assemblies, 16 equal-spectrum pairs, all component unions.\\[3pt]
+High pure shells & \file{new/explore_pure.py}, \file{new/projection_frontier.py}, \file{new/cap_exact.py}; component-cost partitions, capped moment extrema, iterative two-sided nullity restrictions.\\[3pt]
+$Q=117,126$ arithmetic & \file{new/spectral_integer.py}, \file{new/finalize_high.py}; bounded integer characteristic coefficients, exact real-root isolation, full-determinant norm tests.\\[3pt]
+Sharp revision checks & top-level \file{tools/verify_sharp_reduction.py}; 38/29/23 energy sets, 194 explicit independent sets, $Q=114$, all residual rectangles, 285 real-root tests, five full-determinant norm obstructions.\\[3pt]
+Witness and automorphisms & top-level \file{tools/verify_structure.py}, \file{tools/matrix_exact.py}, \file{tools/enumerate_aut.cpp}; exact dephasing and Gram arithmetic, Bareiss determinants, all 645120 row candidates, Fano action and group checks.\\\bottomrule
+\end{longtable}
+\normalsize
+The inherited replay remains deliberately unchanged. Some of its output labels still refer to the weaker code bound or to a longer decomposition proof. The revised manuscript uses the stronger implications proved here; the new verifier checks those implications against the same reconstructed finite objects. This separation preserves the older computation for comparison while making the logical dependencies of the revised proof explicit.
+
+\clearpage

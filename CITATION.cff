@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this result or its verification code, please cite the manuscript and this repository."
+title: "The maximal determinant of order 15 over the third roots of unity"
+type: software
+authors:
+  - family-names: Dong
+    given-names: Daoyu
+repository-code: "https://github.com/ddy314/order15-mu3-maxdet"
+date-released: 2026-09-28

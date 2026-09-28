@@ -94,7 +94,7 @@ The article is split into a short entry file and focused section files:
 
 The paper now includes the historical Gram-search background, the sharp orthogonality theorem, the 23-shell reduction, a uniform finite-shell framework, the normalized extremizer and Gram spectrum, the automorphism computation, and a discussion of what generalizes beyond order 15.
 
-Compile with a standard LaTeX installation:
+Compile with a standard LaTeX installation (or simply run **make paper** from the repository root):
 
     cd paper
     pdflatex -interaction=nonstopmode -halt-on-error main.tex
@@ -103,7 +103,7 @@ Compile with a standard LaTeX installation:
 
 ## Verify the result
 
-Python dependencies are pinned in [proof/requirements.txt](proof/requirements.txt). A C++17 compiler is needed only for the complete automorphism enumeration.
+Python dependencies are pinned in [proof/requirements.txt](proof/requirements.txt). A C++17 compiler is needed only for the complete automorphism enumeration. After installing the dependencies, **make verify** is equivalent to running the unified verifier.
 
     python -m venv .venv
     . .venv/bin/activate

@@ -8,6 +8,11 @@ proof/new/*.json
 proof/last_three/*.json
 proof/order15_mu3_unified_audit/results/
 
+# Reconstructed revision artifacts
+data/automorphisms.json
+data/structure_verified.json
+data/sharp_reduction_verified.json
+
 # LaTeX build products (the source is tracked)
 paper/*.aux
 paper/*.log

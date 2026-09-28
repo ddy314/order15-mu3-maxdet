@@ -1,146 +1,128 @@
-# Order-15 maximal determinant over the third roots of unity
+# Maximal determinant of a 15 × 15 matrix over the third roots of unity
 
 [![Exact verification](https://github.com/ddy314/order15-mu3-maxdet/actions/workflows/verify.yml/badge.svg)](https://github.com/ddy314/order15-mu3-maxdet/actions/workflows/verify.yml)
 
-This repository contains a computer-assisted proof of the exact maximal determinant of a $15\times15$ matrix with entries in
+How large can the absolute value of a determinant be when every entry of a 15 × 15 matrix is one of the three complex cube roots of 1?
 
-$$
-\mu_3=\{1,\omega,\omega^2\},\qquad \omega^2+\omega+1=0.
-$$
+This repository contains a mathematical paper, an explicit matrix attaining the maximum, and programs that check the finite calculations in a computer-assisted proof. **The exact maximum is 120932352√19.** The matrix was already known; the contribution here is the proof that no allowed matrix has a larger determinant magnitude.
 
-The main theorem is
+## The problem and the result
 
-$$
-\max_{H\in\mu_3^{15\times15}} |\det H|^2
-=277868041444786176
-=2^{22}3^{20}19,
-$$
+The three allowed entries are 1, ω, and ω², where ω = exp(2πi/3). They lie equally spaced on the complex unit circle and satisfy 1 + ω + ω² = 0. The notation **μ₃** refers to this set; **order 15** means that the matrix has 15 rows and 15 columns.
 
-equivalently
+Because the determinant can be complex, we maximize its absolute value. The theorem is:
 
-$$
-\max |\det H|=120932352\sqrt{19}.
-$$
-
-> **Status.** The maximal value is proved exactly. The repository does **not** claim that the maximizing Hadamard-equivalence class is unique.
-
-## At a glance
-
-| Item | Exact result |
-| --- | --- |
-| Maximum squared determinant | $2^{22}3^{20}19$ |
-| Maximum determinant | $120932352\sqrt{19}$ |
-| Sharp length-15 orthogonality capacity | $M_3(15)=9$ |
-| Finite Gram-energy candidates after the sharp reduction | 23 |
-| Largest orthogonal row subset in the displayed maximizer | 7 rows |
-| Projective monomial automorphism group | order 336, $C_2\times\mathrm{GL}(3,2)$ |
-| Full $\mu_3$-monomial-pair automorphism group | order 1008, $C_6\times\mathrm{GL}(3,2)$ |
-
-## What changed in the September 2026 revision
-
-The revised manuscript reorganizes the proof around the Gram energy
-
-$$
-Q=\sum_{1\le i<j\le 15}\lvert (H H^{*})_{ij}\rvert^2
-$$
-
-and credits the classical Gram-matrix search strategy of Moyssiadis--Kounias and later maximal-determinant work. The main new structural input is the published difference-matrix classification of Lampio--Östergård, which gives the exact orthogonality capacity $M_3(15)=9$. This is stronger than the ordinary ternary equidistant-code parameter $B_3(15,10)=12$. The exact orthogonality bound reduces the coarse finite energy list from **38 shells to 23**, and directly eliminates many sparse Gram candidates that previously required heavier decomposition tests.
-
-The displayed extremizer is analyzed explicitly. After dephasing and monomial equivalence, its row Gram matrix has the form
-
-$$
-G_c=
-\begin{pmatrix}
-I_7\otimes\begin{pmatrix}15&3\\3&15\end{pmatrix} & (1-\omega)\mathbf1_{14}\\
-(1-\omega^2)\mathbf1_{14}^{T} & 15
-\end{pmatrix}.
-$$
-
-Its support graph is seven triangles sharing one common vertex. Its spectrum is
-
-$$
-12^{(7)},\qquad 18^{(6)},\qquad \frac{33\pm\sqrt{177}}2,
-$$
-
-so
-
-$$
-\det G_c=12^7\,18^6\,228=277868041444786176.
-$$
-
-For this particular maximizer, the largest mutually orthogonal row set has size 7, with exactly $2^7=128$ maximum such subsets. The projective monomial automorphism group has order 336 and is isomorphic to $C_2\times\mathrm{GL}(3,2)$; restoring the common scalar subgroup gives a full $\mu_3$-monomial-pair automorphism group of order 1008, isomorphic to $C_6\times\mathrm{GL}(3,2)$.
-
-## Proof architecture
-
-```mermaid
-flowchart LR
-    A["Known extremizer"] --> B["Exact lower bound B"]
-    C["Assume det(G) > B"] --> D["Energy and color congruences"]
-    D --> E["Sharp M_3(15)=9 reduction; 23 shells"]
-    E --> F["Schur, component, rank, and spectral tests"]
-    F --> G["Exact finite certificates"]
-    G --> H["No strict improvement"]
-    B --> I["Exact maximum"]
-    H --> I
+```math
+\max_{H\in\{1,\omega,\omega^2\}^{15\times15}} \left|\det H\right|
+=120932352\sqrt{19}.
 ```
 
-## Read the paper
+For exact arithmetic, it is more convenient to use the square of this value:
 
-The article is split into a short entry file and focused section files:
+```math
+\max_{H\in\{1,\omega,\omega^2\}^{15\times15}} \left|\det H\right|^2
+=277868041444786176
+=2^{22}\cdot3^{20}\cdot19.
+```
 
-- [paper/main.tex](paper/main.tex) — preamble, theorem statement, and section assembly;
-- [paper/sections/](paper/sections/) — mathematical sections and appendices;
-- [paper/matrix_dephased.tex](paper/matrix_dephased.tex) — the displayed normalized exponent matrix.
+The proof has two parts: exhibit a matrix reaching this value, then exclude every possible strict improvement. **It does not classify all matrices attaining the maximum or prove that they all belong to one equivalence class.**
 
-The paper now includes the historical Gram-search background, the sharp orthogonality theorem, the 23-shell reduction, a uniform finite-shell framework, the normalized extremizer and Gram spectrum, the automorphism computation, and a discussion of what generalizes beyond order 15.
+## How the proof works
 
-Compile with a standard LaTeX installation (or simply run **make paper** from the repository root):
+Searching through all matrices directly would mean considering 3²²⁵ possibilities. Instead, the proof studies their **Gram matrices**: the matrices of inner products between rows.
 
-    cd paper
-    pdflatex -interaction=nonstopmode -halt-on-error main.tex
-    pdflatex -interaction=nonstopmode -halt-on-error main.tex
-    pdflatex -interaction=nonstopmode -halt-on-error main.tex
+For a matrix H, write G = HH<sup>∗</sup>, where H<sup>∗</sup> is the conjugate transpose. Every diagonal entry of G is 15, and det(G) = |det(H)|². An off-diagonal entry is zero exactly when the corresponding two rows are orthogonal.
+
+The proof measures the total squared magnitude of these off-diagonal entries using a quantity called **Gram energy**, denoted by Q. Each unordered pair of rows is counted once:
+
+```math
+Q=\sum_{1\le i<j\le15}\left|G_{ij}\right|^2.
+```
+
+The argument proceeds as follows:
+
+1. **Establish the lower bound.** Compute the determinant of the supplied matrix exactly.
+2. **Restrict any hypothetical improvement.** Determinant bounds and arithmetic constraints limit the possible Gram energies.
+3. **Use an orthogonality bound.** A published classification shows that at most nine length-15 vectors with entries in μ₃ can be mutually orthogonal. This leaves **23 possible energy values** to examine. An energy value is called a *shell* in the paper and verification logs.
+4. **Exclude the remaining candidates.** Mathematical bounds and exact finite computations show that no candidate above the lower bound can be the Gram matrix of an allowed H.
+
+Together, these steps establish the maximum. The paper explains the mathematical reductions; the verification programs regenerate and check the finite candidate families.
+
+## A matrix attaining the maximum
+
+The matrix is stored as a 15 × 15 array of exponents in [data/benchmark_normalized.json](data/benchmark_normalized.json). Replace each stored exponent e by ωᵉ: **0 means 1, 1 means ω, and 2 means ω²**. Its first row and first column are all 1; this normalization is called *dephasing*.
+
+The same matrix is displayed in [the paper's matrix appendix](paper/sections/A_matrix.tex). [data/benchmark_canonical.json](data/benchmark_canonical.json) gives an equivalent representative obtained by permuting rows and columns and multiplying them by cube roots of unity. These operations preserve the determinant magnitude.
+
+This representative has a simple pattern of row inner products: if two rows are joined whenever their inner product is nonzero, the resulting graph is **seven triangles sharing one central vertex**. Its determinant, spectrum, orthogonal row subsets, and symmetries are checked by [tools/verify_structure.py](tools/verify_structure.py).
+
+The displayed matrix has at most **seven** mutually orthogonal rows. This is a property of this particular matrix; the bound of **nine** above concerns all length-15 vectors over μ₃. See [the structural summary](docs/STRUCTURE.md) for the detailed Gram matrix and symmetry groups.
 
 ## Verify the result
 
-Python dependencies are pinned in [proof/requirements.txt](proof/requirements.txt). A C++17 compiler is needed only for the complete automorphism enumeration. After installing the dependencies, **make verify** is equivalent to running the unified verifier.
+Run these commands from the repository root. Use **Python 3.11**, as in CI, and have a **C++17 compiler** available (`g++` by default). The compiler is used for the complete symmetry enumeration. No GPU is required.
 
-    python -m venv .venv
-    . .venv/bin/activate
-    python -m pip install -r proof/requirements.txt
-    python verify_all.py
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r proof/requirements.txt
+python verify_all.py
+```
 
-The unified verifier runs three layers in order:
+The dependencies are pinned in [proof/requirements.txt](proof/requirements.txt). Keep Python assertions enabled: do not run with `python -O` or set `PYTHONOPTIMIZE`.
 
-1. [proof/run_final.py](proof/run_final.py) — the inherited exact 38/38 proof replay;
-2. [tools/verify_sharp_reduction.py](tools/verify_sharp_reduction.py) — the sharper 38 → 29 → 23 reduction and explicit independent-set/spectral checks;
-3. [tools/verify_structure.py](tools/verify_structure.py) — exact determinant, Gram, orthogonality, and automorphism checks for the displayed extremizer.
+The unified verifier runs three stages:
 
-Assertions must remain enabled; do not use **python -O**. No GPU or numerical optimizer is required. The GitHub Actions workflow runs the same unified verifier on changes to the mathematical or verification sources.
-
-## Repository layout
-
-| Path | Purpose |
+| Stage | What it checks |
 | --- | --- |
-| [paper/](paper/) | Revised, split LaTeX manuscript and displayed matrix |
-| [proof/](proof/) | Inherited replayable computer-assisted maximality certificate |
-| [tools/](tools/) | Sharp-reduction and extremizer-structure verifiers |
-| [data/](data/) | Original, dephased, and canonical benchmark exponent matrices |
-| [docs/STRUCTURE.md](docs/STRUCTURE.md) | Compact structural summary of the extremizer |
-| [docs/REVISION_NOTES_ZH.md](docs/REVISION_NOTES_ZH.md) | Chinese revision and verification notes |
-| [verify_all.py](verify_all.py) | Single command for the complete verification stack |
+| [proof/run_final.py](proof/run_final.py) | The complete maximality certificate, covering all 38 energy values in the initial, coarser reduction |
+| [tools/verify_sharp_reduction.py](tools/verify_sharp_reduction.py) | The stronger reduction to 23 energy values and the additional exact exclusion checks |
+| [tools/verify_structure.py](tools/verify_structure.py) | The supplied matrix, its exact determinant, Gram structure, orthogonal subsets, and symmetries |
 
-The historical proof code under **proof/** is intentionally kept in its existing layout because its stages import one another through those paths. The cleaner top-level **tools/**, **data/**, and **docs/** directories contain the new results without disturbing the inherited certificate.
+The 38-case replay is retained as an additional verification route. The paper uses the sharper 23-case reduction; these are two reductions of the same problem.
 
-## External mathematical inputs
+On success, the unified verifier ends with:
 
-Two finite classification results are cited rather than reimplemented:
+```text
+SUCCESS: maximality, sharp reduction, and extremizer structure all verified.
+```
 
-- T. Todorov and G. Bogdanova, *Ternary equidistant codes of length 11 ≤ n ≤ 15*, J. Math. Comput. Sci. 10 (2020), 2713--2721. This gives $B_3(15,10)=12$.
-- P. H. J. Lampio and P. R. J. Östergård, *Classification of difference matrices over cyclic groups*, J. Statist. Plann. Inference 141 (2011), 1194--1207, doi:10.1016/j.jspi.2010.09.023. This gives the exact orthogonality capacity $M_3(15)=9$.
+The programs regenerate intermediate files and verification summaries locally. See [proof/README.md](proof/README.md) for the certificate layout and [data/README.md](data/README.md) for the generated data. The [GitHub Actions workflow](https://github.com/ddy314/order15-mu3-maxdet/actions/workflows/verify.yml) runs the same unified verifier.
 
-The revised paper also credits the real maximal-determinant Gram-search literature, including Moyssiadis--Kounias and Orrick.
+## Read the paper
 
-## Scope
+Start with [the introduction](paper/sections/01_introduction.tex) for the theorem and motivation. The full manuscript is assembled by [paper/main.tex](paper/main.tex); [paper/README.md](paper/README.md) maps its sections to their source files.
 
-The theorem determines the exact maximum. The finite certificate remains a computer-assisted proof rather than a proof-assistant formalization. The external difference-matrix and code classifications are not rerun here. Equality cases have not been completely classified, and no uniform asymptotic gap from the Hadamard bound is claimed for an infinite congruence class.
+To build the PDF, install a LaTeX distribution providing `pdflatex`, then run:
+
+```bash
+make paper
+```
+
+This produces `paper/main.pdf`. The PDF is generated locally and is not tracked in the repository.
+
+## Mathematical inputs and scope
+
+This is a **computer-assisted proof**, with mathematical arguments in the paper and exact finite checks in the code. It is not a proof-assistant formalization.
+
+Two published classification results are used as external inputs; their classifications are not rerun by this repository:
+
+- **Lampio–Östergård (2011)**, *Classification of difference matrices over cyclic groups*, J. Statist. Plann. Inference 141, 1194–1207. Supplies the sharp bound of nine mutually orthogonal length-15 vectors over μ₃. [DOI](https://doi.org/10.1016/j.jspi.2010.09.023).
+- **Todorov–Bogdanova (2020)**, *Ternary equidistant codes of length 11 ≤ n ≤ 15*, J. Math. Comput. Sci. 10, 2713–2721. Supplies the weaker code bound of twelve used in the coarser reduction.
+
+The Gram-matrix search method follows earlier maximal-determinant work by Moyssiadis–Kounias and others. The known attaining matrix and the methodological background are credited in [the introduction](paper/sections/01_introduction.tex) and [bibliography](paper/sections/references.tex).
+
+The result settles the maximum for order 15. Classification of all maximizing matrices and a uniform asymptotic gap from the Hadamard bound remain outside the proved claims.
+
+## Repository guide
+
+| Path | Contents |
+| --- | --- |
+| [paper/](paper/) | LaTeX manuscript and explicit matrix appendix |
+| [proof/](proof/) | Complete replayable maximality certificate |
+| [tools/](tools/) | Sharp-reduction and matrix-structure verifiers |
+| [data/](data/) | Exact matrix inputs, stored as exponents |
+| [docs/STRUCTURE.md](docs/STRUCTURE.md) | Detailed structure and symmetries of the supplied matrix |
+| [verify_all.py](verify_all.py) | Entry point for all verification stages |
+
+For the history of the manuscript changes, see [the Chinese revision notes](docs/REVISION_NOTES_ZH.md).

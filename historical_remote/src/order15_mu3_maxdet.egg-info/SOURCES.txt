@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+historical_remote/src/maxdet/__init__.py
+historical_remote/src/maxdet/mu3.py
+historical_remote/src/maxdet/mu3_search.py
+historical_remote/src/order15_mu3_maxdet.egg-info/PKG-INFO
+historical_remote/src/order15_mu3_maxdet.egg-info/SOURCES.txt
+historical_remote/src/order15_mu3_maxdet.egg-info/dependency_links.txt
+historical_remote/src/order15_mu3_maxdet.egg-info/requires.txt
+historical_remote/src/order15_mu3_maxdet.egg-info/top_level.txt

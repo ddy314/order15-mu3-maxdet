@@ -1,18 +1,35 @@
 # Proof certificate
 
-This directory is the replayable certificate for the order-15 third-root maximal determinant theorem. The only public entry point needed for a full verification is:
+This directory contains the inherited replayable certificate for the exact order-15 third-root maximal determinant theorem. Its public entry point remains
 
 ```bash
-python run_final.py
+python proof/run_final.py
 ```
 
-Run it from this directory or as `python proof/run_final.py` from the repository root after installing `requirements.txt`.
+The historical three-stage layout is preserved because the verified programs import one another through these paths:
 
-The source is intentionally divided into three historical stages because the verified programs import one another through these paths. `order15_mu3_unified_audit/` reconstructs the exact arithmetic, benchmark and first 19 closed shells; `new/` reconstructs the component, Schur, projection, rank, characteristic-polynomial and pure-color catalogues used to reach 35/38; `last_three/` regenerates the final `Q=96,99,105` candidates, performs two independent complete column-equation scans, verifies exact annihilators, proves the residual `Q=105` obstruction, and joins all shells into the final theorem.
+- `order15_mu3_unified_audit/` reconstructs exact arithmetic, the benchmark, and the low-energy baseline;
+- `new/` reconstructs the component, Schur, projection, rank, characteristic-polynomial, and pure-color catalogues;
+- `last_three/` reconstructs the former terminal `Q=96,99,105` candidates, runs the two independent complete column-equation scans, and aggregates the global 38/38 result.
 
-Generated JSON files and replay logs are deliberately absent from Git. The scripts write them locally during verification. The compact delivered snapshots in `certificates/` record the final theorem and the reference full replay, but `run_final.py` regenerates the proof rather than treating those snapshots as trusted input.
+The September 2026 revision adds a stronger published orthogonality input, `M_3(15)=9`, which makes several of those terminal calculations redundant in the *new presentation*. They are deliberately retained here as an independent regression layer: the revised proof becomes shorter, while the older exact computations still replay and agree.
 
-The benchmark exponent matrix is `order15_mu3_unified_audit/data/benchmark.json`. Its exact determinant is
+The new checks live outside this historical tree:
+
+```bash
+python tools/verify_sharp_reduction.py
+python tools/verify_structure.py
+```
+
+or run everything with
+
+```bash
+python verify_all.py
+```
+
+Generated JSON files and replay logs under the historical proof directories are normally regenerated locally rather than treated as trusted evidence. Compact structural inputs for the revised presentation are kept under top-level `data/`.
+
+The benchmark exponent matrix in the inherited audit has exact determinant
 
 ```text
 604661760 + 241864704 * omega
@@ -24,4 +41,4 @@ with Eisenstein norm
 277868041444786176 = 2^22 * 3^20 * 19.
 ```
 
-The computer-assisted theorem depends externally on the published classification result `B_3(15,10)=12` of Todorov--Bogdanova (2020). No uniqueness classification of maximizing matrices is asserted.
+The finite proof uses published external classification results; see the root README and the paper for exact citations. No uniqueness classification of maximizing matrices is asserted.

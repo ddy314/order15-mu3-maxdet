@@ -1,5 +1,7 @@
 # Order-15 maximal determinant over the third roots of unity
 
+[![Exact verification](https://github.com/ddy314/order15-mu3-maxdet/actions/workflows/verify.yml/badge.svg)](https://github.com/ddy314/order15-mu3-maxdet/actions/workflows/verify.yml)
+
 This repository contains a computer-assisted proof of the exact maximal determinant of a \(15\times15\) matrix with entries in
 
 \[

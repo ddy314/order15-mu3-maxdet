@@ -1,0 +1,26 @@
+\section{Reproducibility and scope of the certificate}\label{sec:repro}
+The companion repository is
+\[
+ \texttt{https://github.com/ddy314/order15-mu3-maxdet}.
+\]
+The historical certificate under \file{proof/} is retained in its original three-stage layout so that its imports and finite generators remain replayable. The sharper September 2026 reduction is implemented separately under \file{tools/}, with exact witness matrices under \file{data/}. This separation keeps the older 38-shell proof available as an independent regression layer while making the shorter mathematical dependencies of the revised paper explicit.
+
+The full command sequence is
+\begin{verbatim}
+python -m pip install -r proof/requirements.txt
+python verify_all.py
+\end{verbatim}
+Equivalently, the three substantive stages may be run separately:
+\begin{verbatim}
+python proof/run_final.py
+python tools/verify_sharp_reduction.py
+python tools/verify_structure.py
+\end{verbatim}
+Python assertions must remain enabled. The last command uses a C++17 compiler for the exhaustive automorphism enumeration. No GPU or numerical optimizer is involved in these verification steps. In one reference run of the inherited certificate, performed without cached baseline catalogues, the 38-shell replay completed in 509.6 seconds; this is an environment-specific measurement, not a performance guarantee.
+
+For continuity, the inherited replay still verifies all 38 coarse shells and performs two complete normalized-column scans for each of 194 Grams. A scan examines $3^{14}=4,782,969$ columns, so each algorithm checks 927,895,986 column assignments across these candidates. The revised proof does not require these large final scans: every one of the 194 Grams has at least ten independent support vertices. The sharp-reduction verifier reconstructs each Gram, verifies its determinant, and emits an explicit independent-set witness. Keeping the older tests makes it possible to compare the stronger coding reduction with an established route without rewriting the historical certificate.
+
+Three types of input should be distinguished. The analytic and algebraic arguments are proved in the text. The finite support, norm, phase, and coefficient families are generated and checked by the repository programs. The assertions $B_3(15,10)=12$ and $M_3(15)=9$ are published external classification results; those classifications are cited rather than regenerated here. The present certificate is a computer-assisted mathematical proof, not a proof-assistant formalization. It neither classifies all maximizing equivalence classes nor establishes the asymptotic hypothesis of \cref{cor:gap}.
+
+\paragraph{Acknowledgment.}
+The author thanks P\'adraig \'O Cath\'ain for detailed comments on the manuscript and for emphasizing the connection with the real Gram-matrix search method and the structure of the extremizer.

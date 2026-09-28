@@ -1,0 +1,118 @@
+\section{Arithmetic, orthogonality, and the finite energy set}
+\subsection{Eisenstein arithmetic and row colors}
+For $z=a+b\omega$,
+\[
+ \bar z=(a-b)-b\omega,\qquad \N(z)=a^2-ab+b^2.
+\]
+The Euclidean ring $\Eis$ has six units, $\{\pm1,\pm\omega,\pm\omega^2\}$. A positive integer is an Eisenstein norm if and only if every prime congruent to 2 modulo 3 has even valuation. We use this criterion as an exact sieve; it does not assert that every norm is the squared determinant of a third-root matrix. Subtracting one row of $H$ from the others also shows that $3^{14}$ divides $|\det H|^2$.
+
+Write $H_{ij}=\omega^{e_{ij}}$ and assign row $i$ the color
+$r_i=\sum_j e_{ij}\pmod3$. Put $\delta=1-\omega$, so $\N(\delta)=3$ and $\delta^2=-3\omega$.
+\begin{lemma}\label{lem:colors}
+For $i\ne j$,
+\[
+ G_{ij}\equiv(r_j-r_i)\delta\pmod{3\Eis}.
+\]
+A nonzero same-color inner product has norm at least 9, and its norm is divisible by 9. A different-color inner product has norm congruent to 3 modulo 9 and is never zero. If the color multiplicities are $a,b,c$, then
+\begin{equation}\label{eq:color-energy}
+ Q\ge3(ab+ac+bc),\qquad Q\equiv3(ab+ac+bc)\pmod9.
+\end{equation}
+In particular, $Q\equiv0$ or $6\pmod9$.
+\end{lemma}
+\begin{proof}
+Modulo $3\Eis$, $\omega^e=(1-\delta)^e\equiv1-e\delta$. Summing the 15 coordinatewise quotients gives the first assertion. If $z\equiv0\pmod3$, its norm is divisible by 9. If $z\equiv\pm\delta\pmod3$, direct expansion of $\N(z)$ gives $\N(z)\equiv3\pmod9$. Finally, $a+b+c=15$ implies $ab+ac+bc\equiv0$ or 2 modulo 3.
+\end{proof}
+
+The complete entry catalogue is obtained without search over matrices. If a row difference contains $n_0,n_1,n_2$ occurrences of $0,1,2$, then
+\begin{equation}\label{eq:entry-catalogue}
+ z=(n_0-n_2)+(n_1-n_2)\omega,
+ \qquad n_0+n_1+n_2=15,\quad n_i\ge0.
+\end{equation}
+There are $\binom{17}{2}=136$ triples to examine. This catalogue supplies the allowed norms and associate classes to every subsequent enumeration.
+
+\subsection{The exact orthogonality parameter}
+Let $M_p(n)$ denote the maximum number of mutually orthogonal rows in $\mu_p^n$, where $p$ is prime. Let $B_p(n,d)$ denote the maximum size of a $p$-ary code in which every two distinct words have Hamming distance exactly $d$.
+\begin{proposition}\label{prop:prime-code}
+Let $p$ be prime. Two rows of $p$th roots of unity are orthogonal if and only if each element of $\mathbb Z_p$ occurs equally often among their exponent differences. Consequently, $M_p(n)=1$ if $p\nmid n$; when $p\mid n$,
+\[
+ M_p(n)\le B_p\bigl(n,n(p-1)/p\bigr).
+\]
+More precisely, $M_p(n)$ equals the maximum number of rows in a difference matrix with $n$ columns over $\mathbb Z_p$.
+\end{proposition}
+\begin{proof}
+Let $n_a$ count the coordinate differences equal to $a$, and let $\zeta$ be a primitive $p$th root. Orthogonality is $f(\zeta)=0$ for $f(x)=\sum_{a=0}^{p-1}n_ax^a$. The minimal polynomial of $\zeta$ is $1+x+\cdots+x^{p-1}$, of the same degree as the largest possible degree of $f$. Thus all coefficients $n_a$ are equal. The number of nonzero differences is then $n(p-1)/p$. Applying this to every pair of rows gives both conclusions.
+\end{proof}
+
+\begin{theorem}[Published orthogonality bounds at length 15]\label{thm:orthogonality}
+The ordinary ternary equidistant-code parameter satisfies $B_3(15,10)=12$ \cite{TB}. The stronger, balanced-difference parameter satisfies
+\[
+ M_3(15)=9
+\]
+by the difference-matrix classification of Lampio and \"Osterg\aa rd \cite{LO}.
+\end{theorem}
+The equality in the second statement, including existence of nine rows, is an external classification result. We do not derive it from the first statement or rerun that classification. An equidistant code of size 12 need not have balanced nonzero differences, so the first equality does \emph{not} imply $M_3(15)=12$.
+
+For a Gram matrix, let its support graph join $i$ and $j$ when $G_{ij}\ne0$. Every independent set is a set of mutually orthogonal rows. Hence every realizable principal submatrix has support independence number at most nine. In particular, a same-color class of size $a$ requires at least $\max(0,a-9)$ nonzero pairs: deleting one endpoint of each of $m$ edges leaves an independent set of size at least $a-m$.
+
+\subsection{A sharp trace--variance determinant bound}
+The following elementary positive-definite-matrix result is the analytic basis of the energy search. Its statement is independent of the alphabet.
+\begin{theorem}[Sharp determinant envelope]\label{thm:envelope}
+Let $A$ be positive semidefinite of order $m\ge2$, with $\tr A=m\mu$, $\mu>0$. Set
+\[
+ V=\tr(A^2)-m\mu^2,\qquad
+ t=\sqrt{\frac{V}{m(m-1)}}.
+\]
+Then $0\le t\le\mu$ and
+\begin{equation}\label{eq:envelope}
+ \det A\le (\mu-t)^{m-1}\bigl(\mu+(m-1)t\bigr).
+\end{equation}
+For $0<t<\mu$, equality holds exactly when the eigenvalues are $\mu-t$ with multiplicity $m-1$ and $\mu+(m-1)t$ with multiplicity one. The bound is also sharp among matrices with constant diagonal $\mu$.
+\end{theorem}
+\begin{proof}
+Optimize the product of the nonnegative eigenvalues subject to their first two moments. The feasible set is compact. For $0<V<m(m-1)\mu^2$, it contains the positive tuple stated in the theorem, so a maximizing tuple is interior. Lagrange multipliers for the logarithm of the product give
+\[
+ \frac1{x_i}=\alpha+2\beta x_i.
+\]
+There are at most two positive coordinate values, say $a<b$. Subtracting their equations gives $2\beta=-1/(ab)$. If $b$ occurred twice, the tangent vector with entries $1,-1$ in those two coordinates would preserve both constraints to first order. The Hessian of the Lagrangian on that vector would be positive, since its diagonal entry there is $-1/b^2+1/(ab)>0$, contrary to the second-order necessary condition for a maximum. Thus $b$ occurs once. Solving the two moment equations gives $a=\mu-t$ and $b=\mu+(m-1)t$.
+
+The cases $V=0$ and $V=m(m-1)\mu^2$ are respectively scalar and rank-one spectra. For sharpness with prescribed diagonal, take
+$A=(\mu-t)I+mtuu^*$ with $|u_i|=m^{-1/2}$.
+\end{proof}
+For a block of order $m$ with diagonal 15 and energy $q$, write
+\[
+ \U_m(q)=\left(15-\sqrt{\frac{2q}{m(m-1)}}\right)^{m-1}
+ \left(15+(m-1)\sqrt{\frac{2q}{m(m-1)}}\right).
+\]
+In particular, $\det G\le\U_{15}(Q)$, where the square root is $\sqrt{Q/105}$. The right side decreases strictly with $Q>0$. The tail cutoff is exact: with $t_0=319/250$,
+\begin{equation}\label{eq:tail}
+ t_0^2<171/105,\qquad
+ (15-t_0)^{14}(15+14t_0)<B.
+\end{equation}
+Both comparisons are rational integer comparisons after clearing denominators. Therefore a strict improvement has $Q<171$, and by \cref{lem:colors} it has $Q\le168$.
+
+\begin{corollary}[Finite energy set]\label{cor:shells}
+If $\det G>B$, then
+\begin{equation}\label{eq:qset}
+\begin{split}
+ Q\in\Qset=\{&54,63,72,81,87,90,96,99,105,108,114,117,\\
+             &123,126,132,135,141,144,150,153,159,162,168\}.
+\end{split}
+\end{equation}
+Using only $B_3(15,10)=12$ instead of the sharp difference-matrix theorem gives the weaker 29-element set
+\[
+ \Qset\cup\{27,36,45,60,69,78\}.
+\]
+Using no coding bound gives the 38 integers $0\le Q\le168$ congruent to 0 or 6 modulo 9.
+\end{corollary}
+\begin{proof}
+A pure-color support requires at least six edges, and hence $Q\ge54$. For a mixed coloring with largest class $a\ge10$,
+\[
+ Q\ge3a(15-a)+9(a-9)\ge87 \qquad(10\le a\le14).
+\]
+If every class has size at most nine, the cross-pair count is at least 54, giving $Q\ge162$. Combining these bounds with \cref{lem:colors,thm:envelope} gives \eqref{eq:qset}. With orthogonality bound 12, the corresponding minima are 27 for a pure coloring and 60 for a mixed coloring. Equivalently, all claims follow by listing $a\ge b\ge c\ge0$, $a+b+c=15$, and applying
+\[
+ Q\ge3(ab+ac+bc)+9\sum_{x\in\{a,b,c\}}\max(0,x-M),
+ \quad Q\equiv3(ab+ac+bc)\pmod9
+\]
+with $M=9$ or $M=12$.
+\end{proof}

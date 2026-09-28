@@ -1,0 +1,40 @@
+\section{Introduction}
+Let $\omega=\exp(2\pi i/3)$ and $\muT=\{1,\omega,\omega^2\}$. We consider
+\[
+ D_3(n)=\max\{|\det H|:H\in\muT^{n\times n}\}.
+\]
+Hadamard's inequality gives $D_3(n)\le n^{n/2}$, with equality precisely when $HH^*=nI$ \cite{Hadamard,Butson}. At order 15 the equality case is impossible. For example, $\det H\in\Eis$, whereas $15^{15}$ is not an Eisenstein norm: the inert prime 5 occurs to an odd exponent. This is a global obstruction, not a pairwise one. Two length-15 third-root vectors can be orthogonal, since their coordinatewise quotients can contain each third root five times.
+
+The record value listed by Nu\~nez Ponasso at this order is $120932352\sqrt{19}$. Nu\~nez Ponasso's table records the corresponding squared determinant, after division by $3^{14}$, as $2^{22}3^6 19$, without a maximality proof \cite{Nunez}. We prove that this value is optimal. The construction of a matrix with this determinant is not a contribution of the present paper.
+
+\begin{theorem}\label{thm:main}
+For every $H\in\muT^{15\times15}$,
+\[
+ |\det H|^2\le B:=2^{22}3^{20}19=\Bval.
+\]
+Equality is attained by the matrix in \cref{app:matrix}. Consequently,
+\[
+ D_3(15)=2^{11}3^{10}\sqrt{19}=120932352\sqrt{19},
+ \qquad \frac{D_3(15)}{15^{15/2}}=0.7965900126\ldots.
+\]
+\end{theorem}
+
+\subsection{The real problem and the Gram-matrix method}
+The real maximal-determinant problem provides both a precedent and a warning. For matrices with entries $\pm1$, the order modulo 4 strongly constrains the off-diagonal Gram entries. Barba's bound for odd $n$ is $\sqrt{2n-1}(n-1)^{(n-1)/2}$. For $n\equiv2\pmod4$, the Ehlich--Wojtas bound is $(2n-2)(n-2)^{(n-2)/2}$. Ehlich's treatment of $n\equiv3\pmod4$ uses a more detailed block structure. These bounds, their equality conditions, and their limitations are reviewed in \cite{Survey}.
+
+When a general bound does not settle an order, one can first enumerate possible positive definite Gram matrices and then test whether they factor over the prescribed alphabet. This strategy is already present in the work of Moyssiadis and Kounias on order 17 \cite{MK82}, and in the subsequent order-21 calculation of Chadjipantelis, Kounias and Moyssiadis \cite{CKM87}. Orrick used a Gram-candidate and decomposition search to settle the real order-15 problem \cite{Orrick}; related methods were later used at orders 19 and 37 \cite{Brent}. We credit this line of work for the general search strategy used here.
+
+Several parts of that strategy transfer without change to complex matrices: positivity, Schur complements, eigenvalue bounds, and the identity $(HH^*)H=H(H^*H)$. The arithmetic does not. Real parity conditions are replaced here by congruences in $\Eis$, and a squared determinant need only be an Eisenstein norm, not an integer square. Moreover, the vanishing of a third-root inner product imposes balanced differences, a stronger condition than ordinary Hamming equidistance. Results for other complex alphabets, such as fourth-root designs \cite{Cohn}, cannot simply be substituted for third-root results.
+
+\subsection{Organization of the search}
+Write
+\begin{equation}\label{eq:energy}
+ G=HH^*,\qquad K=H^*H,\qquad
+ Q=\sum_{1\le i<j\le15}\N(G_{ij})
+   =\frac{\tr(G^2)-3375}{2},
+\end{equation}
+where $\N(z)=z\bar z$. The matrices $G$ and $K$ have the same eigenvalues and the same energy $Q$. Thus $2Q$ is the squared Frobenius norm of the off-diagonal part of either Gram matrix.
+
+The proof starts with a hypothetical strict improvement $\det G>B$. The determinant envelope in \cref{thm:envelope} gives $Q\le168$. Congruence and coding constraints then leave the finite set $\Qset$ in \cref{cor:shells}. For each energy, only finitely many off-diagonal entries are possible: every entry is a sum of 15 third roots. We enumerate supports and their admissible labels, apply upper bounds before evaluating determinants, and test the surviving Grams for necessary properties of a third-root factorization. A positive definite Gram with determinant above $B$ is not itself a counterexample; it must also be realizable as $HH^*$.
+
+The classification of difference matrices by Lampio and \"Osterg\aa rd \cite{LO} is particularly useful. It says that the maximum number of mutually orthogonal third-root rows of length 15 is \emph{nine}. This is stronger than the upper bound 12 obtained from ordinary ternary equidistant codes \cite{TB}. It removes several configurations that otherwise require separate decomposition arguments. We state precisely where the external classification is used and retain a replay of the older, weaker reduction as a redundant check.

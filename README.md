@@ -70,6 +70,20 @@ $$
 
 For this particular maximizer, the largest mutually orthogonal row set has size 7, with exactly $2^7=128$ maximum such subsets. The projective monomial automorphism group has order 336 and is isomorphic to $C_2\times\mathrm{GL}(3,2)$; restoring the common scalar subgroup gives a full $\mu_3$-monomial-pair automorphism group of order 1008, isomorphic to $C_6\times\mathrm{GL}(3,2)$.
 
+## Proof architecture
+
+```mermaid
+flowchart LR
+    A[Known extremizer] --> B[Exact lower bound B]
+    C[Assume det G > B] --> D[Energy and color congruences]
+    D --> E[Sharp M3(15)=9 reduction: 23 shells]
+    E --> F[Schur, component, rank and spectral tests]
+    F --> G[Exact finite certificates]
+    G --> H[No strict improvement]
+    B --> I[Exact maximum]
+    H --> I
+```
+
 ## Read the paper
 
 The article is split into a short entry file and focused section files:

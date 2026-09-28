@@ -1,0 +1,35 @@
+\section{The triangle boundary at \texorpdfstring{$Q=81$}{Q=81}}\label{app:q81}
+We give the decomposition argument for the no-isolate support $K_3\sqcup6K_2$ left in \cref{sec:finite}. The normalized triangle flux is a sixth root. The nonreal-flux triangle polynomial is coprime to $x^2-1$, so a triangle-to-pair rectangle would vanish by intertwining. Positive real flux gives normalized triangle spectrum $\{2,-1,-1\}$; against all twelve pair coordinates, \cref{thm:rectangle} gives $36\le24$. Only negative real flux remains. Its Gram spectrum is $\{18,18,9\}$, and both row and column Grams must have this case because their total spectra agree.
+
+The eigenspace at 9 is supported on the three triangle coordinates on both sides. Its intertwiner has squared singular value 9. The corresponding $3\times3$ submatrix of $H$ has squared Frobenius norm 9, so it has rank one. Since its entries are third roots, allowed row and column phase changes make this submatrix $J_3$. The two triangle Gram blocks then become $18I_3-3J_3$: their eigenvector at 9 is $\one_3$, forcing both off-diagonal entries in each row to be $-3$.
+
+Each pair Gram can be gauged by third-root phases to an off-diagonal entry $3$ or $-3$. A negative pair has a symmetric eigenvector at 12, an eigenvalue absent from the triangle block. Intertwining would require two third-root entries in each triangle column to sum to zero. This is impossible. Hence all six pair blocks are positive.
+
+In pair-symmetric and pair-antisymmetric coordinates, each pair-to-pair block is
+\[
+ \begin{pmatrix}a&b\\b&a\end{pmatrix},\qquad a,b\in\muT.
+\]
+Write the resulting $6\times6$ blocks as $S=(a+b)$ and $D=(a-b)$. Let $X$ be the $6\times3$ matrix of pair-to-triangle rows, one row from each equal pair, and let $Y$ be the analogous $3\times6$ triangle-to-pair matrix. In orthonormal pair coordinates, the remaining block is
+\[
+ \begin{pmatrix}S&\sqrt2X\\\sqrt2Y&J_3\end{pmatrix},
+ \qquad DD^*=D^*D=12I_6.
+\]
+Every row and column of $D$ has four nonzero entries of norm 3 and two zero entries. At a zero of $D$, the corresponding entry of $S$ is twice a third root; otherwise it is minus a third root.
+
+The Gram equations give
+\[
+ X^*X=YY^*=9I_3-3J_3,\qquad X\one_3=0,\quad Y^*\one_3=0.
+\]
+A balanced third-root triple is, up to a third-root scalar, either
+$u=(1,\omega,\omega^2)$ or $\bar u$. These two triples are orthogonal. The displayed Gram equations therefore force exactly three of each orbit among the six rows of $X$, and similarly among the six columns of $Y$. Independent pair phases and permutations put these into two groups of three identical triples.
+
+The cross-Gram equations yield $SY^*=0$ and $S^*X=0$. Thus every row and column of $S$ sums to zero within each group of three. A group cannot contain two zeros of $D$, since $2a+2b-c=0$ has no solution in third roots. Each group therefore contains exactly one zero, and $2a-b-c=0$ forces $a=b=c$. It follows, using both row and column conditions, that each $3\times3$ block of $S$ has the form
+\[
+ \alpha(3P-J_3),\qquad \alpha\in\muT,\quad P\text{ a permutation matrix}.
+\]
+The two row groups of $X$ are orthogonal, so the off-diagonal block of $SS^*$ is zero. This would require
+\[
+ \alpha(9R-3J_3)+\beta(9T-3J_3)=0,
+ \qquad\alpha,\beta\in\muT,\quad R,T\text{ permutation matrices}.
+\]
+If $R\ne T$, an entry where one is 1 and the other is 0 forces $6\alpha=3\beta$ or its reverse, contradicting equal moduli. If $R=T$, it forces $\alpha+\beta=0$, impossible for third roots. This contradiction completes the boundary case. The inherited verifier additionally checks all 324 phase/permutation possibilities as a regression test.

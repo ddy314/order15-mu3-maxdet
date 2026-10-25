@@ -20,3 +20,6 @@ paper/*.out
 paper/*.toc
 paper/*.synctex.gz
 paper/*.pdf
+
+# Submission packages and rendered copies
+output/

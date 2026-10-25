@@ -25,3 +25,18 @@ Compile from this directory with three LaTeX passes:
     pdflatex -interaction=nonstopmode -halt-on-error main.tex
 
 The generated PDF is intentionally not tracked. The mathematical source, exact benchmark data, and replayable verification programs are the maintained artifacts.
+
+## arXiv submission files
+
+From the repository root, run:
+
+    make arxiv
+
+This compiles the manuscript and creates:
+
+- `output/pdf/order15_arxiv_source.zip`: the LaTeX files required to build the paper, with `main.tex` at the archive root. Upload this archive to arXiv and select PDFLaTeX.
+- `output/pdf/order15_arxiv.pdf`: a separate reading copy for checking the compiled result.
+
+The source archive excludes build products, repository documentation, and revision notes. All references are embedded in `sections/references.tex`, so no BibTeX step or external bibliography file is needed. The mathematical verification programs remain available in the companion repository linked in the paper.
+
+The author affiliation is University of Electronic Science and Technology of China, Chengdu, China. A one-sentence AI use declaration discloses AI participation in the research and the author's responsibility for all content, following the principles in [arXiv's official policy](https://info.arxiv.org/help/moderation/index.html#policy-for-authors-use-of-generative-ai-language-tools).

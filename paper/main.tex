@@ -7,6 +7,13 @@
 \setcounter{MaxMatrixCols}{15}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\hypersetup{
+  pdftitle={The maximal determinant of order 15 over the third roots of unity},
+  pdfauthor={Daoyu Dong},
+  pdfsubject={Maximal determinants over third roots of unity},
+  pdfkeywords={maximal determinant, roots of unity, Gram matrix, computer-assisted proof}
+}
 \usepackage{aliascnt}
 \usepackage[nameinlink,noabbrev,capitalise]{cleveref}
 \usepackage{fancyhdr}
@@ -36,13 +43,15 @@
 \newcommand{\Qset}{\mathcal Q}
 \newcommand{\one}{\mathbf1}
 \newcommand{\Bval}{277868041444786176}
-\newcommand{\file}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\file}[1]{\path{#1}}
 \newcommand{\U}{\mathcal U}
 \setlist{nosep}
 \setlength{\emergencystretch}{2em}
 \title{The maximal determinant of order 15\\over the third roots of unity}
-\author{Daoyu Dong}
-\date{Revised manuscript, 28 September 2026}
+\author{Daoyu Dong\\[4pt]
+  \small University of Electronic Science and Technology of China\\
+  \small Chengdu, China}
+\date{}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -59,6 +68,8 @@ We prove that the largest absolute determinant of a $15\times15$ matrix with ent
 \appendix
 \input{sections/A_matrix}
 \input{sections/B_q81}
+\clearpage
 \input{sections/C_replay}
+\clearpage
 \input{sections/references}
 \end{document}

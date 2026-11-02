@@ -35,3 +35,5 @@ jobs:
         run: python -m pip install -r proof/requirements.txt
       - name: Run exact certificate and structural checks
         run: python verify_all.py
+      - name: Check mixed-color inert-prime addendum (exact finite controls)
+        run: python tools/verify_mixed_inert_gap.py

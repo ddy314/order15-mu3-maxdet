@@ -1,0 +1,116 @@
+\section{An arithmetic exclusion of the first mixed-color shells}
+\label{sec:mixed-arithmetic-addendum}
+
+This section records a general improvement suggested by the
+two-sided Gram viewpoint. Its proof uses only the arithmetic of
+\(\mathbb Z[\omega]\) and a rank-four determinant, with no support
+graph catalogue or difference-matrix classification.
+
+Throughout let \(3\mid n\), \(H=(\omega^{e_{ij}})\in\muT^{n\times n}\),
+and \(Q=\sum_{i<j}|(HH^*)_{ij}|^2\). Assign row \(i\) the
+\emph{color} \(\sum_j e_{ij}\pmod3\). For two rows, write
+\(a,b,c\) for the multiplicities of \(1,\omega,\omega^2\) in
+their entrywise quotient. Then \(a+b+c=n\), and
+\[
+ \left|a+b\omega+c\omega^2\right|^2
+ =a^2+b^2+c^2-ab-bc-ca.
+\]
+Writing \(x=a-b\) and \(y=b-c\), this norm equals
+\(x^2+xy+y^2\). Since \(3\mid n\), we have
+\(x\equiv y\pmod3\). Consequently the norm is congruent to
+\(0\pmod9\) for two rows of equal color, and to
+\(3\pmod9\) for rows of different colors.
+In particular, a cross-color pair contributes at least \(3\).
+
+\begin{proposition}[Mixed-color inert-prime gap]
+\label{prop:mixed-inert-prime-gap}
+Suppose \(3\mid n\) and \(n^n\) is not the norm of an
+Eisenstein integer. If the rows of
+\(H\in\muT^{n\times n}\) have at least two colors, then
+\[
+ \boxed{\quad Q(H)\ge 3n+15.\quad}
+\]
+The same conclusion holds if the columns have at least two colors.
+\end{proposition}
+\begin{proof}
+The norm hypothesis implies that \(n\) is odd and that some
+prime \(p\equiv2\pmod3\) occurs to odd order in \(n\).
+In particular \(n\ge15\) and \(p\ge5\).
+For every nonzero Eisenstein integer \(z\),
+the \(p\)-adic valuation of \(\operatorname N(z)\) is even.
+
+Let the three row-color multiplicities be \(r_0,r_1,r_2\).
+There are \(r_0r_1+r_0r_2+r_1r_2\) cross-color pairs.
+Unless, up to permutation, \((r_0,r_1,r_2)=(n-1,1,0)\),
+a mixed coloring has at least \(2(n-2)\) such pairs.
+Then
+\[
+ Q\ge6(n-2)\ge3n+15
+\]
+for \(n\ge15\), as desired.
+
+It remains to consider the coloring \((n-1,1,0)\).
+The Gram defect \(E=HH^*-nI\) is a star with a possible
+additional weighted graph among its \(n-1\) majority
+vertices. The congruences above imply
+\[
+ Q=3(n-1)+9k,\qquad k\in\mathbb Z_{\ge0}.
+\]
+If the conclusion fails, \(k=0\) or \(1\).
+
+When \(k=0\), each of the \(n-1\) star edges has
+squared modulus \(3\), and all other off-diagonal
+entries vanish. The determinant lemma gives
+\[
+ \det(HH^*)=n^{n-2}(n^2-3n+3).
+\]
+The final factor is \(3\pmod p\), so the full determinant
+has odd \(p\)-valuation, a contradiction.
+
+When \(k=1\), there are precisely two types.
+In the first, a single star edge has squared modulus \(12\)
+and the other \(n-2\) edges have squared modulus \(3\).
+Then
+\[
+ \det(HH^*)=n^{n-2}(n^2-3n-6),
+\]
+whose final factor is \(-6\pmod p\). Again its
+\(p\)-valuation is odd.
+
+In the second type all star edges have squared modulus
+\(3\), with one additional majority--majority edge
+of squared modulus \(9\). If this edge joins vertices
+\(1,2\), write its Gram entry as \(a\), and write the
+hub entries there as \(g_1,g_2\). Compressing the other
+\(n-3\) spokes into one direction of squared norm
+\(3(n-3)\) gives the nonzero defect characteristic
+polynomial
+\[
+ x^4-(3n+6)x^2-\tau x+27(n-3),\qquad
+ \tau=2\operatorname{Re}(a g_2\overline{g_1})\in\mathbb Z.
+\]
+Therefore
+\[
+ \det(HH^*)=n^{n-4}
+ \bigl[n^4-(3n+6)n^2+\tau n+27(n-3)\bigr].
+\]
+The bracket is \(-81\pmod p\), again a \(p\)-adic unit.
+Since \(n-4\) and \(v_p(n)\) are odd, we obtain the
+same contradiction. (All the displayed determinant
+expressions are nonzero modulo the appropriate power
+of \(p\), so the valuation argument applies.)
+
+Every remaining mixed-color energy is at least
+\(3(n-1)+18=3n+15\).
+Finally \(\operatorname{tr}((HH^*)^2)
+=\operatorname{tr}((H^*H)^2)\), so row and column
+energies agree and the same argument applies to columns.
+\end{proof}
+
+\begin{remark}
+This proposition concerns mixed colorings. A bound on
+\emph{all} third-root matrices at these orders also needs
+a separate pure-color argument. The proposition does not
+by itself prove the conjectured exact minimum
+\(Q=105\) at order \(15\).
+\end{remark}

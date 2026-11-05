@@ -1,0 +1,50 @@
+\section{The nine factors in each Gram orientation}\label{app:factors-new}
+Put $G_0=G_c$ from \eqref{eq:canonical-gram}. Equivalence allows third-root row and column monomials, keeping transposition and conjugation separate.
+\begin{theorem}\label{thm:factors-new}
+There are nine monomial factor classes of $G_0$ and nine of $\bar G_0$. Their automorphism groups are $C_6\times\GL(3,2)$ for two classes, $C_6\times S_4$ for eight, and $C_6\times S_3$ for eight. Allowing transposition, conjugation, or both leaves respectively twelve, nine, or six classes.
+\end{theorem}
+\subsection{The column hub is forced}
+Normalize the hub row to ones. Each other row has sum $\delta$ and root counts $(6,4,5)$. For a normalized column let $A=a+b\omega$ sum its first fourteen entries, and let $d$ count the unequal row pairs. Schur inversion gives
+\[\N(A-6\delta)=19(16-3d).\]
+The split prime nineteen occurs once in $\det G_0$. At the one reduction where $H$ is singular, $H^*$ is invertible. The left kernel vector $(\bar\delta\one^T,-18)$ then annihilates $H$. Every column therefore satisfies one common congruence $A\equiv6\delta$ at $\omega=7$ or $11$ modulo nineteen.
+There are only $\binom{12}{5}=792$ multiplicity vectors of the six unordered entry-pair types. The norm equation and congruence give
+\begin{center}\begin{tabular}{cp{100mm}}\toprule
+Reduction&$(c_0,c_1,c_2;d)$\\\midrule
+$7$&$(3,2,9;3),(0,0,14;0),(1,7,6;1),(6,4,4;4),(4,9,1;1)$\\
+$11$&$(3,3,8;3),(1,0,13;1),(0,8,6;0)$;
+ewline $(5,6,3;3),(8,1,5;5),(10,4,0;4)$\\\bottomrule\end{tabular}\end{center}
+Across fifteen columns the count sums are $(84,56,70)$ and $\sum d=56$. In the first row, multiplicities $(a,b,c,d',e)$ satisfy $a=6c+8e$, $2d'+3e=28$, $b+7c+15e/2=1$, forcing $(0,1,0,14,0)$. In the second, $g=2-j/2-k$ and $h=j+k-5$ are incompatible with nonnegativity. Hence exactly one column is $(\omega^2\one_{14},1)^T$. Write
+\[H=\begin{pmatrix}M&\omega^2\one\\\one^T&1\end{pmatrix}.\]
+Both row and column sums of $M$ are two. The column-majority defect has energy seven and row sums one in normalized coordinates. Each row therefore has exactly one nonzero entry, equal to one. The column support is a matching. Intertwining forces each $2\times2$ block of $M$ to be symmetric.
+
+\subsection{Fano support and potentials}
+With the sum/difference projections $E,F$,
+\[M=A\otimes E+i\sqrt3W\otimes F,\qquad AA^*=18I-2J,\quad WW^*=4I.\]
+The support of $W$ has weight four on both sides. Two rows overlap in at least one position, never exactly one by orthogonality; the average overlap is two, so every overlap is two. The zero support is the Fano plane. Fix its incidence matrix $N$ and a real signing $W_0$.
+On its bipartite nonincidence graph, every flat four-cycle edge labeling is a row/column potential. To prove this, fix one line $L_0$ and normalize its four complementary columns. Each other row has two common nonincidence points with $L_0$; their four-cycle normalizes both labels. For a point of $L_0$, the four nonincident rows split into two pairs. Four-cycles between the pairs force all four labels in that column equal. Normalize that column, and repeat. Connectedness gives uniqueness up to a common potential. Consequently $W=D_rW_0D_c$.
+A row's four unequal blocks have missing-root multiplicities $m_i$, while its three equal blocks have multiplicities $n_i$. The row counts give
+\[(n_0,n_1,n_2)=(1+m_0/2,m_1/2,m_2/2).\]
+Every phase class in a potential vector therefore meets every Fano complement evenly. Label points by $\mathbb F_2^3\setminus\{0\}$. This parity condition is $\sum_{x\in S}x=0$. A nonempty proper such set has size three or four, and is a line or its complement. Three nonempty classes cannot fit. Normalize the majority phase to one: a potential is constant or has one nontrivial phase on a Fano line. There are fifteen possibilities on each side.
+
+\subsection{Quadrangle rigidity and completion}
+For four Fano lines with no three concurrent, put $-1$ off each line and $2z$ on it. Suppose the product of the three phases on each line is a common $p$ and row inner products are $-2$. Writing $z_{ij}$ at the intersection of lines $i,j$, these conditions give
+\[\sum_{k\ne i,j}z_{ik}+\sum_{k\ne i,j}\bar z_{jk}=2+2z_{ij}\bar z_{ji}.\]
+Equality of sums of four third roots is equality of their root multiplicities. If $p\ne1$, each row has phases $a_i,a_i,pa_i$. The exceptional positions must be a perfect matching: an unmatched exceptional position leaves odd multiplicities on one side. On a matched edge $(a_i-1)(\bar a_j-1)=0$; on an unmatched edge the two phases must be $1,\bar p$ in some order. The two matched pairs then contradict their own condition. Thus $p=1$. A constant row and a nonconstant row are incompatible, since their equation has sides of magnitudes $0$ and $\sqrt3$, or $2\sqrt3$ and $\sqrt3$. Two nonconstant rows force intersection phases $\omega,\omega^2$, leaving no location for their phase one. All four rows are therefore constant, and at most one has phase different from one.
+
+Put $A_0=3N-J$. On nonincidence positions write $A_{ij}=-\gamma\alpha_i\beta_j$, where each potential is in majority-one form. On incidence positions write $A_{ij}=2\zeta_{ij}$. The count equation gives
+\[\left(\prod_{j:N_{ij}=1}\zeta_{ij}\right)^2=\prod_{j:N_{ij}=0}\gamma\alpha_i\beta_j.\]
+For $B=\bar\gamma D_\alpha^*AD_\beta^*$, the incidence phase product in row $i$ is $(\gamma\alpha_i)^2$. Apply quadrangle rigidity on the four majority rows (or any quadrangle if all rows are majority). It forces $\gamma=1$ and constant incidence phases in those rows. Their row-sum equations determine them uniquely: if $\beta$ is $\sigma$ on line $C$ and one elsewhere, the row indexed by $C$ has dephased phase $\bar\sigma$, and every other majority row has phase one. The transpose argument fixes majority columns.
+If both potentials are nonconstant, let the row switch be on the three lines through point $p$ with phase $\rho$, and the column switch on line $C$ with phase $\sigma$. If $p\notin C$, the preceding majority row and column equations uniquely complete the array: the incidence phases in a switched row are $\{1,\rho,\rho\sigma\}$. If $p\in C$, the row indexed by $C$ has incidence phases $\{1,\rho,\rho\}$. Its phase-one location $\ell$ and any majority row $k$ would require $(A_0)_{k\ell}=-\sigma$, impossible since that entry is real, either $-1$ or $2$.
+Thus the only completions are one constant pattern, fourteen row switches, fourteen column switches, and $28\cdot4$ nonincident double switches: $141$ in total.
+
+\subsection{Existence, orbits and groups}
+For a point $p$, put $u=Ne_p$, $P_u=\diag(u)-uu^T/3$, and $U_u(\rho)=I+(\rho-1)P_u$. This is unitary, fixes $\one$, and commutes with $18I-2J$. Since $u^TA_0=6e_p^T$,
+\[U_u(\rho)A_0=D_uA_0+2(1-\rho)ue_p^T.\]
+Use the dual operator for a line. For nonincident switches,
+\[A=U_u(\rho)A_0U_v(\sigma)=D_uA_0D_v+2(1-\rho)ue_p^T+2(1-\sigma)e_Cv^T,
+\quad W=D_uW_0D_v.\]
+These formulas preserve the required Grams and root alphabet, proving existence of all completions. The verifier constructs and checks every one of their nine orbit representatives and all $141$ potential patterns.
+Hub and pair rigidity makes every monomial equivalence act through Fano incidence permutations; pair swaps change only the real signing. The Fano group is transitive on points, lines, and nonincident point-line pairs, preserving phase values. Hence the orbit sizes are $1$, four copies of $7$, and four of $28$, giving nine classes. The hub ratio $\bar\delta/\delta=-\omega^2\notin\muT$ separates the two Gram orientations.
+The signed lifts of $W_0$ form a central extension of the Fano group by simultaneous sign reversal. It splits: determinant of the row signing sends $(-I_7,-I_7)$ to $-1$, so its determinant-one kernel is a section. The same splitting holds over every stabilizer subgroup. The stabilizers are $\GL(3,2)$, $S_4$, and $S_3$ in the three orbit types. Pair reversal contributes $C_2$ and the common scalar contributes $C_3$, giving $C_6$ times those stabilizers.
+A symmetric seed is obtained over $\mathbb F_8$ by $W_0(a,x)=0$ if $\operatorname{Tr}(ax)=0$, $-1$ if $ax=1$, and $1$ otherwise. With that seed, normalized transpose exchanges the switch phases $(\rho,\sigma)\mapsto(\sigma,\rho)$, fixing three of nine classes. Conjugation exchanges the two orientations. The asserted class counts follow.
+Combined with \cref{thm:min-equivalence-new}, this classifies both optimization problems.

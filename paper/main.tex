@@ -4,7 +4,7 @@
 \usepackage{lmodern,microtype}
 \usepackage[margin=25mm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array,longtable}
-\setcounter{MaxMatrixCols}{15}
+\setcounter{MaxMatrixCols}{25}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xurl}
@@ -55,7 +55,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We prove that the largest absolute determinant of a $15\times15$ matrix with entries in $\{1,\omega,\omega^2\}$, where $\omega^3=1$ and $\omega\ne1$, is $120932352\sqrt{19}$. A matrix attaining this value was already known; the issue is maximality. The proof follows the Gram-matrix search method used in the real maximal-determinant problem. A sharp determinant bound in terms of the off-diagonal Gram energy, combined with Eisenstein congruences and a published classification of difference matrices, reduces a strict improvement to 23 possible energies. Componentwise Schur bounds and exact support catalogues then leave a small number of cases, excluded by orthogonality, rank, and spectral-intertwining conditions. We present the finite tests in a common framework and supply their replay programs. For the displayed extremizer we give a dephased representative, its Gram matrix and spectrum, and an exact computation of its monomial automorphism group, which has order 1008. The proof determines the value of the maximum, but does not classify all equality cases.
+We prove that the largest absolute determinant of a $15\times15$ matrix with entries in $\{1,\omega,\omega^2\}$, where $\omega^3=1$ and $\omega\ne1$, is $120932352\sqrt{19}$. A matrix attaining this value was already known; the issue is maximality. The proof follows the Gram-matrix search method used in the real maximal-determinant problem. A sharp determinant bound in terms of the off-diagonal Gram energy, combined with Eisenstein congruences and a published classification of difference matrices, reduces a strict improvement to 23 possible energies. Componentwise Schur bounds and exact support catalogues then leave a small number of cases, excluded by orthogonality, rank, and spectral-intertwining conditions. We present the finite tests in a common framework and supply their replay programs. For the displayed extremizer we give a dephased representative, its Gram matrix and spectrum, and an exact computation of its monomial automorphism group, which has order 1008. We classify all maximizers into eighteen third-root monomial classes and prove that these are precisely the matrices of minimum Gram energy 105. Orthogonal-frame restrictions give general energy gaps. An explicit balanced weighing matrix yields an order-51 third-root construction, and a sixth-root witness strictly improves the order-fifteen third-root value.
 \end{abstract}
 
 \input{sections/01_introduction}
@@ -64,13 +64,19 @@ We prove that the largest absolute determinant of a $15\times15$ matrix with ent
 \input{sections/04_finite_verification}
 \input{sections/05_extremizer}
 \input{sections/06_generalization}
-\input{sections/08_mixed_energy_obstruction}
+\input{sections/09_weighing_construction}
 \input{sections/07_reproducibility}
 \appendix
 \input{sections/A_matrix}
 \input{sections/B_q81}
 \clearpage
 \input{sections/C_replay}
+\clearpage
+\input{sections/D_energy_recovery}
+\input{sections/E_orthogonality_recovery}
+\input{sections/F_factorizations_recovery}
+\input{sections/G_explicit_recovery}
+\input{sections/H_sixth_improvement}
 \clearpage
 \input{sections/references}
 \end{document}

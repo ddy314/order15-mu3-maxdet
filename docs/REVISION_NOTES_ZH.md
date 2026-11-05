@@ -1,3 +1,5 @@
+> Historical version. The current results and regenerated certificates are documented in [the 5 November recovery report](RECOVERY_2026-11-05.md). Claims below describe the earlier state.
+
 # Order-15 μ₃ maxdet：深度修订与核验说明
 
 修订日期：2026-09-28。正文为英文数学论文；本说明用于交接，不属于投稿正文。

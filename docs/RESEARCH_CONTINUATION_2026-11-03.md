@@ -1,3 +1,5 @@
+> Historical version. The current results and regenerated certificates are documented in [the 5 November recovery report](RECOVERY_2026-11-05.md). Claims below describe the earlier state.
+
 # Research continuation after Pádraig Ó Catháin's comments (3 November 2026)
 
 This is a **working research ledger**, not a replacement for the existing

@@ -6,6 +6,18 @@ How large can the absolute value of a determinant be when every entry of a 15 ×
 
 This repository contains a mathematical paper, an explicit matrix attaining the maximum, and programs that check the finite calculations in a computer-assisted proof. **The exact maximum is 120932352√19.** The matrix was already known; the contribution here is the proof that no allowed matrix has a larger determinant magnitude.
 
+## Research continuation
+
+The editable manuscript now includes the results recovered from the supplied 5 November PDF and fresh exact certificates:
+
+- `Q(H) >= 105`, with `Q(H) >= 108` if either coloring is pure, and `Q(H) = 105` exactly when `|det H|²` is maximal.
+- 18 maximizing classes, with nine factors per Gram orientation; allowing transpose, conjugation, or both gives 12, 9, or 6 classes.
+- An explicit balanced `BW(25,16)` and an order-51 third-root matrix with squared determinant `48^25 * 54^24 * 2604`, about 93.1154% of the Hadamard bound.
+- A sixth-root order-15 witness with squared determinant `337769972052787200`, strictly above the third-root maximum.
+- A new improvement beyond the supplied PDF: all order-15 sixth-root matrices have **energy at least 10**, improving the previous bound of 9 and its determinant envelope.
+
+The exact maximum at order 51, the exact sixth-root maximum at order 15, and infinitude of the weighing family remain open. See [the recovery and verification report](docs/RECOVERY_2026-11-05.md), [certificate guide](extensions/README.md), and [explicit matrices](data/revision/).
+
 ## The problem and the result
 
 The three allowed entries are 1, ω, and ω², where ω = exp(2πi/3). They lie equally spaced on the complex unit circle and satisfy 1 + ω + ω² = 0. The notation **μ₃** refers to this set; **order 15** means that the matrix has 15 rows and 15 columns.
@@ -25,7 +37,7 @@ For exact arithmetic, it is more convenient to use the square of this value:
 =2^{22}\cdot3^{20}\cdot19.
 ```
 
-The proof has two parts: exhibit a matrix reaching this value, then exclude every possible strict improvement. **It does not classify all matrices attaining the maximum or prove that they all belong to one equivalence class.**
+The proof has two parts: exhibit a matrix reaching this value, then exclude every possible strict improvement. The equality cases form **18 third-root monomial classes**. They are also exactly the matrices of minimum Gram energy **105**. Conjugation and transposition are kept separate.
 
 ## How the proof works
 
@@ -71,20 +83,21 @@ python verify_all.py
 
 The dependencies are pinned in [proof/requirements.txt](proof/requirements.txt). Keep Python assertions enabled: do not run with `python -O` or set `PYTHONOPTIMIZE`.
 
-The unified verifier runs three stages:
+The unified verifier first regenerates the original proof and then runs the recovered continuation:
 
 | Stage | What it checks |
 | --- | --- |
 | [proof/run_final.py](proof/run_final.py) | The complete maximality certificate, covering all 38 energy values in the initial, coarser reduction |
 | [tools/verify_sharp_reduction.py](tools/verify_sharp_reduction.py) | The stronger reduction to 23 energy values and the additional exact exclusion checks |
 | [tools/verify_structure.py](tools/verify_structure.py) | The supplied matrix, its exact determinant, Gram structure, orthogonal subsets, and symmetries |
+| [verify_continuation.py](verify_continuation.py) | Independent capacity-nine proof; minimum energy; inclusive equality; all factor classes; order-51 and sixth-root witnesses; the new sixth-root energy bound |
 
 The 38-case replay is retained as an additional verification route. The paper uses the sharper 23-case reduction; these are two reductions of the same problem.
 
 On success, the unified verifier ends with:
 
 ```text
-SUCCESS: maximality, sharp reduction, and extremizer structure all verified.
+SUCCESS: maximality, sharp reduction, extremizer structure, and research continuation all verified.
 ```
 
 The programs regenerate intermediate files and verification summaries locally. See [proof/README.md](proof/README.md) for the certificate layout and [data/README.md](data/README.md) for the generated data. The [GitHub Actions workflow](https://github.com/ddy314/order15-mu3-maxdet/actions/workflows/verify.yml) runs the same unified verifier.
@@ -105,14 +118,14 @@ This produces `paper/main.pdf`. The PDF is generated locally and is not tracked 
 
 This is a **computer-assisted proof**, with mathematical arguments in the paper and exact finite checks in the code. It is not a proof-assistant formalization.
 
-Two published classification results are used as external inputs; their classifications are not rerun by this repository:
+The historical replay cites two published classifications. The current continuation independently proves the orthogonality capacity nine:
 
-- **Lampio–Östergård (2011)**, *Classification of difference matrices over cyclic groups*, J. Statist. Plann. Inference 141, 1194–1207. Supplies the sharp bound of nine mutually orthogonal length-15 vectors over μ₃. [DOI](https://doi.org/10.1016/j.jspi.2010.09.023).
+- **Lampio–Östergård (2011)**, *Classification of difference matrices over cyclic groups*, J. Statist. Plann. Inference 141, 1194–1207. Records the sharp bound of nine mutually orthogonal length-15 vectors over μ₃; [the independent exact replay](extensions/orthogonality/verify.cpp) reproduces this value within the repository. [DOI](https://doi.org/10.1016/j.jspi.2010.09.023).
 - **Todorov–Bogdanova (2020)**, *Ternary equidistant codes of length 11 ≤ n ≤ 15*, J. Math. Comput. Sci. 10, 2713–2721. Supplies the weaker code bound of twelve used in the coarser reduction.
 
 The Gram-matrix search method follows earlier maximal-determinant work by Moyssiadis–Kounias and others. The known attaining matrix and the methodological background are credited in [the introduction](paper/sections/01_introduction.tex) and [bibliography](paper/sections/references.tex).
 
-The result settles the maximum for order 15. Classification of all maximizing matrices and a uniform asymptotic gap from the Hadamard bound remain outside the proved claims.
+The result settles the third-root maximum and its complete equality classification at order 15. A uniform asymptotic gap from the Hadamard bound remains open.
 
 ## Repository guide
 

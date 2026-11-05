@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the inherited maximality certificate and the September 2026 checks."""
+"""Run the inherited maximality certificate and the complete research continuation."""
 from __future__ import annotations
 import os
 from pathlib import Path
@@ -11,6 +11,7 @@ STEPS = [
     ("inherited 38/38 proof", [sys.executable, str(ROOT / "proof/run_final.py")]),
     ("sharp 23-shell reduction", [sys.executable, str(ROOT / "tools/verify_sharp_reduction.py")]),
     ("extremizer structure and automorphisms", [sys.executable, str(ROOT / "tools/verify_structure.py")]),
+    ("research continuation and new sixth-root gap", [sys.executable, str(ROOT / "verify_continuation.py")]),
 ]
 
 
@@ -21,7 +22,7 @@ def main() -> int:
     for label, command in STEPS:
         print(f"\n==> {label}", flush=True)
         subprocess.run(command, cwd=ROOT, env=env, check=True)
-    print("\nSUCCESS: maximality, sharp reduction, and extremizer structure all verified.")
+    print("\nSUCCESS: maximality, sharp reduction, extremizer structure, and research continuation all verified.")
     return 0
 
 

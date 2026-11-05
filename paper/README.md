@@ -10,7 +10,13 @@ The paper source is intentionally split so the mathematical argument can be revi
 | [sections/03_search_tools.tex](sections/03_search_tools.tex) | Schur, moment, rank, projection, and spectral-rectangle tools |
 | [sections/04_finite_verification.tex](sections/04_finite_verification.tex) | Uniform treatment of all remaining energy shells |
 | [sections/05_extremizer.tex](sections/05_extremizer.tex) | Gram structure, spectrum, orthogonal subsets, automorphism group |
-| [sections/06_generalization.tex](sections/06_generalization.tex) | What extends to other orders and alphabets |
+| [sections/06_generalization.tex](sections/06_generalization.tex) | Pure and mixed energy gaps, first equality layer, and odd norm obstruction |
+| [sections/09_weighing_construction.tex](sections/09_weighing_construction.tex) | General border formula and explicit order-51 construction |
+| [sections/D_energy_recovery.tex](sections/D_energy_recovery.tex) | Minimum energy and inclusive equality audit |
+| [sections/E_orthogonality_recovery.tex](sections/E_orthogonality_recovery.tex) | Independent capacity-nine certificate |
+| [sections/F_factorizations_recovery.tex](sections/F_factorizations_recovery.tex) | Complete Fano factorization and eighteen classes |
+| [sections/G_explicit_recovery.tex](sections/G_explicit_recovery.tex) | Order-25 and sixth-root matrices |
+| [sections/H_sixth_improvement.tex](sections/H_sixth_improvement.tex) | New sixth-root energy bound Q >= 10 |
 | [sections/07_reproducibility.tex](sections/07_reproducibility.tex) | Reproduction commands, external inputs, scope |
 | [sections/A_matrix.tex](sections/A_matrix.tex) | Explicit dephased extremizer and switching to canonical form |
 | [sections/B_q81.tex](sections/B_q81.tex) | Detailed boundary argument for Q=81 |

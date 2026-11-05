@@ -1,0 +1,25 @@
+\section{Explicit continuation matrices}\label{app:explicit-new}
+The following matrix is the signed order-25 witness in \cref{thm:bw25-new}. Its entries are checked directly on both sides; the proof uses no classification of its support.
+\begin{center}
+\setlength{\arraycolsep}{1.5pt}
+\renewcommand{\arraystretch}{1.02}
+\scriptsize
+\input{matrix_bw25}
+\end{center}
+Index the resulting order-51 rows and columns by $(i,+),(i,-)$ and $\infty$. Its complete exponent specification is
+\[H_{(i,a),(j,b)}=\omega^{ab(W_{25})_{ij}},\quad H_{(i,a),\infty}=\omega^2,\quad
+ H_{\infty,(j,b)}=H_{\infty,\infty}=1.\]
+This specification and the displayed signed matrix determine all $2601$ entries.
+
+\subsection{A sixth-root witness}
+Write $\zeta=e^{\pi i/3}=1+\omega$. Each digit below is an exponent $e_{ij}$, giving $H_{ij}=\zeta^{e_{ij}}$:
+\begin{center}\ttfamily\small
+\input{matrix_sixth}
+\end{center}
+Exact elimination gives $\det H=-335544320-671088640\omega$ and
+\[|\det H|^2=337769972052787200=2^{52}\cdot3\cdot5^2>B,\qquad Q(H)=53.\]
+The independent $30\times30$ integer regular representation gives the same squared value. Thus $D_6(15)>D_3(15)$. The exact sixth-root maximum remains open.
+
+\subsection{The alphabet-independent frame gap}
+For unit-modulus matrices whose nonzero Gram entries have modulus at least $a$, a non-Butson matrix has $Q\ge a^2\lceil n/2\rceil$. If a support is isolate-free, count edges. Otherwise orient the core orders $v\ge v'$ and apply \cref{lem:frame-new} at a minimum-degree vertex: $n\le dv'\le2mv'/v\le2m$.
+For sixth roots, Gram norms are integers. At norm-obstructed odd orders the lowest energy $(n+1)/2$ is impossible by the proof of \cref{thm:odd-gap} with scale one. The isolate-free determinant is $n(n^2-2)(n^2-1)^{(n-3)/2}$; the regular-core determinant is $n^{n-v/d}(n^2-d^2)^{v/(2d)}$. Each has odd inert-prime valuation. Hence $Q\ge(n+3)/2$. The further order-fifteen improvement is recorded in \cref{app:sixth-improvement}.

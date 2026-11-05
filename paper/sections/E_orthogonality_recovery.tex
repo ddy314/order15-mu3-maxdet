@@ -1,0 +1,11 @@
+\section{An independent orthogonality certificate}\label{app:orth-new}
+Normalize the first two orthogonal exponent rows to $0^{15}$ and $b=0^51^52^5$. For a third row $c$, its contingency matrix against $b$ has row sums, column sums, and cyclic diagonal sums five. Thus it has the form
+\[\begin{pmatrix}a&b'&c'\\b'&c'&a\\c'&a&b'\end{pmatrix},\qquad a+b'+c'=5.\]
+Row phases cyclically permute the parameters; conjugation and a block exchange transpose them. Permutations within the blocks leave precisely the five unordered types below. Normalize every additional row at its first coordinate. Generate all $3^{14}$ such rows and retain those orthogonal to the three fixed rows. Edges join pairs with balanced differences.
+\begin{center}\begin{tabular}{rrrr}\toprule
+Third-row type&vertices&edges&maximum clique\\\midrule
+$(5,0,0)$&0&0&0\\$(4,1,0)$&5184&1741824&5\\$(3,2,0)$&5022&1604286&6\\$(3,1,1)$&5130&1655802&6\\$(2,2,1)$&5112&1667484&6\\\bottomrule
+\end{tabular}\end{center}
+The common neighborhood of the first two rows contains $37{,}251$ normalized rows. The first case is also impossible analytically: orthogonality to $0,b,-b$ would require a sum of five third roots to vanish within each block.
+The maximum-clique replay properly colors the remaining candidate graph at each recursive node. In increasing color order, a clique whose largest vertex has color $j$ has size at most $j$. Branch on that vertex and intersect with its earlier neighbors whenever the bound can improve the incumbent. This exhausts all cliques by induction. The implementation is checked against direct subset enumeration on all $33{,}868$ simple graphs of orders zero through six. The output contains the clique witnesses as exponent rows; their Gram matrices are independently checked.
+Thus at most $3+6=9$ orthogonal rows exist, and a retained six-clique supplies nine. The five-type route was suggested in \cite{OCnotes}; it independently reproduces the published value in \cite{LO}.

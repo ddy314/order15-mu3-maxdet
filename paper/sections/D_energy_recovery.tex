@@ -1,0 +1,89 @@
+\section{Minimum energy and the equality boundary}\label{app:energy-new}
+All arguments in the first part of this appendix concern actual third-root matrices, without a determinant threshold.
+\subsection{The mixed-color lower bound}
+\begin{theorem}\label{thm:mixed15-new}
+If either coloring of an order-fifteen third-root matrix is mixed, then $Q\ge105$.
+\end{theorem}
+\begin{proof}
+The orthogonality bound gives
+\[Q\ge3(ab+ac+bc)+9\sum_{x\in\{a,b,c\}}\max(0,x-9).\]
+A largest mixed class of size at most thirteen gives at least $114$. Below $105$ both colorings must therefore be $(14,1)$, and $Q=42+9m$ with $m=5$ or $6$. Every majority support has vertex-cover number at least five. At $m=5$ its support is $5K_2$; at $m=6$ the complete list is
+\[5K_2,\quad6K_2,\quad P_3\sqcup4K_2,\quad P_4\sqcup3K_2,\quad K_3\sqcup3K_2.\]
+Indeed, internal nonunit norms would use at least seven units, and a degree-three vertex or two nontrivial path components would allow a cover of size four.
+Let $r$ be the majority isolate count and $s$ the number of distinct neighbors of leaves. The five pairs $(r,s)$ are
+\[(4,10),\ (2,12),\ (3,9),\ (4,8),\ (5,6).\]
+Normalize the minority row and column to ones. The ordinary-majority block of $GH=HK$ makes their hub correlations a common scalar $\alpha$. A leaf $i$ with neighbor $a$ gives $A_{ia}H_{a,R'}=(\alpha-g_i)\one^T$. Thus the $s$ neighbor rows together with the hub restrict to rank one on the opposite $r'$ ordinary columns. These columns form an orthogonal frame, so
+\[(s+1)r'\le15,\qquad(s'+1)r\le15.\]
+No ordered pair in the displayed list satisfies both inequalities.
+\end{proof}
+
+\subsection{Pure isolates and small cores}
+Here $G=15I+3T$, $K=15I+3S$, $TH=HS$, and $Q=9u$. Isolates of either support force a flat third-root kernel vector on every component of the other. They also forbid leaves there. If there are $r'$ opposite isolates, a component on $v$ vertices requires kernel dimension at least $\lceil vr'/15\rceil$, by the frame bound.
+
+We record the sparse-core arguments used to close the low-energy isolate cases. Switch a flat kernel vector to $\one$. A connected leafless component uses at least four units: a triangle with zero row sums would require either a purely imaginary unit, which does not exist in $\Eis$, or three equal norms at least three. If $d=v-\alpha$ is its independence deficit, a feedback vertex set of size at most $g=m-v+1$ gives
+\[d\le\lfloor(m+1)/2\rfloor\le\lfloor(u+1)/2\rfloor.\]
+Consequently $u\le5$ gives $d\le2$ (the only extra case is an impossible unit five-cycle), and $u\le6$ gives $d\le3$. At $u\le7,d\ge4$, the support is two disjoint triangles joined by an edge, every edge has unit norm, and its nullity is one. To see completeness, deleting an odd-cycle transversal leaves a bipartite graph. The required independence number forces two disjoint odd cycles; overlapping cycles would save one deletion. The seven-edge budget then forces exactly the stated graph.
+
+More generally, a connected flat-kernel component with $9\le v\le11$, $u\le11$, and $\alpha\le v-6$ has nullity one. First every edge has unit norm: otherwise the edge count is at most nine and minimum degree two forces a nine-cycle, whose degree-two equations propagate the larger norm and violate the budget. A minimum odd-cycle transversal has size at least $12-v$ and at most $g$. At $v=9$ this forces three disjoint triangles joined by two bridges; the middle attachments must coincide, since distinct attachments violate a row-sum equation. At $v=10$ it forces two odd cycles joined by a path, with cycle and path lengths
+\[(3,7,1),\ (3,5,3),\ (3,3,5),\ (5,5,1).\]
+At $v=11$ an odd unit cycle cannot have zero row sums. In the remaining graphs, eliminate the even-order path interiors. Their determinants are nonzero products of alternating edge norms. The Schur complement is a tree with zero row sums and nonzero real edge weights. Each cofactor is a signed product of those weights, so its nullity, and that of the original matrix, is one.
+
+\begin{lemma}\label{lem:pure-isolates-new}
+If either pure support has an isolate, then $u\ge12$.
+\end{lemma}
+\begin{proof}
+Suppose $u\le11$. Both supports have isolates: an isolate-free opposite support would be leafless on fifteen vertices and cost at least fifteen units. Each core is leafless, has at most eleven vertices, and has at least four opposite isolates. Its component independence deficits sum to at least six. There are at most two components, since each costs at least four units. A single component must have $9\le v\le11$; smaller orders fail the independence bound (at $v=8$ Tur\'an requires twelve edges). Its nullity one contradicts $\lceil4v/15\rceil\ge2$. For two components, budgets at most five and six give total deficit at most five. The only remaining allocation is four and seven units; the seven-unit component must have deficit four and nullity one on six vertices, again contradicting $\lceil24/15\rceil=2$.
+\end{proof}
+
+\subsection{The isolate-free pure enumeration}
+\begin{theorem}\label{thm:pure15-new}
+Pure row and column colorings force $Q\ge108$.
+\end{theorem}
+\begin{proof}
+Suppose $u\le11$. By \cref{lem:pure-isolates-new} both supports are isolate-free. A component of order $v$ costs at least $v-1$, while its complement costs at least $\lceil(15-v)/2\rceil$. Thus $2\le v\le9$. Components of orders eight and nine are trees. The complete support counts at orders two through nine are
+\[1,2,5,13,19,44,23,47.\]
+There is at most one nonunit edge, of norm three or four. Fix spanning-tree phases by sixth-root switching and enumerate every chord phase. This gives $676$ labelled states and $373$ records distinguished by order, energy, and characteristic polynomial. Retaining the smallest independence number for a shared polynomial is a necessary-condition relaxation.
+Assemble on fifteen vertices, retain $\alpha\le9$ and Eisenstein-norm determinants, pair equal spectra, and apply every spectral rectangle. If $g$ is the monic gcd of two restricted characteristic polynomials, the capacity is exactly $15\deg g-3[x^{\deg g-1}]g$.
+\begin{center}\begin{tabular}{rrrrr}\toprule
+$u$&assemblies&norm survivors&equal-spectrum pairs&rectangle survivors\\\midrule
+8&1&0&0&0\\9&10&4&4&1\\10&67&2&2&0\\11&581&53&63&2\\\bottomrule
+\end{tabular}\end{center}
+The sole pair at $u=9$ is $K_3\sqcup6K_2$ with negative triangle flux, excluded by the block argument in \cref{app:q81}. Both pairs at $u=11$ have polynomial $x(x^2-1)^6(x^2-5)$. Their signed adjugates are positive semidefinite of rank one and trace five. Such an adjugate has a diagonal entry one: otherwise its positive diagonal is either a single five (a support isolate) or three and two (requiring norm six). A column at a unit diagonal gives a kernel vector $x$ with $x^*x=5$ and a unit coordinate. The two sides supply $x,y$, and intertwining gives $H^*x=\gamma y$ with $\gamma\in\Eis$. Squared norms imply $5\N(\gamma)=75$, impossible. These last candidates are below $B$; their exclusion uses no determinant cutoff.
+\end{proof}
+Thus every matrix has $Q\ge105$, with attainment by the displayed witness. A pure coloring on either side forces $Q\equiv0\pmod9$, hence $Q\ge108$.
+
+\subsection{The support and phases at energy 105}
+Both colorings are $(14,1)$. A majority support has five, six, or seven edges and independence number at most nine. The complete unweighted support counts are $1,4,19$, respectively. Generate connected components from the graph atlas through seven vertices and all eight-vertex trees, assemble them, and add isolates. The only isolate-free support is $7K_2$. Among the other twenty-three supports the two leaf-frame inequalities leave only
+\[P_3\sqcup5K_2\sqcup K_1\quad\hbox{on both sides}.\]
+All seven edges then have normalized norm one. Normalize the hub entries to $\eta\in\{\delta,\bar\delta\}$, and write the consecutive path entries $3a,3b$. A kernel vector of the full defect, on the path ends and the isolated vertex, is $(1,-ab,ab-1)$, of squared norm $4-C$, where $C=2\Re(ab)$. Its kernel is one-dimensional. Writing $A=2\Re(a+b)$ and $K=\sum_{j=1}^5 2\Re\varepsilon_j$, direct block elimination gives
+\begin{align*}
+\chi_E(t)&=t(t^2-9)^4p(t),\\
+p(t)&=t^6-69t^4-9(A+K)t^3+(918-27C)t^2\\
+&\hspace{12mm}+81(A+2K)t+243(C-4).
+\end{align*}
+Equality of spectra makes the two kernel heights equal; unit coordinates and intertwining again force norm fifteen. If just one majority support has isolates, its full Gram has eigenvalue fifteen. On the $7K_2$ side,
+\[\chi_E(t)=(t^2-9)^6(t^3-51t-9K),\quad \det G=2^{18}3^{20}(290+K).\]
+Eigenvalue fifteen would force $K=0$, whose determinant has odd valuation at five. Therefore both supports are $7K_2$.
+
+Normalize all hub entries to $\delta$. Pair exchanges conjugate the phases and pair permutations give $120$ multisets from $\{1,-1,\omega,-\omega\}$. The norm test retains thirty-five. Put $M=290+\sum2\Re\varepsilon_j$. For a normalized column $c=(x_1,y_1,\ldots,x_7,y_7,1)^T$, define
+\[L(c)=\sum_j[(5-\bar\varepsilon_j)x_j+(5-\varepsilon_j)y_j],\quad
+ b(c)=2\Re\sum_j\bar x_j\varepsilon_j y_j,\quad X(c)=24\delta-L(c).\]
+The Schur inverse gives the exact necessary condition
+\[\N(X(c))=M(2+b(c)).\]
+Every one of the $3^{14}$ columns is checked for each norm survivor. For compatibility,
+\[72M c^*G^{-1}d=M\sum_j(\bar x_j,\bar y_j)
+ \begin{pmatrix}5&-\varepsilon_j\\-\bar\varepsilon_j&5\end{pmatrix}
+ \binom{u_j}{v_j}+\overline{X(c)}X(d).\]
+A factorization is equivalent to a clique of fifteen compatible columns. All thirty-four non-friendship types are excluded by explicit proper colorings: fourteen retained global color classes allow cliques of size at most fourteen; for each vertex outside those classes the complete neighborhood has a proper coloring with at most thirteen colors. The independent checker verifies the scaled inverse by multiplication, regenerates the entire column set by generic quadratic-form updates, tests all same-color pairs, and reconstructs every listed neighborhood. Hence these certificates require no trusted clique search. The friendship control has $77{,}260$ columns and an explicit fifteen-clique. It follows that $Q=105$ forces the friendship Gram or its conjugate and determinant $B$.
+
+\subsection{Inclusive audit of determinant equality}\label{sec:inclusive-new}
+If $\det G=B$, then $15$ cannot be an eigenvalue, since $5\nmid B$. More generally, a same-color block with $b$ outside vertices has $\dim\ker(A-15I)\le b$: its coupling to the outside must be injective on that kernel. Thus pure supports have no isolates, fourteen-vertex majority supports have at most one, and thirteen-vertex ones at most two.
+The inclusive pure $Q=108$ reassembly has $5570$ component-polynomial combinations. None equals $B$; its only three larger determinants are $2^{21}3^{18}7^3$, $2^{19}3^{22}17$, and $2^{21}3^{19}5\cdot23$, each excluded by odd two-valuation. The existing component catalogue covers equality because its component Hadamard extensions are divisible by five, whereas $B$ is not: a cutoff at $B$ cannot delete an equality extension.
+For every higher pure energy, enumerate all component size/energy multisets with no isolates and apply the exact rational caps of the original replay. For every mixed energy enumerate all splits with the isolate limits above and apply the one- and two-hub Schur bounds. The regenerated bounds are strictly below $B$ except at $Q=105$, partition $(14,1)$. There remain $7K_2$ and $P_3\sqcup5K_2\sqcup K_1$; the latter has eigenvalue fifteen. In the matching case
+\[z^*A^{-1}z\ge\|z\|^2/18=7/3,\quad \det G\le216^7(15-7/3)=B.\]
+Equality requires the hub vector in every pair to lie in its $18$-eigenspace. Third-root switching makes its two coordinates equal to $\eta\in\{\delta,\bar\delta\}$ and then forces the pair entry to be $3$. This proves the converse independently of the energy-phase scan.
+\begin{theorem}\label{thm:min-equivalence-new}
+For $H\in\muT^{15\times15}$,
+\[Q(H)=105\quad\Longleftrightarrow\quad |\det H|^2=B.\]
+Both conditions force the row and column friendship Grams, in one of the two conjugate orientations.
+\end{theorem}

@@ -1,0 +1,32 @@
+\section{Bordered weighing constructions}\label{sec:weighing-new}
+A real weighing matrix $W(v,w)$ has entries $0,\pm1$ and $WW^T=wI$. It is balanced when its support is a symmetric design. The following construction was suggested by \'O Cath\'ain \cite{OCnotes}.
+\begin{proposition}\label{prop:weighing-general}
+Let $W$ be a balanced weighing matrix, $k=v-w$, $t=3k-v$, $a=9kw/(v-1)$. Replace its entries $0,1,-1$ by $J_2,P,\bar P$, respectively, where
+\[P=\begin{pmatrix}\omega&\omega^2\\\omega^2&\omega\end{pmatrix},\]
+to obtain $M$. For $\alpha,\beta,\gamma\in\muT$,
+\[H=\begin{pmatrix}M&\alpha\one\\\beta\one^T&\gamma\end{pmatrix},\qquad
+ |\det H|^2=(3w)^v a^{v-1}|t\gamma-2v\alpha\beta|^2.\]
+\end{proposition}
+\begin{proof}
+Let $N=J-|W|$ and let $E,F$ be the orthogonal projections onto the sum and difference lines of $\mathbb C^2$. Then
+\[M=(3N-J)\otimes E+i\sqrt3 W\otimes F.\]
+The difference channel contributes $(3w)^v$; on $\one^\perp$ the sum channel has squared singular value $a$ and contributes $a^{v-1}$. Its remaining bordered block is
+$\left(\begin{smallmatrix}t&\sqrt{2v}\alpha\\\sqrt{2v}\beta&\gamma\end{smallmatrix}\right)$.
+\end{proof}
+For $v=9s-2,w=6s-2$, the optimal constant border has $\alpha\beta\bar\gamma\ne1$. The resulting order is $n=18s-3$, with
+\[|\det H|^2=(n-3)^{(n-1)/2}(n+3)^{(n-3)/2}(n^2+3).\]
+This is conditional on the indicated balanced weighing matrix. The Fano seed gives $s=1$. The next existence certificate is unconditional.
+\begin{theorem}\label{thm:bw25-new}
+The matrix $W_{25}$ in \cref{app:explicit-new} satisfies
+\[W_{25}W_{25}^T=W_{25}^TW_{25}=16I,\qquad
+ |W_{25}||W_{25}|^T=|W_{25}|^T|W_{25}|=6I+10J.\]
+It therefore gives a third-root matrix of order $51$ with
+\[\det H_{51}=2^{63}3^{49}(8-9\omega),\quad
+ |\det H_{51}|^2=48^{25}54^{24}\,2604,\quad Q(H_{51})=375.\]
+\end{theorem}
+\begin{proof}
+Direct integer multiplication of the displayed $625$ entries verifies the identities. Its zero incidence matrix satisfies $NN^T=N^TN=6I+3J$. Use the border $\alpha=\omega^2,\beta=\gamma=1$ in \cref{prop:weighing-general}. Equivalently its Gram is
+\[\begin{pmatrix}I_{25}\otimes\left(\begin{smallmatrix}51&3\\3&51\end{smallmatrix}\right)&\delta\one_{50}\\\bar\delta\one_{50}^T&51\end{pmatrix}.\]
+Its characteristic polynomial is $(x-48)^{25}(x-54)^{24}(x^2-105x+2604)$. There are $25$ edges of norm nine and $50$ of norm three. Exact Eisenstein elimination gives the determinant shown, independently checked by the $102\times102$ integer regular representation.
+\end{proof}
+Thus $D_3(51)/51^{51/2}\ge0.9311541528\ldots$. Global maximality at order $51$ and infinitude of the family remain open. Ordinary $W(25,16)$ matrices were previously constructed \cite{BWordinary}; the certificate here verifies the additional balanced property, without a priority claim or reliance on a support census.

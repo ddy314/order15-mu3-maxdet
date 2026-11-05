@@ -1,27 +1,31 @@
 \section{Reproducibility and scope}\label{sec:repro}
-The verification programs and exact data are available in the companion repository at
+The maintained source, exact matrices and certificates are available at
 \url{https://github.com/ddy314/order15-mu3-maxdet}.
-The programs under \file{proof/} generate the finite catalogues and verify the 38 coarse energy shells. The program \file{tools/verify_sharp_reduction.py} checks the reduction to 23 energies and the corresponding exclusion witnesses. Exact matrix data are stored under \file{data/}; \file{tools/verify_structure.py} verifies the extremizer and its automorphism group.
-
-The complete verification is run from the repository root with
+Use Python 3.11 and a C++17 compiler, with assertions enabled:
 \begin{verbatim}
 python -m pip install -r proof/requirements.txt
 python verify_all.py
 \end{verbatim}
-The three stages may also be run separately:
-\begin{verbatim}
-python proof/run_final.py
-python tools/verify_sharp_reduction.py
-python tools/verify_structure.py
-\end{verbatim}
-Python assertions must remain enabled. The last command requires a C++17 compiler for the exhaustive automorphism enumeration.
+The original replay regenerates the component catalogues before the inclusive equality audit reads them. The continuation may then be rerun separately using \file{verify_continuation.py}. Every certificate is regenerated; an interrupted replay leaves its summary marked incomplete.
 
-The 38-shell verification includes two complete normalized-column scans for each of 194 Gram candidates. Each scan examines $3^{14}=4{,}782{,}969$ columns. These scans provide additional checks: the 23-shell proof excludes all 194 candidates by the orthogonality bound, using explicit independent sets of at least ten vertices. The sharp-reduction verifier reconstructs each Gram, checks its determinant, and supplies the independent-set witness.
-
-The analytic and algebraic arguments are proved in the text. The finite support, norm, phase, and coefficient families are generated and checked by the repository programs. The results $B_3(15,10)=12$ and $M_3(15)=9$ are published external classifications; they are cited rather than regenerated here. This is a computer-assisted mathematical proof, not a proof-assistant formalization. It neither classifies all maximizing equivalence classes nor establishes the asymptotic hypothesis of \cref{cor:gap}.
+\begin{longtable}{@{}p{.28\textwidth}p{.66\textwidth}@{}}
+\toprule Obligation&Exact replay\\\midrule\endhead
+Original maximum&\file{proof/run_final.py}: all 38 coarse energies, two exhaustive column algorithms on the final 194 Grams.\\
+Sharper reduction&\file{tools/verify_sharp_reduction.py}: 23-shell arithmetic and explicit independent sets.\\
+Displayed structure&\file{tools/verify_structure.py}: exact determinant, Gram, and full automorphism enumeration.\\
+Independent capacity nine&\file{extensions/orthogonality/verify.cpp}: five graphs, full normalized row scan, clique witnesses, all simple graphs through six vertices as controls.\\
+Pure energy&\file{extensions/energy/verify_pure_energy.py}: complete small-support and phase catalogue without a determinant cutoff; integer polynomial gcd rectangles.\\
+Minimum support&\file{extensions/energy/verify_minimum_support.py}: all 24 majority supports and every isolate-pair frame bound.\\
+Minimum phases&\file{extensions/energy/verify_minimum_phases.py}: full candidate columns, proper colorings, independent generic inverse scan and neighborhood checks.\\
+Global equality&\file{extensions/energy/audit_equality.py}: inclusive reassembly and rational component/Schur bounds.\\
+Fano factor classes&\file{tools/verify_fano_completions.py}: all 792 column count types, all 675 potential patterns and exhaustive quadrangle control; \file{tools/verify_continuation.py}: all 141 potential patterns, nine orbits and matrix representatives; \file{extensions/factorization/verify_direct.py} checks all 5806080 row transformations directly.\\
+General energy controls&\file{tools/verify_frame_controls.py}: 72 one-entry repairs, 2520 two-entry changes, and 81 pure tensor controls.\\
+Explicit constructions&\file{tools/verify_continuation.py}: both-sided integer weighing identities, order-51 Eisenstein determinant and independent 102-dimensional integer determinant; sixth-root witness and independent 30-dimensional determinant.\\
+Sixth-root improvement&\file{extensions/sixth_roots/verify_gap.py}: all 264 leafless supports and 343158 labelled states at energy at most ten; frame, norm and rectangle obstructions.\\\bottomrule
+\end{longtable}
+These are computer-assisted proofs, with the analytic reductions stated in the text. The published difference-matrix theorem is independently reproduced here. The ordinary equidistant-code parameter is retained as background to the historical 29-shell reduction. The support census used during discovery of the order-25 signing is unnecessary for the displayed existence certificate. Global maximality at order 51, an infinite weighing family, the exact sixth-root maximum, and a quadratic energy gap in an infinite congruence class remain open in this work.
 
 \section*{Acknowledgment}
-The author thanks P\'adraig \'O Cath\'ain for detailed comments on the manuscript and for emphasizing the connection with the real Gram-matrix search method and the structure of the extremizer.
-
+The author thanks P\'adraig \'O Cath\'ain for detailed comments on the Gram-graph argument, weighing construction and energy estimates.
 \section*{AI use declaration}
 AI tools contributed to the research reported in this paper; the author takes full responsibility for all of its content.

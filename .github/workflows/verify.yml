@@ -8,6 +8,8 @@ on:
       - "paper/**"
       - "proof/**"
       - "tools/**"
+      - "extensions/**"
+      - "verify_continuation.py"
       - "data/**"
       - "verify_all.py"
       - ".github/workflows/verify.yml"
@@ -16,6 +18,8 @@ on:
       - "paper/**"
       - "proof/**"
       - "tools/**"
+      - "extensions/**"
+      - "verify_continuation.py"
       - "data/**"
       - "verify_all.py"
       - ".github/workflows/verify.yml"
@@ -23,7 +27,7 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -28,7 +28,7 @@ $$
 =277868041444786176.
 $$
 
-For this particular matrix, the largest mutually orthogonal row set has size **7**. Every maximum set chooses one endpoint from each of the seven matching edges, so there are exactly $2^7=128$ such sets. This statistic is distinct from the global length-15 capacity $M_3(15)=9$ supplied by the difference-matrix classification.
+For this particular matrix, the largest mutually orthogonal row set has size **7**. Every maximum set chooses one endpoint from each of the seven matching edges, so there are exactly $2^7=128$ such sets. This statistic is distinct from the global length-15 capacity $M_3(15)=9$ independently reproduced by the current orthogonality certificate (and agreeing with the published difference-matrix classification).
 
 Under the convention that an automorphism is a pair of $\mu_3$-monomial matrices $(M,N)$ satisfying $MH_cN^*=H_c$, without adjoining conjugation or transposition, exact enumeration gives:
 
@@ -37,4 +37,4 @@ Under the convention that an automorphism is a pair of $\mu_3$-monomial matrices
 
 The induced action on the seven matching pairs contains the order-168 Fano-plane automorphism group. [tools/verify_structure.py](../tools/verify_structure.py) examines all $7!2^7=645120$ permitted row permutations and checks all 225 matrix entries for each retained automorphism. It regenerates the complete list of 336 projective automorphisms in the ignored derived file **data/automorphisms.json**.
 
-These statements describe one displayed maximizer. They do not classify all matrices attaining the maximal determinant and do not prove uniqueness of the Hadamard-equivalence class.
+These statements describe the displayed maximizer. The current manuscript also classifies all maximizing matrices into eighteen third-root monomial classes; see [the recovery report](RECOVERY_2026-11-05.md).

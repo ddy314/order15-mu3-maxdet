@@ -1,0 +1,7 @@
+{
+  "single_entry_repairs": 72,
+  "two_entry_controls": 2520,
+  "pure_tensor_controls": 81,
+  "pure_energy_minimum_at_order6": 27,
+  "scope": "Finite controls; all-order theorems are proved analytically."
+}

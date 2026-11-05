@@ -1,0 +1,67 @@
+{
+  "bw25": {
+    "determinant": [
+      17657173933310259159436265618506520840896512,
+      -19864320674974041554365798820819835946008576
+    ],
+    "squared_determinant": 1057114792414440149643233787064103091757366419396102689010795846791865017691921639800832,
+    "energy": 375,
+    "integer_matrix_order": 102
+  },
+  "sixth_root": {
+    "determinant": [
+      -335544320,
+      -671088640
+    ],
+    "squared_determinant": 337769972052787200,
+    "energy": 53
+  },
+  "fano_switches": {
+    "fano_group_order": 168,
+    "normalized_factors": 141,
+    "orbits": [
+      {
+        "size": 1,
+        "stabilizer": 168
+      },
+      {
+        "size": 7,
+        "stabilizer": 24
+      },
+      {
+        "size": 7,
+        "stabilizer": 24
+      },
+      {
+        "size": 7,
+        "stabilizer": 24
+      },
+      {
+        "size": 28,
+        "stabilizer": 6
+      },
+      {
+        "size": 28,
+        "stabilizer": 6
+      },
+      {
+        "size": 7,
+        "stabilizer": 24
+      },
+      {
+        "size": 28,
+        "stabilizer": 6
+      },
+      {
+        "size": 28,
+        "stabilizer": 6
+      }
+    ],
+    "classes_per_orientation": 9
+  },
+  "scope": "Exact explicit witnesses and Fano switch orbits; completeness of arbitrary Gram factorizations is an analytic proof, not inferred from this finite check.",
+  "input_sha256": {
+    "order51_witness.json": "785b29283a5c1ef1261e0f43fdb526cff105c34228ead3a5ea1de80115404fd0",
+    "bw25_16_witness.json": "ae2644c093ac42b7dd84ebe7efb36ccf7bcfef284a42fac667f69358e9e8b0d7"
+  }
+}

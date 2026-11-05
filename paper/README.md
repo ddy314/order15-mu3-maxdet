@@ -16,7 +16,7 @@ The paper source is intentionally split so the mathematical argument can be revi
 | [sections/E_orthogonality_recovery.tex](sections/E_orthogonality_recovery.tex) | Independent capacity-nine certificate |
 | [sections/F_factorizations_recovery.tex](sections/F_factorizations_recovery.tex) | Complete Fano factorization and eighteen classes |
 | [sections/G_explicit_recovery.tex](sections/G_explicit_recovery.tex) | Order-25 and sixth-root matrices |
-| [sections/H_sixth_improvement.tex](sections/H_sixth_improvement.tex) | New sixth-root energy bound Q >= 10 |
+| [sections/H_sixth_improvement.tex](sections/H_sixth_improvement.tex) | New sixth-root energy bound Q >= 11 |
 | [sections/07_reproducibility.tex](sections/07_reproducibility.tex) | Reproduction commands, external inputs, scope |
 | [sections/A_matrix.tex](sections/A_matrix.tex) | Explicit dephased extremizer and switching to canonical form |
 | [sections/B_q81.tex](sections/B_q81.tex) | Detailed boundary argument for Q=81 |

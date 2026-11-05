@@ -17,6 +17,7 @@ X=sp.Symbol('x')
 
 
 def catalogue(budget=11):
+    assert budget in (10,11)
     data={};states=0;counts=[]
     atlas=nx.graph_atlas_g()
     for v in range(2,2*budget-14+2):
@@ -47,9 +48,10 @@ def catalogue(budget=11):
                     entry={'v':v,'u':u,'poly':poly,'alpha':alpha}
                     if key not in data or alpha<data[key]['alpha']:data[key]=entry
                     states+=1
-    assert counts==[1,2,5,13,19,44,23,47],counts
-    assert states==676,states
-    assert len(data)==373,len(data)
+    if budget==11:
+        assert counts==[1,2,5,13,19,44,23,47],counts
+        assert states==676,states
+        assert len(data)==373,len(data)
     return sorted(data.values(),key=lambda z:(z['v'],z['u'],z['poly'])),counts,states
 
 

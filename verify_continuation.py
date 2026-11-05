@@ -33,5 +33,5 @@ def main():
  source_paths=sorted(set(ROOT.rglob('*.py')) | set(ROOT.rglob('*.cpp')) | set((ROOT/'paper').rglob('*.tex')))
  sources={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths if '.venv' not in p.parts and '.git' not in p.parts}
  summary.write_text(json.dumps({'source_sha256':sources,'completed':True,'all_steps_passed':True,'steps':steps,'certificate_sha256':certs,'seconds':time.monotonic()-start},indent=2)+'\n')
- print('SUCCESS: every recovered continuation obligation and the new sixth-root Q>=10 certificate passed.',flush=True)
+ print('SUCCESS: every recovered continuation obligation and the new sixth-root Q>=11 certificate passed.',flush=True)
 if __name__=='__main__':main()

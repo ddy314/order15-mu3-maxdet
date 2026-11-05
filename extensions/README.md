@@ -12,7 +12,7 @@ The source uses Python 3.11, the pinned original dependencies and a C++17 compil
 | `energy/audit_equality.py` | Closed determinant threshold, all 5570 pure Q108 assemblies, high pure and mixed bounds; records original input hashes |
 | `energy/verify_minimum_phases.py` | Produces 34 exclusion certificates and independently checks full column coverage, colorings, and all high-color neighborhoods |
 | `energy/check_phase_certificates.cpp` | Independent scaled-inverse multiplication and generic quadratic scan; rejects missing candidate columns |
-| `sixth_roots/verify_gap.py` | New Q9 exclusion: 100 leafless supports, 51774 labelled states; norm and rational frame/rectangle obstructions |
+| `sixth_roots/verify_gap.py` | New Q9/Q10 exclusions: 264 leafless supports, 343158 labelled states; norm and rational frame/rectangle obstructions |
 | `../tools/verify_frame_controls.py` | 72 one-entry repairs, 2520 two-entry changes, 81 pure tensor controls for the general energy theorems |
 | `../tools/verify_fano_completions.py` | All 792 column count types, 675 potential patterns, 141 unique completions, and exhaustive quadrangle control |
 | `../tools/verify_continuation.py` | Exact witnesses, two independent determinant representations, 168 Fano actions and nine orbits |

@@ -14,7 +14,7 @@ The editable manuscript now includes the results recovered from the supplied 5 N
 - 18 maximizing classes, with nine factors per Gram orientation; allowing transpose, conjugation, or both gives 12, 9, or 6 classes.
 - An explicit balanced `BW(25,16)` and an order-51 third-root matrix with squared determinant `48^25 * 54^24 * 2604`, about 93.1154% of the Hadamard bound.
 - A sixth-root order-15 witness with squared determinant `337769972052787200`, strictly above the third-root maximum.
-- A new improvement beyond the supplied PDF: all order-15 sixth-root matrices have **energy at least 10**, improving the previous bound of 9 and its determinant envelope.
+- A new improvement beyond the supplied PDF: all order-15 sixth-root matrices have **energy at least 11**, improving the previous bound of 9 and its determinant envelope.
 
 The exact maximum at order 51, the exact sixth-root maximum at order 15, and infinitude of the weighing family remain open. See [the recovery and verification report](docs/RECOVERY_2026-11-05.md), [certificate guide](extensions/README.md), and [explicit matrices](data/revision/).
 

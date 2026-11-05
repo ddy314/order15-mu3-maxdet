@@ -3,7 +3,7 @@
 from pathlib import Path
 import hashlib,json,os,subprocess,sys,tempfile,time
 ROOT=Path(__file__).resolve().parent
-STEPS=['tools/verify_continuation.py','tools/verify_fano_completions.py',
+STEPS=['tools/verify_frame_controls.py','tools/verify_continuation.py','tools/verify_fano_completions.py',
        'tools/verify_mixed_inert_gap.py','extensions/energy/verify_pure_energy.py',
        'extensions/energy/verify_minimum_support.py','extensions/energy/audit_equality.py',
        'extensions/energy/verify_minimum_phases.py','extensions/sixth_roots/verify_gap.py']

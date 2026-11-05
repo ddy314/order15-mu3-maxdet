@@ -146,9 +146,9 @@
   ],
   "closure": "At Q105 only 7K2 and P3+5K2+K1 remain; the latter has eigenvalue15, which cannot divide B. Schur equality gives all pair phases1.",
   "inputs": {
-    "proof/new/pure_extended.json": "d1188565cb7ac07667ef802f46cbf2827d2f32602ea71d24cb15213d463fe39c",
-    "proof/new/small_catalogue.json": "83e672e2ecd168b7447e47f7381664276619cf1c4263552a0bdedbe1fcef2618",
-    "proof/order15_mu3_unified_audit/results/component_bounds.json": "b3267a33f1c41f07c18d7db41f4c7735eb145a9134381ee2a6f909ad21e6a504",
+    "proof/new/pure_extended.json": "1f5f4bf3eed83c2ab3a0e41b18c2611da7fabd2fe5670d016ea74f540c1057fe",
+    "proof/new/small_catalogue.json": "6f43ab54750ec50529980aea7844c1815700d2ac7b70697a613d51e4aa11cd4b",
+    "proof/order15_mu3_unified_audit/results/component_bounds.json": "d8d3c756fb72d52b0e780c2510a611225fc91837a64b10a7a1f363cd487fef9c",
     "proof/order15_mu3_unified_audit/results/gram_catalogue.json": "467b51f9f9c3925973fa5c64d64cf6ca33b2ebbe6513748bfefaea73aa58e427"
   }
 }
